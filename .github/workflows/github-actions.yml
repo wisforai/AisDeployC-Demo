@@ -1,0 +1,20 @@
+name: github-actions
+on: [push]
+jobs:
+  actions-windows-gpu:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: cmake
+        run: |
+          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5921.27\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/221.5921.27/bin/ninja/win/ninja.exe -G Ninja -S E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo -B E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
+      - name: build
+        run: |
+          cd E:\actions-runner-demo\_work\AisDeployC\AisDeployC-Demo\cmake-build-release
+          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5921.27\bin\cmake\win\bin\cmake.exe --build .
+      - name: Run Test
+        run: |
+          cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
+          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC* .\
+          COPY E:\onnxruntime-win-gpu-x64-1.8.1\lib\onnxruntime* .\
+          .\basic.exe
