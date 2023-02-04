@@ -15,6 +15,6 @@ jobs:
       - name: Run Test
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
-          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC* .\
-          COPY E:\onnxruntime-win-gpu-x64-1.8.1\lib\onnxruntime* .\
+          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC*.dll .\
+          COPY E:\onnxruntime-win-gpu-x64-1.8.1\lib\onnxruntime*.dll .\
           .\basic.exe
