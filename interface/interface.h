@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="0.1.0";
+const std::string AisDeployCVersion="v0.1.0";
 
 typedef struct bounding_box
 {
