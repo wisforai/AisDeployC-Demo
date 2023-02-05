@@ -19,6 +19,23 @@ typedef struct bounding_box
 
 }bounding_box;
 
+/**
+*  @brief 检查当前库版本号与头文件版本号是否一致
+*
+*  @details
+*   检查当前库版本号与头文件版本号是否一致
+ *  @see
+ *  示例代码如下
+ *  @code
+ *  int ret = check_version();
+ *  @endcode
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+#ifdef DEPLOY_ON_WINDOWS
+extern "C" __declspec(dllexport) int check_version();
+#else
+extern "C" int check_version();
+#endif
 
 /**
 *  @brief 获得当前库版本号
