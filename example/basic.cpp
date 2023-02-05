@@ -9,9 +9,10 @@ using namespace cv;
 int main(int argc, char** argv) {
     void * ptrDeploy = nullptr;
 
-    cout<<"Step [0]: get_version."<<endl;
+    cout<<"Step [0]: get_version and check_version."<<endl;
     std::string version = get_version();
     cout<<"\tVersion: "<<version<<endl;
+    int ret_0 = check_version();
 
     cout<<"Step [1]: initialize."<<endl;
     int initRet = 0;
