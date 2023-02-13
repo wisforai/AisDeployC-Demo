@@ -141,6 +141,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5a34ba8f0501b8fca2b0fc181d6e91b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a> (void *base)</td></tr>
 <tr class="memdesc:a5a34ba8f0501b8fca2b0fc181d6e91b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">释放实例  <a href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">More...</a><br /></td></tr>
 <tr class="separator:a5a34ba8f0501b8fca2b0fc181d6e91b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c124301160a2ffac536867beab5b95a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a> (void *base, const char *path)</td></tr>
+<tr class="memdesc:a1c124301160a2ffac536867beab5b95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新授权文件信息  <a href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">More...</a><br /></td></tr>
+<tr class="separator:a1c124301160a2ffac536867beab5b95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -875,6 +878,47 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>执行结果，0表示执行成功，否则执行失败 </dd></dl>
+
+</div>
+</div>
+<a id="a1c124301160a2ffac536867beab5b95a" name="a1c124301160a2ffac536867beab5b95a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c124301160a2ffac536867beab5b95a">&#9670;&nbsp;</a></span>update_license()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int update_license </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>更新授权文件信息 </p>
+<p >更新授权文件信息 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a>(ptrDeploy, <span class="stringliteral">&quot;macos_registed_info.aisl&quot;</span>);</div>
+<div class="ttc" id="ainterface_8h_html_a1c124301160a2ffac536867beab5b95a"><div class="ttname"><a href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a></div><div class="ttdeci">AisDeployC_API int update_license(void *base, const char *path)</div><div class="ttdoc">更新授权文件信息</div></div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+    <tr><td class="paramname">path</td><td>授权文件的路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示检查成功，否则检查失败 </dd></dl>
 
 </div>
 </div>

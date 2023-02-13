@@ -414,4 +414,20 @@ AisDeployC_API int release(
         void *base
 );
 
+
+/**
+*  @brief 更新授权文件信息
+*
+*  @details
+*   更新授权文件信息
+ *  @see
+ *  示例代码如下
+ *  @code
+ *  int ret = update_license(ptrDeploy, "macos_registed_info.aisl");
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+ *  @param path  授权文件的路径
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int update_license(void *base, const char* path);
 #endif //AISDEPLOYC_INTERFACE_H
