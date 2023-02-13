@@ -7,6 +7,13 @@
 
 const std::string AisDeployCVersion="v0.1.0";
 
+#ifdef DEPLOY_ON_WINDOWS
+#define AisDeployC_API extern "C" __declspec(dllexport)
+#else
+#define AisDeployC_API extern "C"
+#endif
+
+
 typedef struct bounding_box
 {
 
@@ -31,11 +38,7 @@ typedef struct bounding_box
  *  @endcode
 *  @return 执行结果，0表示检查成功，否则检查失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int check_version();
-#else
-extern "C" int check_version();
-#endif
+AisDeployC_API int check_version();
 
 /**
 *  @brief 获得当前库版本号
@@ -50,12 +53,7 @@ extern "C" int check_version();
 *
 *  @return     std::string 返回版本号
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) std::string get_version();
-#else
-extern "C" std::string get_version();
-#endif
-
+AisDeployC_API std::string get_version();
 /**
 *  @brief 模型初始化
 *
@@ -76,20 +74,11 @@ extern "C" std::string get_version();
 *  @return 返回模型对象指针 void*
 */
 
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) void *initialize(
+AisDeployC_API void *initialize(
         const char *model_path,
         int gpu_id,
         int *state
         );
-#else
-extern "C" void *initialize(
-        const char *model_path,
-        int gpu_id,
-        int *state
-        );
-#endif
-
 
 /**
 *  @brief 处理图片
@@ -123,17 +112,10 @@ extern "C" void *initialize(
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
 
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int process_images(
+AisDeployC_API int process_images(
         void *base,
         std::vector<cv::Mat> & imgs
         );
-#else
-extern "C" int process_images(
-        void *base,
-        std::vector<cv::Mat> & imgs
-        );
-#endif
 
 /**
 *  @brief 获得类别列表
@@ -153,18 +135,10 @@ extern "C" int process_images(
 *  @param out_categories  用来接收类别列表变量
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int get_categories(
+AisDeployC_API int get_categories(
         void *base,
         std::vector<std::string> & out_categories
 );
-#else
-extern "C" int get_categories(
-        void *base,
-        std::vector<std::string> & out_categories
-);
-
-#endif
 
 /**
 *  @brief 获得每类别的二值掩模
@@ -184,17 +158,10 @@ extern "C" int get_categories(
 *  @param per_category_masks  用来接收每类别的二值掩模结果，第一层vector代表类别（与get_categories的接收out_categories对应），第二层vector代表批次（与process_images输入imgs对应）
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int get_per_category_binary_masks(
+AisDeployC_API int get_per_category_binary_masks(
         void *base,
         std::vector<std::vector<cv::Mat> > & per_category_masks
 );
-#else
-extern "C" int get_per_category_binary_masks(
-        void *base,
-        std::vector<std::vector<cv::Mat> > & per_category_masks
-);
-#endif
 
 /**
 *  @brief 获得每类别的置信度图
@@ -214,17 +181,10 @@ extern "C" int get_per_category_binary_masks(
 *  @param per_category_score_maps  用来接收每类别的置信度图结果，第一层vector代表类别（与get_categories的接收out_categories对应），第二层vector代表批次（与process_images输入imgs对应）
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int get_per_category_score_maps(
+AisDeployC_API int get_per_category_score_maps(
         void *base,
         std::vector<std::vector<cv::Mat> > & per_category_score_maps
 );
-#else
-extern "C" int get_per_category_score_maps(
-        void *base,
-        std::vector<std::vector<cv::Mat> > & per_category_score_maps
-);
-#endif
 
 /**
 *  @brief 置信度图阈值处理获得二值掩模
@@ -254,19 +214,11 @@ extern "C" int get_per_category_score_maps(
 *  @param thresh  处理的阈值，值域(0,1)
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int get_binary_mask_from_score_map(
+AisDeployC_API int get_binary_mask_from_score_map(
         cv::Mat score_map,
         cv::Mat & binary_mask,
         float thresh
 );
-#else
-extern "C" int get_binary_mask_from_score_map(
-        cv::Mat score_map,
-        cv::Mat & binary_mask,
-        float thresh
-);
-#endif
 
 
 /**
@@ -296,19 +248,11 @@ extern "C" int get_binary_mask_from_score_map(
 *  @param iter_erode 腐蚀处理迭代次数, >=1
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int erode_binary_mask(
+AisDeployC_API int erode_binary_mask(
         cv::Mat & binary_mask,
         int kernel_size,
         int iter_erode
 );
-#else
-extern "C" int erode_binary_mask(
-        cv::Mat & binary_mask,
-        int kernel_size,
-        int iter_erode
-);
-#endif
 
 /**
 *  @brief 二值掩模膨胀处理
@@ -338,19 +282,11 @@ extern "C" int erode_binary_mask(
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
 
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int dilate_binary_mask(
+AisDeployC_API int dilate_binary_mask(
         cv::Mat & binary_mask,
         int kernel_size,
         int iter_dilate
 );
-#else
-extern "C" int dilate_binary_mask(
-        cv::Mat & binary_mask,
-        int kernel_size,
-        int iter_dilate
-);
-#endif
 
 
 /**
@@ -393,19 +329,11 @@ extern "C" int dilate_binary_mask(
 *  @param per_category_masks 输入每类别的置信度图，一般是get_per_category_binary_masks接收的per_category_masks，或者是它经过腐蚀膨胀处理后的二值掩模组成
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int cal_per_category_instances(
-        void *base,
-        std::vector<std::vector<cv::Mat> >  per_category_score_maps,
-        std::vector<std::vector<cv::Mat> > & per_category_masks
-);
-#else
-extern "C" int cal_per_category_instances(
+AisDeployC_API int cal_per_category_instances(
         void *base,
         std::vector<std::vector<cv::Mat> >  per_category_score_maps,
         std::vector<std::vector<cv::Mat> > per_category_masks
 );
-#endif
 
 /**
 *  @brief 获得每个批次的实例个数
@@ -422,17 +350,10 @@ extern "C" int cal_per_category_instances(
 *  @param per_batch_instance_number  获得每个批次的实例个数，第一层vector代表批次，与process_images中输入imgs对应
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int get_per_batch_instance_number(
-    void *base,
-    std::vector<int> & per_batch_instance_number
-);
-#else
-extern "C" int get_per_batch_instance_number(
+AisDeployC_API int get_per_batch_instance_number(
         void *base,
         std::vector<int> & per_batch_instance_number
 );
-#endif
 
 /**
 *  @brief 获得每个批次的实例
@@ -449,17 +370,10 @@ extern "C" int get_per_batch_instance_number(
 *  @param per_batch_instances  获得每个批次的实例，实例使用结构体bounding_box表达
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int get_per_batch_instances(
+AisDeployC_API  int get_per_batch_instances(
         void *base,
         std::vector<std::vector<bounding_box>> & per_batch_instances
 );
-#else
-extern "C"  int get_per_batch_instances(
-        void *base,
-        std::vector<std::vector<bounding_box>> & per_batch_instances
-);
-#endif
 
 
 
@@ -478,17 +392,10 @@ extern "C"  int get_per_batch_instances(
 *  @param per_batch_instance_mask_areas  获得每个批次的实例掩模面积
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int get_per_batch_instance_mask_areas(
+AisDeployC_API  int get_per_batch_instance_mask_areas(
         void *base,
         std::vector<std::vector<float>> & per_batch_instance_mask_areas
 );
-#else
-extern "C"  int get_per_batch_instance_mask_areas(
-        void *base,
-        std::vector<std::vector<float>> & per_batch_instance_mask_areas
-);
-#endif
 
 /**
 *  @brief 释放实例
@@ -503,14 +410,24 @@ extern "C"  int get_per_batch_instance_mask_areas(
 *  @param base  initialize返回的模型指针
 *  @return 执行结果，0表示执行成功，否则执行失败
 */
-#ifdef DEPLOY_ON_WINDOWS
-extern "C" __declspec(dllexport) int release(
+AisDeployC_API int release(
         void *base
 );
-#else
-extern "C" int release(
-        void *base
-);
-#endif
 
+
+/**
+*  @brief 更新授权文件信息
+*
+*  @details
+*   更新授权文件信息
+ *  @see
+ *  示例代码如下
+ *  @code
+ *  int ret = update_license(ptrDeploy, "macos_registed_info.aisl");
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+ *  @param path  授权文件的路径
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int update_license(void *base, const char* path);
 #endif //AISDEPLOYC_INTERFACE_H

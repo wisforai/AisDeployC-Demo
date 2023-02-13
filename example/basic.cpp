@@ -14,12 +14,15 @@ int main(int argc, char** argv) {
     cout<<"\tVersion: "<<version<<endl;
     int ret_0 = check_version();
 
-    cout<<"Step [1]: initialize."<<endl;
+    cout<<"Step [1.1]: initialize."<<endl;
     int initRet = 0;
     string current_path_str = ".";
     std::string model_path = current_path_str+"/../tests/assets/models/epoch_200_segmentor_setting_oen.aism";
     int gpu_id = 0;
     ptrDeploy = initialize(model_path.c_str(), gpu_id, &initRet);
+
+    cout<<"Step [1.2]: update_license."<<endl;
+    int ret_update =  update_license(ptrDeploy, "../tests/assets/licenses/registed/windows_registed_info.aisl");
 
     cout<<"Step [2.1]: process_images. batch=1"<<endl;
     String str = current_path_str+"/../tests/assets/images/1.jpg";
@@ -33,6 +36,9 @@ int main(int argc, char** argv) {
     Mat image_1 = imread(str_1);
     imgs.push_back(image_1);
     int ret_1 = process_images(ptrDeploy, imgs);
+    cout<<"Step [2.3]: process_images. batch=2. try again"<<endl;
+    ret_1 = process_images(ptrDeploy, imgs);
+    cout<<"\t[INFO] process_images result="<<ret_1<<"\tO: process success\t400: failure."<<endl;
 
     cout<<"Optional Step [3.1]: get_categories."<<endl;
     std::vector<std::string> out_categories;

@@ -23,7 +23,7 @@
   <td id="projectalign">
    <div id="projectname">AisDeployC
    </div>
-   <div id="projectbrief">Library for loading C++ classes from C or any C-compatible FFI.</div>
+   <div id="projectbrief">Deploy Library for Artificial Intelligence System</div>
   </td>
  </tr>
  </tbody>
@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -83,6 +84,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbounding__box.html">bounding_box</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8d2a0e283c407e2bda8a52ceeb7597a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a>&#160;&#160;&#160;extern &quot;C&quot;</td></tr>
+<tr class="separator:a8d2a0e283c407e2bda8a52ceeb7597a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a34e5d2f0127c9ae41d0ba48de7c4a9c8"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structbounding__box.html">bounding_box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a34e5d2f0127c9ae41d0ba48de7c4a9c8">bounding_box</a></td></tr>
@@ -90,57 +96,77 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac93785f1168acc45aedbe18047791abe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ac93785f1168acc45aedbe18047791abe">check_version</a> ()</td></tr>
-<tr class="memdesc:ac93785f1168acc45aedbe18047791abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前库版本号与头文件版本号是否一致  <a href="interface_8h.html#ac93785f1168acc45aedbe18047791abe">More...</a><br /></td></tr>
-<tr class="separator:ac93785f1168acc45aedbe18047791abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97c49d303bbf54bed2e1e6709deeb67c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a97c49d303bbf54bed2e1e6709deeb67c">get_version</a> ()</td></tr>
-<tr class="memdesc:a97c49d303bbf54bed2e1e6709deeb67c"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得当前库版本号  <a href="interface_8h.html#a97c49d303bbf54bed2e1e6709deeb67c">More...</a><br /></td></tr>
-<tr class="separator:a97c49d303bbf54bed2e1e6709deeb67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a54e62d16af5433e3577c038505e821"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a2a54e62d16af5433e3577c038505e821">initialize</a> (const char *model_path, int gpu_id, int *state)</td></tr>
-<tr class="memdesc:a2a54e62d16af5433e3577c038505e821"><td class="mdescLeft">&#160;</td><td class="mdescRight">模型初始化  <a href="interface_8h.html#a2a54e62d16af5433e3577c038505e821">More...</a><br /></td></tr>
-<tr class="separator:a2a54e62d16af5433e3577c038505e821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9a7ad3720d4b8df3aedd4e326e60f00"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ad9a7ad3720d4b8df3aedd4e326e60f00">process_images</a> (void *base, std::vector&lt; cv::Mat &gt; &amp;imgs)</td></tr>
-<tr class="memdesc:ad9a7ad3720d4b8df3aedd4e326e60f00"><td class="mdescLeft">&#160;</td><td class="mdescRight">处理图片  <a href="interface_8h.html#ad9a7ad3720d4b8df3aedd4e326e60f00">More...</a><br /></td></tr>
-<tr class="separator:ad9a7ad3720d4b8df3aedd4e326e60f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3245981fcf23d75b17b45ad9ddad03b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a3245981fcf23d75b17b45ad9ddad03b0">get_categories</a> (void *base, std::vector&lt; std::string &gt; &amp;out_categories)</td></tr>
-<tr class="memdesc:a3245981fcf23d75b17b45ad9ddad03b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得类别列表  <a href="interface_8h.html#a3245981fcf23d75b17b45ad9ddad03b0">More...</a><br /></td></tr>
-<tr class="separator:a3245981fcf23d75b17b45ad9ddad03b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91bf59bba5194f65b76b7b2fa391ca88"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a91bf59bba5194f65b76b7b2fa391ca88">get_per_category_binary_masks</a> (void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_masks)</td></tr>
-<tr class="memdesc:a91bf59bba5194f65b76b7b2fa391ca88"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每类别的二值掩模  <a href="interface_8h.html#a91bf59bba5194f65b76b7b2fa391ca88">More...</a><br /></td></tr>
-<tr class="separator:a91bf59bba5194f65b76b7b2fa391ca88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa491ac5110b041a83e54517d24e535d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#afa491ac5110b041a83e54517d24e535d">get_per_category_score_maps</a> (void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_score_maps)</td></tr>
-<tr class="memdesc:afa491ac5110b041a83e54517d24e535d"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每类别的置信度图  <a href="interface_8h.html#afa491ac5110b041a83e54517d24e535d">More...</a><br /></td></tr>
-<tr class="separator:afa491ac5110b041a83e54517d24e535d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedb5de9ab020d34c68aaee940ae6f4fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#aedb5de9ab020d34c68aaee940ae6f4fb">get_binary_mask_from_score_map</a> (cv::Mat score_map, cv::Mat &amp;binary_mask, float thresh)</td></tr>
-<tr class="memdesc:aedb5de9ab020d34c68aaee940ae6f4fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">置信度图阈值处理获得二值掩模  <a href="interface_8h.html#aedb5de9ab020d34c68aaee940ae6f4fb">More...</a><br /></td></tr>
-<tr class="separator:aedb5de9ab020d34c68aaee940ae6f4fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3b4bf672195b908064bbe6d45046982"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ae3b4bf672195b908064bbe6d45046982">erode_binary_mask</a> (cv::Mat &amp;binary_mask, int kernel_size, int iter_erode)</td></tr>
-<tr class="memdesc:ae3b4bf672195b908064bbe6d45046982"><td class="mdescLeft">&#160;</td><td class="mdescRight">二值掩模腐蚀处理  <a href="interface_8h.html#ae3b4bf672195b908064bbe6d45046982">More...</a><br /></td></tr>
-<tr class="separator:ae3b4bf672195b908064bbe6d45046982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02cb0ecd1feccafe45c84ce3c6706601"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a02cb0ecd1feccafe45c84ce3c6706601">dilate_binary_mask</a> (cv::Mat &amp;binary_mask, int kernel_size, int iter_dilate)</td></tr>
-<tr class="memdesc:a02cb0ecd1feccafe45c84ce3c6706601"><td class="mdescLeft">&#160;</td><td class="mdescRight">二值掩模膨胀处理  <a href="interface_8h.html#a02cb0ecd1feccafe45c84ce3c6706601">More...</a><br /></td></tr>
-<tr class="separator:a02cb0ecd1feccafe45c84ce3c6706601"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a104b40ed17e8aa121deca019f58257bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a104b40ed17e8aa121deca019f58257bb">cal_per_category_instances</a> (void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_score_maps, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_masks)</td></tr>
-<tr class="memdesc:a104b40ed17e8aa121deca019f58257bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算每类别的实例 blob（输入掩模和置信度图）  <a href="interface_8h.html#a104b40ed17e8aa121deca019f58257bb">More...</a><br /></td></tr>
-<tr class="separator:a104b40ed17e8aa121deca019f58257bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99b6fc78ebf7141ef938f9e21d3aa8d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a99b6fc78ebf7141ef938f9e21d3aa8d8">get_per_batch_instance_number</a> (void *base, std::vector&lt; int &gt; &amp;per_batch_instance_number)</td></tr>
-<tr class="memdesc:a99b6fc78ebf7141ef938f9e21d3aa8d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的实例个数  <a href="interface_8h.html#a99b6fc78ebf7141ef938f9e21d3aa8d8">More...</a><br /></td></tr>
-<tr class="separator:a99b6fc78ebf7141ef938f9e21d3aa8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab99e7ea5025ff489fc8b7c97cf72bed4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ab99e7ea5025ff489fc8b7c97cf72bed4">get_per_batch_instances</a> (void *base, std::vector&lt; std::vector&lt; <a class="el" href="structbounding__box.html">bounding_box</a> &gt; &gt; &amp;per_batch_instances)</td></tr>
-<tr class="memdesc:ab99e7ea5025ff489fc8b7c97cf72bed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的实例  <a href="interface_8h.html#ab99e7ea5025ff489fc8b7c97cf72bed4">More...</a><br /></td></tr>
-<tr class="separator:ab99e7ea5025ff489fc8b7c97cf72bed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82ee44b0baad328e8f1f75081a33ae01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a82ee44b0baad328e8f1f75081a33ae01">get_per_batch_instance_mask_areas</a> (void *base, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;per_batch_instance_mask_areas)</td></tr>
-<tr class="memdesc:a82ee44b0baad328e8f1f75081a33ae01"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的实例掩模面积  <a href="interface_8h.html#a82ee44b0baad328e8f1f75081a33ae01">More...</a><br /></td></tr>
-<tr class="separator:a82ee44b0baad328e8f1f75081a33ae01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82e929a019331940070dde1f1dbd8fef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a82e929a019331940070dde1f1dbd8fef">release</a> (void *base)</td></tr>
-<tr class="memdesc:a82e929a019331940070dde1f1dbd8fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">释放实例  <a href="interface_8h.html#a82e929a019331940070dde1f1dbd8fef">More...</a><br /></td></tr>
-<tr class="separator:a82e929a019331940070dde1f1dbd8fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4b1ea517ea6d90ae50c621ec0ee0060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ae4b1ea517ea6d90ae50c621ec0ee0060">check_version</a> ()</td></tr>
+<tr class="memdesc:ae4b1ea517ea6d90ae50c621ec0ee0060"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前库版本号与头文件版本号是否一致  <a href="interface_8h.html#ae4b1ea517ea6d90ae50c621ec0ee0060">More...</a><br /></td></tr>
+<tr class="separator:ae4b1ea517ea6d90ae50c621ec0ee0060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c823c15d0437d817cbde0af6d7f4392"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392">get_version</a> ()</td></tr>
+<tr class="memdesc:a6c823c15d0437d817cbde0af6d7f4392"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得当前库版本号  <a href="interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392">More...</a><br /></td></tr>
+<tr class="separator:a6c823c15d0437d817cbde0af6d7f4392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa3fec503e29e584c7ab175efd068b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a> (const char *model_path, int gpu_id, int *state)</td></tr>
+<tr class="memdesc:aeaa3fec503e29e584c7ab175efd068b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">模型初始化  <a href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">More...</a><br /></td></tr>
+<tr class="separator:aeaa3fec503e29e584c7ab175efd068b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe9dc6212ec0772baa42cd0b012409d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a7fe9dc6212ec0772baa42cd0b012409d">process_images</a> (void *base, std::vector&lt; cv::Mat &gt; &amp;imgs)</td></tr>
+<tr class="memdesc:a7fe9dc6212ec0772baa42cd0b012409d"><td class="mdescLeft">&#160;</td><td class="mdescRight">处理图片  <a href="interface_8h.html#a7fe9dc6212ec0772baa42cd0b012409d">More...</a><br /></td></tr>
+<tr class="separator:a7fe9dc6212ec0772baa42cd0b012409d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad910064ee799fc5edcb87daad8d4779f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ad910064ee799fc5edcb87daad8d4779f">get_categories</a> (void *base, std::vector&lt; std::string &gt; &amp;out_categories)</td></tr>
+<tr class="memdesc:ad910064ee799fc5edcb87daad8d4779f"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得类别列表  <a href="interface_8h.html#ad910064ee799fc5edcb87daad8d4779f">More...</a><br /></td></tr>
+<tr class="separator:ad910064ee799fc5edcb87daad8d4779f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd38970c14860052c0294eae27ab837"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#aecd38970c14860052c0294eae27ab837">get_per_category_binary_masks</a> (void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_masks)</td></tr>
+<tr class="memdesc:aecd38970c14860052c0294eae27ab837"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每类别的二值掩模  <a href="interface_8h.html#aecd38970c14860052c0294eae27ab837">More...</a><br /></td></tr>
+<tr class="separator:aecd38970c14860052c0294eae27ab837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0525c374545f97b789215cd6fbfe19b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a0525c374545f97b789215cd6fbfe19b2">get_per_category_score_maps</a> (void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_score_maps)</td></tr>
+<tr class="memdesc:a0525c374545f97b789215cd6fbfe19b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每类别的置信度图  <a href="interface_8h.html#a0525c374545f97b789215cd6fbfe19b2">More...</a><br /></td></tr>
+<tr class="separator:a0525c374545f97b789215cd6fbfe19b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56330c0d16ef4aa529f1a6bc71040352"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a56330c0d16ef4aa529f1a6bc71040352">get_binary_mask_from_score_map</a> (cv::Mat score_map, cv::Mat &amp;binary_mask, float thresh)</td></tr>
+<tr class="memdesc:a56330c0d16ef4aa529f1a6bc71040352"><td class="mdescLeft">&#160;</td><td class="mdescRight">置信度图阈值处理获得二值掩模  <a href="interface_8h.html#a56330c0d16ef4aa529f1a6bc71040352">More...</a><br /></td></tr>
+<tr class="separator:a56330c0d16ef4aa529f1a6bc71040352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd963ef3c7cde71394d117ec701ea7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abbd963ef3c7cde71394d117ec701ea7b">erode_binary_mask</a> (cv::Mat &amp;binary_mask, int kernel_size, int iter_erode)</td></tr>
+<tr class="memdesc:abbd963ef3c7cde71394d117ec701ea7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">二值掩模腐蚀处理  <a href="interface_8h.html#abbd963ef3c7cde71394d117ec701ea7b">More...</a><br /></td></tr>
+<tr class="separator:abbd963ef3c7cde71394d117ec701ea7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a350b0ebe9706b3ff39e64a09452063c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a350b0ebe9706b3ff39e64a09452063c9">dilate_binary_mask</a> (cv::Mat &amp;binary_mask, int kernel_size, int iter_dilate)</td></tr>
+<tr class="memdesc:a350b0ebe9706b3ff39e64a09452063c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">二值掩模膨胀处理  <a href="interface_8h.html#a350b0ebe9706b3ff39e64a09452063c9">More...</a><br /></td></tr>
+<tr class="separator:a350b0ebe9706b3ff39e64a09452063c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a721ac605e7b1a0ee4ea40d0fec8d7b74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a721ac605e7b1a0ee4ea40d0fec8d7b74">cal_per_category_instances</a> (void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_score_maps, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_masks)</td></tr>
+<tr class="memdesc:a721ac605e7b1a0ee4ea40d0fec8d7b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">计算每类别的实例 blob（输入掩模和置信度图）  <a href="interface_8h.html#a721ac605e7b1a0ee4ea40d0fec8d7b74">More...</a><br /></td></tr>
+<tr class="separator:a721ac605e7b1a0ee4ea40d0fec8d7b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a328fc2b206059fb5182b272a00609461"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a328fc2b206059fb5182b272a00609461">get_per_batch_instance_number</a> (void *base, std::vector&lt; int &gt; &amp;per_batch_instance_number)</td></tr>
+<tr class="memdesc:a328fc2b206059fb5182b272a00609461"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的实例个数  <a href="interface_8h.html#a328fc2b206059fb5182b272a00609461">More...</a><br /></td></tr>
+<tr class="separator:a328fc2b206059fb5182b272a00609461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae325b89d1e477accdc51b202aa0a2047"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ae325b89d1e477accdc51b202aa0a2047">get_per_batch_instances</a> (void *base, std::vector&lt; std::vector&lt; <a class="el" href="structbounding__box.html">bounding_box</a> &gt; &gt; &amp;per_batch_instances)</td></tr>
+<tr class="memdesc:ae325b89d1e477accdc51b202aa0a2047"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的实例  <a href="interface_8h.html#ae325b89d1e477accdc51b202aa0a2047">More...</a><br /></td></tr>
+<tr class="separator:ae325b89d1e477accdc51b202aa0a2047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2668310c1cd829801482afa181365b0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a2668310c1cd829801482afa181365b0b">get_per_batch_instance_mask_areas</a> (void *base, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;per_batch_instance_mask_areas)</td></tr>
+<tr class="memdesc:a2668310c1cd829801482afa181365b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的实例掩模面积  <a href="interface_8h.html#a2668310c1cd829801482afa181365b0b">More...</a><br /></td></tr>
+<tr class="separator:a2668310c1cd829801482afa181365b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a34ba8f0501b8fca2b0fc181d6e91b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a> (void *base)</td></tr>
+<tr class="memdesc:a5a34ba8f0501b8fca2b0fc181d6e91b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">释放实例  <a href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">More...</a><br /></td></tr>
+<tr class="separator:a5a34ba8f0501b8fca2b0fc181d6e91b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c124301160a2ffac536867beab5b95a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a> (void *base, const char *path)</td></tr>
+<tr class="memdesc:a1c124301160a2ffac536867beab5b95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新授权文件信息  <a href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">More...</a><br /></td></tr>
+<tr class="separator:a1c124301160a2ffac536867beab5b95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.1.0&quot;</td></tr>
 <tr class="separator:abd63dd08f15633a94d93f45f0869c598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a8d2a0e283c407e2bda8a52ceeb7597a8" name="a8d2a0e283c407e2bda8a52ceeb7597a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d2a0e283c407e2bda8a52ceeb7597a8">&#9670;&nbsp;</a></span>AisDeployC_API</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AisDeployC_API&#160;&#160;&#160;extern &quot;C&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interface_8h_source.html#l00013">13</a> of file <a class="el" href="interface_8h_source.html">interface.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a34e5d2f0127c9ae41d0ba48de7c4a9c8" name="a34e5d2f0127c9ae41d0ba48de7c4a9c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34e5d2f0127c9ae41d0ba48de7c4a9c8">&#9670;&nbsp;</a></span>bounding_box</h2>
@@ -157,14 +183,14 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a104b40ed17e8aa121deca019f58257bb" name="a104b40ed17e8aa121deca019f58257bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a104b40ed17e8aa121deca019f58257bb">&#9670;&nbsp;</a></span>cal_per_category_instances()</h2>
+<a id="a721ac605e7b1a0ee4ea40d0fec8d7b74" name="a721ac605e7b1a0ee4ea40d0fec8d7b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a721ac605e7b1a0ee4ea40d0fec8d7b74">&#9670;&nbsp;</a></span>cal_per_category_instances()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int cal_per_category_instances </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int cal_per_category_instances </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -211,12 +237,12 @@ Variables</h2></td></tr>
 <div class="line">tmp1.push_back(binary_mask);</div>
 <div class="line">per_category_masks.push_back(tmp1);</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a104b40ed17e8aa121deca019f58257bb">cal_per_category_instances</a>(</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a721ac605e7b1a0ee4ea40d0fec8d7b74">cal_per_category_instances</a>(</div>
 <div class="line">        ptrDeploy,</div>
 <div class="line">        per_category_score_maps,</div>
 <div class="line">        per_category_masks</div>
 <div class="line">);</div>
-<div class="ttc" id="ainterface_8h_html_a104b40ed17e8aa121deca019f58257bb"><div class="ttname"><a href="interface_8h.html#a104b40ed17e8aa121deca019f58257bb">cal_per_category_instances</a></div><div class="ttdeci">int cal_per_category_instances(void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_score_maps, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_masks)</div><div class="ttdoc">计算每类别的实例 blob（输入掩模和置信度图）</div></div>
+<div class="ttc" id="ainterface_8h_html_a721ac605e7b1a0ee4ea40d0fec8d7b74"><div class="ttname"><a href="interface_8h.html#a721ac605e7b1a0ee4ea40d0fec8d7b74">cal_per_category_instances</a></div><div class="ttdeci">AisDeployC_API int cal_per_category_instances(void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_score_maps, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; per_category_masks)</div><div class="ttdoc">计算每类别的实例 blob（输入掩模和置信度图）</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -230,14 +256,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ac93785f1168acc45aedbe18047791abe" name="ac93785f1168acc45aedbe18047791abe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac93785f1168acc45aedbe18047791abe">&#9670;&nbsp;</a></span>check_version()</h2>
+<a id="ae4b1ea517ea6d90ae50c621ec0ee0060" name="ae4b1ea517ea6d90ae50c621ec0ee0060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4b1ea517ea6d90ae50c621ec0ee0060">&#9670;&nbsp;</a></span>check_version()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int check_version </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int check_version </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -246,21 +272,21 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>检查当前库版本号与头文件版本号是否一致 </p>
-<p >检查当前库版本号与头文件版本号是否一致 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ac93785f1168acc45aedbe18047791abe">check_version</a>();</div>
-<div class="ttc" id="ainterface_8h_html_ac93785f1168acc45aedbe18047791abe"><div class="ttname"><a href="interface_8h.html#ac93785f1168acc45aedbe18047791abe">check_version</a></div><div class="ttdeci">int check_version()</div><div class="ttdoc">检查当前库版本号与头文件版本号是否一致</div></div>
+<p >检查当前库版本号与头文件版本号是否一致 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ae4b1ea517ea6d90ae50c621ec0ee0060">check_version</a>();</div>
+<div class="ttc" id="ainterface_8h_html_ae4b1ea517ea6d90ae50c621ec0ee0060"><div class="ttname"><a href="interface_8h.html#ae4b1ea517ea6d90ae50c621ec0ee0060">check_version</a></div><div class="ttdeci">AisDeployC_API int check_version()</div><div class="ttdoc">检查当前库版本号与头文件版本号是否一致</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>执行结果，0表示检查成功，否则检查失败 </dd></dl>
 
 </div>
 </div>
-<a id="a02cb0ecd1feccafe45c84ce3c6706601" name="a02cb0ecd1feccafe45c84ce3c6706601"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02cb0ecd1feccafe45c84ce3c6706601">&#9670;&nbsp;</a></span>dilate_binary_mask()</h2>
+<a id="a350b0ebe9706b3ff39e64a09452063c9" name="a350b0ebe9706b3ff39e64a09452063c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a350b0ebe9706b3ff39e64a09452063c9">&#9670;&nbsp;</a></span>dilate_binary_mask()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dilate_binary_mask </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int dilate_binary_mask </td>
           <td>(</td>
           <td class="paramtype">cv::Mat &amp;&#160;</td>
           <td class="paramname"><em>binary_mask</em>, </td>
@@ -294,12 +320,12 @@ Variables</h2></td></tr>
 <div class="line"><span class="keywordtype">int</span> kernel_size = 3;</div>
 <div class="line"><span class="keywordtype">int</span> iter_dilate = 1;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a02cb0ecd1feccafe45c84ce3c6706601">dilate_binary_mask</a>(</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a350b0ebe9706b3ff39e64a09452063c9">dilate_binary_mask</a>(</div>
 <div class="line">        binary_mask,</div>
 <div class="line">        kernel_size,</div>
 <div class="line">        iter_dilate</div>
 <div class="line">);</div>
-<div class="ttc" id="ainterface_8h_html_a02cb0ecd1feccafe45c84ce3c6706601"><div class="ttname"><a href="interface_8h.html#a02cb0ecd1feccafe45c84ce3c6706601">dilate_binary_mask</a></div><div class="ttdeci">int dilate_binary_mask(cv::Mat &amp;binary_mask, int kernel_size, int iter_dilate)</div><div class="ttdoc">二值掩模膨胀处理</div></div>
+<div class="ttc" id="ainterface_8h_html_a350b0ebe9706b3ff39e64a09452063c9"><div class="ttname"><a href="interface_8h.html#a350b0ebe9706b3ff39e64a09452063c9">dilate_binary_mask</a></div><div class="ttdeci">AisDeployC_API int dilate_binary_mask(cv::Mat &amp;binary_mask, int kernel_size, int iter_dilate)</div><div class="ttdoc">二值掩模膨胀处理</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -313,14 +339,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae3b4bf672195b908064bbe6d45046982" name="ae3b4bf672195b908064bbe6d45046982"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3b4bf672195b908064bbe6d45046982">&#9670;&nbsp;</a></span>erode_binary_mask()</h2>
+<a id="abbd963ef3c7cde71394d117ec701ea7b" name="abbd963ef3c7cde71394d117ec701ea7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd963ef3c7cde71394d117ec701ea7b">&#9670;&nbsp;</a></span>erode_binary_mask()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int erode_binary_mask </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int erode_binary_mask </td>
           <td>(</td>
           <td class="paramtype">cv::Mat &amp;&#160;</td>
           <td class="paramname"><em>binary_mask</em>, </td>
@@ -354,12 +380,12 @@ Variables</h2></td></tr>
 <div class="line"><span class="keywordtype">int</span> kernel_size = 7;</div>
 <div class="line"><span class="keywordtype">int</span> iter_erode = 2;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ae3b4bf672195b908064bbe6d45046982">erode_binary_mask</a>(</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#abbd963ef3c7cde71394d117ec701ea7b">erode_binary_mask</a>(</div>
 <div class="line">        binary_mask,</div>
 <div class="line">        kernel_size,</div>
 <div class="line">        iter_erode</div>
 <div class="line">);</div>
-<div class="ttc" id="ainterface_8h_html_ae3b4bf672195b908064bbe6d45046982"><div class="ttname"><a href="interface_8h.html#ae3b4bf672195b908064bbe6d45046982">erode_binary_mask</a></div><div class="ttdeci">int erode_binary_mask(cv::Mat &amp;binary_mask, int kernel_size, int iter_erode)</div><div class="ttdoc">二值掩模腐蚀处理</div></div>
+<div class="ttc" id="ainterface_8h_html_abbd963ef3c7cde71394d117ec701ea7b"><div class="ttname"><a href="interface_8h.html#abbd963ef3c7cde71394d117ec701ea7b">erode_binary_mask</a></div><div class="ttdeci">AisDeployC_API int erode_binary_mask(cv::Mat &amp;binary_mask, int kernel_size, int iter_erode)</div><div class="ttdoc">二值掩模腐蚀处理</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -373,14 +399,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aedb5de9ab020d34c68aaee940ae6f4fb" name="aedb5de9ab020d34c68aaee940ae6f4fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedb5de9ab020d34c68aaee940ae6f4fb">&#9670;&nbsp;</a></span>get_binary_mask_from_score_map()</h2>
+<a id="a56330c0d16ef4aa529f1a6bc71040352" name="a56330c0d16ef4aa529f1a6bc71040352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56330c0d16ef4aa529f1a6bc71040352">&#9670;&nbsp;</a></span>get_binary_mask_from_score_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int get_binary_mask_from_score_map </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_binary_mask_from_score_map </td>
           <td>(</td>
           <td class="paramtype">cv::Mat&#160;</td>
           <td class="paramname"><em>score_map</em>, </td>
@@ -415,12 +441,12 @@ Variables</h2></td></tr>
 <div class="line">cv::Mat binary_mask;</div>
 <div class="line"><span class="keywordtype">float</span> thresh = 0.1;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#aedb5de9ab020d34c68aaee940ae6f4fb">get_binary_mask_from_score_map</a>(</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a56330c0d16ef4aa529f1a6bc71040352">get_binary_mask_from_score_map</a>(</div>
 <div class="line">        score_map,</div>
 <div class="line">        binary_mask,</div>
 <div class="line">        thresh</div>
 <div class="line">);</div>
-<div class="ttc" id="ainterface_8h_html_aedb5de9ab020d34c68aaee940ae6f4fb"><div class="ttname"><a href="interface_8h.html#aedb5de9ab020d34c68aaee940ae6f4fb">get_binary_mask_from_score_map</a></div><div class="ttdeci">int get_binary_mask_from_score_map(cv::Mat score_map, cv::Mat &amp;binary_mask, float thresh)</div><div class="ttdoc">置信度图阈值处理获得二值掩模</div></div>
+<div class="ttc" id="ainterface_8h_html_a56330c0d16ef4aa529f1a6bc71040352"><div class="ttname"><a href="interface_8h.html#a56330c0d16ef4aa529f1a6bc71040352">get_binary_mask_from_score_map</a></div><div class="ttdeci">AisDeployC_API int get_binary_mask_from_score_map(cv::Mat score_map, cv::Mat &amp;binary_mask, float thresh)</div><div class="ttdoc">置信度图阈值处理获得二值掩模</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -434,14 +460,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a3245981fcf23d75b17b45ad9ddad03b0" name="a3245981fcf23d75b17b45ad9ddad03b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3245981fcf23d75b17b45ad9ddad03b0">&#9670;&nbsp;</a></span>get_categories()</h2>
+<a id="ad910064ee799fc5edcb87daad8d4779f" name="ad910064ee799fc5edcb87daad8d4779f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad910064ee799fc5edcb87daad8d4779f">&#9670;&nbsp;</a></span>get_categories()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int get_categories </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_categories </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -462,11 +488,11 @@ Variables</h2></td></tr>
 
 <p>获得类别列表 </p>
 <p >获得当前模型的类别列表 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;std::string&gt; out_categories;</div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a3245981fcf23d75b17b45ad9ddad03b0">get_categories</a>(</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ad910064ee799fc5edcb87daad8d4779f">get_categories</a>(</div>
 <div class="line">        ptrDeploy,</div>
 <div class="line">        out_categories</div>
 <div class="line">);</div>
-<div class="ttc" id="ainterface_8h_html_a3245981fcf23d75b17b45ad9ddad03b0"><div class="ttname"><a href="interface_8h.html#a3245981fcf23d75b17b45ad9ddad03b0">get_categories</a></div><div class="ttdeci">int get_categories(void *base, std::vector&lt; std::string &gt; &amp;out_categories)</div><div class="ttdoc">获得类别列表</div></div>
+<div class="ttc" id="ainterface_8h_html_ad910064ee799fc5edcb87daad8d4779f"><div class="ttname"><a href="interface_8h.html#ad910064ee799fc5edcb87daad8d4779f">get_categories</a></div><div class="ttdeci">AisDeployC_API int get_categories(void *base, std::vector&lt; std::string &gt; &amp;out_categories)</div><div class="ttdoc">获得类别列表</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -479,14 +505,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a82ee44b0baad328e8f1f75081a33ae01" name="a82ee44b0baad328e8f1f75081a33ae01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82ee44b0baad328e8f1f75081a33ae01">&#9670;&nbsp;</a></span>get_per_batch_instance_mask_areas()</h2>
+<a id="a2668310c1cd829801482afa181365b0b" name="a2668310c1cd829801482afa181365b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2668310c1cd829801482afa181365b0b">&#9670;&nbsp;</a></span>get_per_batch_instance_mask_areas()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int get_per_batch_instance_mask_areas </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_per_batch_instance_mask_areas </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -507,8 +533,8 @@ Variables</h2></td></tr>
 
 <p>获得每个批次的实例掩模面积 </p>
 <p >在实例计算结束后，获得每个批次的实例掩模面积 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;float&gt;&gt; per_batch_instance_mask_areas;</div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a82ee44b0baad328e8f1f75081a33ae01">get_per_batch_instance_mask_areas</a>(ptrDeploy, per_batch_instance_mask_areas);</div>
-<div class="ttc" id="ainterface_8h_html_a82ee44b0baad328e8f1f75081a33ae01"><div class="ttname"><a href="interface_8h.html#a82ee44b0baad328e8f1f75081a33ae01">get_per_batch_instance_mask_areas</a></div><div class="ttdeci">int get_per_batch_instance_mask_areas(void *base, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;per_batch_instance_mask_areas)</div><div class="ttdoc">获得每个批次的实例掩模面积</div></div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a2668310c1cd829801482afa181365b0b">get_per_batch_instance_mask_areas</a>(ptrDeploy, per_batch_instance_mask_areas);</div>
+<div class="ttc" id="ainterface_8h_html_a2668310c1cd829801482afa181365b0b"><div class="ttname"><a href="interface_8h.html#a2668310c1cd829801482afa181365b0b">get_per_batch_instance_mask_areas</a></div><div class="ttdeci">AisDeployC_API int get_per_batch_instance_mask_areas(void *base, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;per_batch_instance_mask_areas)</div><div class="ttdoc">获得每个批次的实例掩模面积</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -521,14 +547,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a99b6fc78ebf7141ef938f9e21d3aa8d8" name="a99b6fc78ebf7141ef938f9e21d3aa8d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99b6fc78ebf7141ef938f9e21d3aa8d8">&#9670;&nbsp;</a></span>get_per_batch_instance_number()</h2>
+<a id="a328fc2b206059fb5182b272a00609461" name="a328fc2b206059fb5182b272a00609461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a328fc2b206059fb5182b272a00609461">&#9670;&nbsp;</a></span>get_per_batch_instance_number()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int get_per_batch_instance_number </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_per_batch_instance_number </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -549,8 +575,8 @@ Variables</h2></td></tr>
 
 <p>获得每个批次的实例个数 </p>
 <p >在实例计算结束后，获得每个批次的实例个数 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;int&gt;  per_batch_instance_number;</div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a99b6fc78ebf7141ef938f9e21d3aa8d8">get_per_batch_instance_number</a>(ptrDeploy, per_batch_instance_number);</div>
-<div class="ttc" id="ainterface_8h_html_a99b6fc78ebf7141ef938f9e21d3aa8d8"><div class="ttname"><a href="interface_8h.html#a99b6fc78ebf7141ef938f9e21d3aa8d8">get_per_batch_instance_number</a></div><div class="ttdeci">int get_per_batch_instance_number(void *base, std::vector&lt; int &gt; &amp;per_batch_instance_number)</div><div class="ttdoc">获得每个批次的实例个数</div></div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a328fc2b206059fb5182b272a00609461">get_per_batch_instance_number</a>(ptrDeploy, per_batch_instance_number);</div>
+<div class="ttc" id="ainterface_8h_html_a328fc2b206059fb5182b272a00609461"><div class="ttname"><a href="interface_8h.html#a328fc2b206059fb5182b272a00609461">get_per_batch_instance_number</a></div><div class="ttdeci">AisDeployC_API int get_per_batch_instance_number(void *base, std::vector&lt; int &gt; &amp;per_batch_instance_number)</div><div class="ttdoc">获得每个批次的实例个数</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -563,14 +589,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab99e7ea5025ff489fc8b7c97cf72bed4" name="ab99e7ea5025ff489fc8b7c97cf72bed4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab99e7ea5025ff489fc8b7c97cf72bed4">&#9670;&nbsp;</a></span>get_per_batch_instances()</h2>
+<a id="ae325b89d1e477accdc51b202aa0a2047" name="ae325b89d1e477accdc51b202aa0a2047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae325b89d1e477accdc51b202aa0a2047">&#9670;&nbsp;</a></span>get_per_batch_instances()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int get_per_batch_instances </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_per_batch_instances </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -591,8 +617,8 @@ Variables</h2></td></tr>
 
 <p>获得每个批次的实例 </p>
 <p >在实例计算结束后，获得每个批次的实例 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;bounding_box&gt;&gt; per_batch_instances;</div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ab99e7ea5025ff489fc8b7c97cf72bed4">get_per_batch_instances</a>(ptrDeploy, per_batch_instances);</div>
-<div class="ttc" id="ainterface_8h_html_ab99e7ea5025ff489fc8b7c97cf72bed4"><div class="ttname"><a href="interface_8h.html#ab99e7ea5025ff489fc8b7c97cf72bed4">get_per_batch_instances</a></div><div class="ttdeci">int get_per_batch_instances(void *base, std::vector&lt; std::vector&lt; bounding_box &gt; &gt; &amp;per_batch_instances)</div><div class="ttdoc">获得每个批次的实例</div></div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ae325b89d1e477accdc51b202aa0a2047">get_per_batch_instances</a>(ptrDeploy, per_batch_instances);</div>
+<div class="ttc" id="ainterface_8h_html_ae325b89d1e477accdc51b202aa0a2047"><div class="ttname"><a href="interface_8h.html#ae325b89d1e477accdc51b202aa0a2047">get_per_batch_instances</a></div><div class="ttdeci">AisDeployC_API int get_per_batch_instances(void *base, std::vector&lt; std::vector&lt; bounding_box &gt; &gt; &amp;per_batch_instances)</div><div class="ttdoc">获得每个批次的实例</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -605,14 +631,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a91bf59bba5194f65b76b7b2fa391ca88" name="a91bf59bba5194f65b76b7b2fa391ca88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91bf59bba5194f65b76b7b2fa391ca88">&#9670;&nbsp;</a></span>get_per_category_binary_masks()</h2>
+<a id="aecd38970c14860052c0294eae27ab837" name="aecd38970c14860052c0294eae27ab837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd38970c14860052c0294eae27ab837">&#9670;&nbsp;</a></span>get_per_category_binary_masks()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int get_per_category_binary_masks </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_per_category_binary_masks </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -633,11 +659,11 @@ Variables</h2></td></tr>
 
 <p>获得每类别的二值掩模 </p>
 <p >获得当前模型的处理图像批次（前向推理）后的每类别的二值掩模结果 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;cv::Mat&gt; &gt; per_category_masks;</div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a91bf59bba5194f65b76b7b2fa391ca88">get_per_category_binary_masks</a>(</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#aecd38970c14860052c0294eae27ab837">get_per_category_binary_masks</a>(</div>
 <div class="line">        ptrDeploy,</div>
 <div class="line">        per_category_masks</div>
 <div class="line">);</div>
-<div class="ttc" id="ainterface_8h_html_a91bf59bba5194f65b76b7b2fa391ca88"><div class="ttname"><a href="interface_8h.html#a91bf59bba5194f65b76b7b2fa391ca88">get_per_category_binary_masks</a></div><div class="ttdeci">int get_per_category_binary_masks(void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_masks)</div><div class="ttdoc">获得每类别的二值掩模</div></div>
+<div class="ttc" id="ainterface_8h_html_aecd38970c14860052c0294eae27ab837"><div class="ttname"><a href="interface_8h.html#aecd38970c14860052c0294eae27ab837">get_per_category_binary_masks</a></div><div class="ttdeci">AisDeployC_API int get_per_category_binary_masks(void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_masks)</div><div class="ttdoc">获得每类别的二值掩模</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -650,14 +676,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="afa491ac5110b041a83e54517d24e535d" name="afa491ac5110b041a83e54517d24e535d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa491ac5110b041a83e54517d24e535d">&#9670;&nbsp;</a></span>get_per_category_score_maps()</h2>
+<a id="a0525c374545f97b789215cd6fbfe19b2" name="a0525c374545f97b789215cd6fbfe19b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0525c374545f97b789215cd6fbfe19b2">&#9670;&nbsp;</a></span>get_per_category_score_maps()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int get_per_category_score_maps </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_per_category_score_maps </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -678,11 +704,11 @@ Variables</h2></td></tr>
 
 <p>获得每类别的置信度图 </p>
 <p >获得当前模型的处理图像批次（前向推理）后的每类别的置信度图 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;cv::Mat&gt; &gt; per_category_score_maps;</div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#afa491ac5110b041a83e54517d24e535d">get_per_category_score_maps</a>(</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a0525c374545f97b789215cd6fbfe19b2">get_per_category_score_maps</a>(</div>
 <div class="line">        ptrDeploy,</div>
 <div class="line">        per_category_score_maps</div>
 <div class="line">);</div>
-<div class="ttc" id="ainterface_8h_html_afa491ac5110b041a83e54517d24e535d"><div class="ttname"><a href="interface_8h.html#afa491ac5110b041a83e54517d24e535d">get_per_category_score_maps</a></div><div class="ttdeci">int get_per_category_score_maps(void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_score_maps)</div><div class="ttdoc">获得每类别的置信度图</div></div>
+<div class="ttc" id="ainterface_8h_html_a0525c374545f97b789215cd6fbfe19b2"><div class="ttname"><a href="interface_8h.html#a0525c374545f97b789215cd6fbfe19b2">get_per_category_score_maps</a></div><div class="ttdeci">AisDeployC_API int get_per_category_score_maps(void *base, std::vector&lt; std::vector&lt; cv::Mat &gt; &gt; &amp;per_category_score_maps)</div><div class="ttdoc">获得每类别的置信度图</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -695,14 +721,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a97c49d303bbf54bed2e1e6709deeb67c" name="a97c49d303bbf54bed2e1e6709deeb67c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97c49d303bbf54bed2e1e6709deeb67c">&#9670;&nbsp;</a></span>get_version()</h2>
+<a id="a6c823c15d0437d817cbde0af6d7f4392" name="a6c823c15d0437d817cbde0af6d7f4392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c823c15d0437d817cbde0af6d7f4392">&#9670;&nbsp;</a></span>get_version()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string get_version </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> std::string get_version </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -711,21 +737,21 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>获得当前库版本号 </p>
-<p >获得当前库的版本号，格式为v0.0.0 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::string version = <a class="code hl_function" href="interface_8h.html#a97c49d303bbf54bed2e1e6709deeb67c">get_version</a>();</div>
-<div class="ttc" id="ainterface_8h_html_a97c49d303bbf54bed2e1e6709deeb67c"><div class="ttname"><a href="interface_8h.html#a97c49d303bbf54bed2e1e6709deeb67c">get_version</a></div><div class="ttdeci">std::string get_version()</div><div class="ttdoc">获得当前库版本号</div></div>
+<p >获得当前库的版本号，格式为v0.0.0 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::string version = <a class="code hl_function" href="interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392">get_version</a>();</div>
+<div class="ttc" id="ainterface_8h_html_a6c823c15d0437d817cbde0af6d7f4392"><div class="ttname"><a href="interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392">get_version</a></div><div class="ttdeci">AisDeployC_API std::string get_version()</div><div class="ttdoc">获得当前库版本号</div></div>
 </div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string 返回版本号 </dd></dl>
 
 </div>
 </div>
-<a id="a2a54e62d16af5433e3577c038505e821" name="a2a54e62d16af5433e3577c038505e821"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a54e62d16af5433e3577c038505e821">&#9670;&nbsp;</a></span>initialize()</h2>
+<a id="aeaa3fec503e29e584c7ab175efd068b6" name="aeaa3fec503e29e584c7ab175efd068b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaa3fec503e29e584c7ab175efd068b6">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void * initialize </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> void * initialize </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>model_path</em>, </td>
@@ -755,8 +781,8 @@ Variables</h2></td></tr>
 <div class="line"><span class="keywordtype">string</span> current_path_str = <span class="stringliteral">&quot;.&quot;</span>;</div>
 <div class="line">std::string model_path = current_path_str+<span class="stringliteral">&quot;/../tests/assets/models/epoch_200_segmentor_setting_oen.aism&quot;</span>;</div>
 <div class="line"><span class="keywordtype">int</span> gpu_id = 0;</div>
-<div class="line">ptrDeploy = <a class="code hl_function" href="interface_8h.html#a2a54e62d16af5433e3577c038505e821">initialize</a>(model_path.c_str(), gpu_id, &amp;initRet);</div>
-<div class="ttc" id="ainterface_8h_html_a2a54e62d16af5433e3577c038505e821"><div class="ttname"><a href="interface_8h.html#a2a54e62d16af5433e3577c038505e821">initialize</a></div><div class="ttdeci">void * initialize(const char *model_path, int gpu_id, int *state)</div><div class="ttdoc">模型初始化</div></div>
+<div class="line">ptrDeploy = <a class="code hl_function" href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a>(model_path.c_str(), gpu_id, &amp;initRet);</div>
+<div class="ttc" id="ainterface_8h_html_aeaa3fec503e29e584c7ab175efd068b6"><div class="ttname"><a href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a></div><div class="ttdeci">AisDeployC_API void * initialize(const char *model_path, int gpu_id, int *state)</div><div class="ttdoc">模型初始化</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -770,14 +796,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad9a7ad3720d4b8df3aedd4e326e60f00" name="ad9a7ad3720d4b8df3aedd4e326e60f00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9a7ad3720d4b8df3aedd4e326e60f00">&#9670;&nbsp;</a></span>process_images()</h2>
+<a id="a7fe9dc6212ec0772baa42cd0b012409d" name="a7fe9dc6212ec0772baa42cd0b012409d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe9dc6212ec0772baa42cd0b012409d">&#9670;&nbsp;</a></span>process_images()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int process_images </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int process_images </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em>, </td>
@@ -802,8 +828,8 @@ Variables</h2></td></tr>
 <div class="line">String str = current_path_str+<span class="stringliteral">&quot;/../tests/assets/images/1.jpg&quot;</span>;</div>
 <div class="line">Mat image = imread(str);</div>
 <div class="line">imgs.push_back(image);</div>
-<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ad9a7ad3720d4b8df3aedd4e326e60f00">process_images</a>(ptrDeploy, imgs);</div>
-<div class="ttc" id="ainterface_8h_html_ad9a7ad3720d4b8df3aedd4e326e60f00"><div class="ttname"><a href="interface_8h.html#ad9a7ad3720d4b8df3aedd4e326e60f00">process_images</a></div><div class="ttdeci">int process_images(void *base, std::vector&lt; cv::Mat &gt; &amp;imgs)</div><div class="ttdoc">处理图片</div></div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a7fe9dc6212ec0772baa42cd0b012409d">process_images</a>(ptrDeploy, imgs);</div>
+<div class="ttc" id="ainterface_8h_html_a7fe9dc6212ec0772baa42cd0b012409d"><div class="ttname"><a href="interface_8h.html#a7fe9dc6212ec0772baa42cd0b012409d">process_images</a></div><div class="ttdeci">AisDeployC_API int process_images(void *base, std::vector&lt; cv::Mat &gt; &amp;imgs)</div><div class="ttdoc">处理图片</div></div>
 </div><!-- fragment --> 多批次示例代码如下 <div class="fragment"><div class="line">std::vector&lt;cv::Mat&gt; imgs;</div>
 <div class="line"><span class="keywordtype">string</span> current_path_str = <span class="stringliteral">&quot;.&quot;</span>;</div>
 <div class="line">String str = current_path_str+<span class="stringliteral">&quot;/../tests/assets/images/1.jpg&quot;</span>;</div>
@@ -812,7 +838,7 @@ Variables</h2></td></tr>
 <div class="line">String str_1 = current_path_str+<span class="stringliteral">&quot;/../tests/assets/images/63_1024.jpg&quot;</span>;</div>
 <div class="line">Mat image_1 = imread(str_1);</div>
 <div class="line">imgs.push_back(image_1);</div>
-<div class="line"><span class="keywordtype">int</span> ret_1 = <a class="code hl_function" href="interface_8h.html#ad9a7ad3720d4b8df3aedd4e326e60f00">process_images</a>(ptrDeploy, imgs);</div>
+<div class="line"><span class="keywordtype">int</span> ret_1 = <a class="code hl_function" href="interface_8h.html#a7fe9dc6212ec0772baa42cd0b012409d">process_images</a>(ptrDeploy, imgs);</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -825,14 +851,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a82e929a019331940070dde1f1dbd8fef" name="a82e929a019331940070dde1f1dbd8fef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82e929a019331940070dde1f1dbd8fef">&#9670;&nbsp;</a></span>release()</h2>
+<a id="a5a34ba8f0501b8fca2b0fc181d6e91b3" name="a5a34ba8f0501b8fca2b0fc181d6e91b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a34ba8f0501b8fca2b0fc181d6e91b3">&#9670;&nbsp;</a></span>release()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int release </td>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int release </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>base</em></td><td>)</td>
@@ -842,8 +868,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>释放实例 </p>
-<p >释放实例 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a82e929a019331940070dde1f1dbd8fef">release</a>(ptrDeploy);</div>
-<div class="ttc" id="ainterface_8h_html_a82e929a019331940070dde1f1dbd8fef"><div class="ttname"><a href="interface_8h.html#a82e929a019331940070dde1f1dbd8fef">release</a></div><div class="ttdeci">int release(void *base)</div><div class="ttdoc">释放实例</div></div>
+<p >释放实例 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a>(ptrDeploy);</div>
+<div class="ttc" id="ainterface_8h_html_a5a34ba8f0501b8fca2b0fc181d6e91b3"><div class="ttname"><a href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a></div><div class="ttdeci">AisDeployC_API int release(void *base)</div><div class="ttdoc">释放实例</div></div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -852,6 +878,47 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>执行结果，0表示执行成功，否则执行失败 </dd></dl>
+
+</div>
+</div>
+<a id="a1c124301160a2ffac536867beab5b95a" name="a1c124301160a2ffac536867beab5b95a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c124301160a2ffac536867beab5b95a">&#9670;&nbsp;</a></span>update_license()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int update_license </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>更新授权文件信息 </p>
+<p >更新授权文件信息 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a>(ptrDeploy, <span class="stringliteral">&quot;macos_registed_info.aisl&quot;</span>);</div>
+<div class="ttc" id="ainterface_8h_html_a1c124301160a2ffac536867beab5b95a"><div class="ttname"><a href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a></div><div class="ttdeci">AisDeployC_API int update_license(void *base, const char *path)</div><div class="ttdoc">更新授权文件信息</div></div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+    <tr><td class="paramname">path</td><td>授权文件的路径 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示检查成功，否则检查失败 </dd></dl>
 
 </div>
 </div>
