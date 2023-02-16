@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['release_0',['release',['../interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3',1,'interface.h']]]
+  ['model_5finitialize_0',['model_initialize',['../classinterface_1_1_ais_deploy_c.html#a44e9720744c2cd60d800b1517c26d91b',1,'interface::AisDeployC']]]
 ];

@@ -18,3 +18,7 @@ jobs:
           COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC*.dll .\
           COPY E:\onnxruntime-win-gpu-x64-1.8.1\lib\onnxruntime*.dll .\
           .\basic.exe
+      - name: Run PyTest
+        run: |
+          cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
+          py.test tests/test_interface.py -s

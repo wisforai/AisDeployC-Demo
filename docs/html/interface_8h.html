@@ -144,6 +144,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a1c124301160a2ffac536867beab5b95a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a> (void *base, const char *path)</td></tr>
 <tr class="memdesc:a1c124301160a2ffac536867beab5b95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新授权文件信息  <a href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">More...</a><br /></td></tr>
 <tr class="separator:a1c124301160a2ffac536867beab5b95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc947a5e4a526f19943fcb68aedb3cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">py_process_json_str</a> (void *base, const char *input, int input_size)</td></tr>
+<tr class="memdesc:acc947a5e4a526f19943fcb68aedb3cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">python使用的处理json string输入格式的接口  <a href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">More...</a><br /></td></tr>
+<tr class="separator:acc947a5e4a526f19943fcb68aedb3cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22e487f1c4a49035d427ca66604ed6da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a22e487f1c4a49035d427ca66604ed6da">py_get_json_str_results</a> (void *base, char **output, int *output_size)</td></tr>
+<tr class="memdesc:a22e487f1c4a49035d427ca66604ed6da"><td class="mdescLeft">&#160;</td><td class="mdescRight">python使用的获取json string输出格式的接口  <a href="interface_8h.html#a22e487f1c4a49035d427ca66604ed6da">More...</a><br /></td></tr>
+<tr class="separator:a22e487f1c4a49035d427ca66604ed6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62f252b1ce69d1d693c6611d4fe9c70b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a> (char *output)</td></tr>
+<tr class="memdesc:a62f252b1ce69d1d693c6611d4fe9c70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">python使用的释放返回结果的接口  <a href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">More...</a><br /></td></tr>
+<tr class="separator:a62f252b1ce69d1d693c6611d4fe9c70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -777,12 +786,31 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>模型初始化 </p>
-<p >根据模型路径、GPU ID 初始化模型 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> initRet = 0;</div>
+<p >根据模型路径、GPU ID 初始化模型 </p><dl class="section see"><dt>See also</dt><dd>c++接口示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> initRet = 0;</div>
 <div class="line"><span class="keywordtype">string</span> current_path_str = <span class="stringliteral">&quot;.&quot;</span>;</div>
 <div class="line">std::string model_path = current_path_str+<span class="stringliteral">&quot;/../tests/assets/models/epoch_200_segmentor_setting_oen.aism&quot;</span>;</div>
 <div class="line"><span class="keywordtype">int</span> gpu_id = 0;</div>
 <div class="line">ptrDeploy = <a class="code hl_function" href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a>(model_path.c_str(), gpu_id, &amp;initRet);</div>
 <div class="ttc" id="ainterface_8h_html_aeaa3fec503e29e584c7ab175efd068b6"><div class="ttname"><a href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a></div><div class="ttdeci">AisDeployC_API void * initialize(const char *model_path, int gpu_id, int *state)</div><div class="ttdoc">模型初始化</div></div>
+</div><!-- fragment --> python接口示例代码如下 <div class="fragment"><div class="line"><span class="keyword">import</span> ctypes</div>
+<div class="line"><span class="keyword">import</span> platform</div>
+<div class="line">lib = None</div>
+<div class="line">handle = None</div>
+<div class="line"><span class="keywordflow">if</span> <span class="stringliteral">&quot;macOS&quot;</span> in platform.platform():</div>
+<div class="line"><span class="preprocessor">    # sys.path.append(os.path.join(os.path.dirname(__file__), &quot;../cmake-build-debug&quot;</span>))</div>
+<div class="line">    lib = ctypes.cdll.LoadLibrary(<span class="stringliteral">&quot;./cmake-build-debug/libAisDeployC.dylib&quot;</span>)</div>
+<div class="line">elif <span class="stringliteral">&quot;Windows&quot;</span> in platform.platform():</div>
+<div class="line">    lib = ctypes.windll.LoadLibrary( <span class="stringliteral">&quot;./cmake-build-release/AisDeployC.dll&quot;</span> )</div>
+<div class="line">elif <span class="stringliteral">&quot;Linux&quot;</span> in platform.platform():</div>
+<div class="line">    lib = ctypes.cdll.LoadLibrary( <span class="stringliteral">&quot;./build/libAisDeployC.so&quot;</span> )</div>
+<div class="line">    lib.initialize.restype = ctypes.c_void_p</div>
+<div class="line">ret = ctypes.c_int(-1)</div>
+<div class="line">gpu_id = ctypes.c_int(-1)</div>
+<div class="line">path_str = <span class="stringliteral">&quot;tests/assets/models/epoch_200_segmentor_setting_oen.aism&quot;</span></div>
+<div class="line">path_char = ctypes.c_char_p(path_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
+<div class="line">handle = lib.initialize(path_char, gpu_id, ctypes.pointer(ret))</div>
+<div class="line">lib.py_process_json_str.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]</div>
+<div class="line">lib.release.argtypes = [ctypes.c_void_p]</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -851,6 +879,140 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a62f252b1ce69d1d693c6611d4fe9c70b" name="a62f252b1ce69d1d693c6611d4fe9c70b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62f252b1ce69d1d693c6611d4fe9c70b">&#9670;&nbsp;</a></span>py_free_result()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int py_free_result </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>python使用的释放返回结果的接口 </p>
+<p >python使用的释放返回结果的接口 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">ret_char_c = ctypes.c_char_p()</div>
+<div class="line">ret = lib.py_free_result(ret_char_c)</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">output</td><td>输出json string (char *) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示检查成功，否则检查失败 </dd></dl>
+
+</div>
+</div>
+<a id="a22e487f1c4a49035d427ca66604ed6da" name="a22e487f1c4a49035d427ca66604ed6da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22e487f1c4a49035d427ca66604ed6da">&#9670;&nbsp;</a></span>py_get_json_str_results()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int py_get_json_str_results </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>output_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>python使用的获取json string输出格式的接口 </p>
+<p >python使用的获取json string输出格式的接口,一般需要先经过initialize, py_process_json_str </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">ret_char_c = ctypes.c_char_p()</div>
+<div class="line">ret = lib.py_get_json_str_results(handle, ret_char_c, None)</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+    <tr><td class="paramname">output</td><td>输出json string (char **) </td></tr>
+    <tr><td class="paramname">int</td><td>输出json string长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示检查成功，否则检查失败 </dd></dl>
+
+</div>
+</div>
+<a id="acc947a5e4a526f19943fcb68aedb3cce" name="acc947a5e4a526f19943fcb68aedb3cce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc947a5e4a526f19943fcb68aedb3cce">&#9670;&nbsp;</a></span>py_process_json_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int py_process_json_str </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>python使用的处理json string输入格式的接口 </p>
+<p >python使用的处理json string输入格式的接口,一般需要先经过initialize和process_json_str.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]的设定 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">imgPth = <span class="stringliteral">&quot;tests/assets/images/1.jpg&quot;</span></div>
+<div class="line">f= open(imgPth, <span class="stringliteral">&#39;rb&#39;</span>)</div>
+<div class="line">qrcode = base64.b64encode(f.read()).decode()</div>
+<div class="line">f.close()</div>
+<div class="line">file_json = {<span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;base64&quot;</span>, <span class="stringliteral">&quot;data&quot;</span>: qrcode, <span class="stringliteral">&quot;ch&quot;</span>:3}</div>
+<div class="line">input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
+<div class="line">data_str = json.dumps(input_json)</div>
+<div class="line">data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
+<div class="line"> </div>
+<div class="line">ret = lib.py_process_json_str(handle, data_char, len(data_str))</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+    <tr><td class="paramname">input</td><td>输入json string (const char *) </td></tr>
+    <tr><td class="paramname">input_size</td><td>输入json string长度 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示检查成功，否则检查失败 </dd></dl>
+
+</div>
+</div>
 <a id="a5a34ba8f0501b8fca2b0fc181d6e91b3" name="a5a34ba8f0501b8fca2b0fc181d6e91b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a34ba8f0501b8fca2b0fc181d6e91b3">&#9670;&nbsp;</a></span>release()</h2>
 
@@ -868,8 +1030,9 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>释放实例 </p>
-<p >释放实例 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a>(ptrDeploy);</div>
+<p >释放实例 </p><dl class="section see"><dt>See also</dt><dd>c++接口示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a>(ptrDeploy);</div>
 <div class="ttc" id="ainterface_8h_html_a5a34ba8f0501b8fca2b0fc181d6e91b3"><div class="ttname"><a href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a></div><div class="ttdeci">AisDeployC_API int release(void *base)</div><div class="ttdoc">释放实例</div></div>
+</div><!-- fragment --> python接口示例代码如下，一般需要先经过initialize和lib.release.argtypes = [ctypes.c_void_p]的设定 <div class="fragment"><div class="line">ret = lib.release(handle)</div>
 </div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
