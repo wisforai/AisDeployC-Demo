@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['cal_5fper_5fcategory_5finstances_0',['cal_per_category_instances',['../interface_8h.html#a721ac605e7b1a0ee4ea40d0fec8d7b74',1,'interface.h']]],
-  ['check_5fversion_1',['check_version',['../interface_8h.html#ae4b1ea517ea6d90ae50c621ec0ee0060',1,'interface.h']]]
+  ['_5f_5fdel_5f_5f_0',['__del__',['../classinterface_1_1_ais_deploy_c.html#af00acad5782e8dcfdd6a76be8fa5eec3',1,'interface::AisDeployC']]],
+  ['_5f_5finit_5f_5f_1',['__init__',['../classinterface_1_1_ais_deploy_c.html#a0be781cf5f639487011d572edf76eb91',1,'interface::AisDeployC']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['process_5fimages_0',['process_images',['../interface_8h.html#a7fe9dc6212ec0772baa42cd0b012409d',1,'interface.h']]]
+  ['initialize_0',['initialize',['../interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6',1,'interface.h']]]
 ];
