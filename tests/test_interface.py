@@ -15,7 +15,7 @@ import base64
 import json
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
-from interface.python.interface import AisDeployC
+from interface.interface import AisDeployC
 
 def test_interface():
     lib_path = None
