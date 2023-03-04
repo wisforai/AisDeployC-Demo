@@ -3,7 +3,7 @@ project(AisDeployC-Demo)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     message(STATUS "Set ONNX_RUNTIME_PATH  for Linux")
-    set(ONNX_RUNTIME_PATH /home/runner/work/AisDeployC/AisDeployC/onnxruntime-linux-x64-1.8.1)
+    set(ONNX_RUNTIME_PATH /home/N3_3090U5/packages/onnxruntime-linux-x64-gpu-1.8.1)
     find_package(OpenCV REQUIRED)
     INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
 elseif(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
