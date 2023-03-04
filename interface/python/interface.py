@@ -13,6 +13,12 @@ class AisDeployC():
     """
     def __init__(self, lib_pth: str):
         """! The AisDeployC class initializer.
+        @see
+         示例代码如下
+         @code
+            lib_path = "./cmake-build-release/AisDeployC.dll"
+            deploy_obj = AisDeployC(lib_path)
+         @endcode
         @param lib_pth AisDeployC library path.
         @return  An instance of the AisDeployC class initialized.
         """
@@ -34,6 +40,13 @@ class AisDeployC():
 
     def model_initialize(self, path_str: str, gpu_id: int):
         """! The AisDeployC class model initializer.
+         @see
+         示例代码如下
+         @code
+            path_str = "tests/assets/models/det_setting_oen.aism"
+            gpu_id = 0
+            ret = deploy_obj.model_initialize(path_str, gpu_id)
+         @endcode
         @param path_str model file path.
         @param gpu_id gpu id for model initialize
         @return  model_initialize result, 0 for success, 1 for failure.
@@ -55,6 +68,13 @@ class AisDeployC():
 
     def update_license(self, path_str: str):
         """! The AisDeployC class license update function.
+        @see
+         示例代码如下
+         @code
+            license_path = "tests/assets/licenses/registed/windows_registed_info.aisl"
+            ret = deploy_obj.update_license(license_path)
+         @endcode
+
         @param path_str license file path.
         @return  update_license result, 0 for success, 1 for failure.
         """
@@ -63,6 +83,44 @@ class AisDeployC():
 
     def process(self, input_json: dict):
         """! The AisDeployC class process function.
+        @see
+         batch=1 示例代码如下
+         @code
+            import base64
+            import json
+
+            imgPth = "tests/assets/images/1.jpg"
+            f= open(imgPth, 'rb')
+            qrcode = base64.b64encode(f.read()).decode()
+            f.close()
+            file_json = {"type": "base64", "data": qrcode, "ch":3}
+            input_json = {"data_list": [file_json]}
+
+            ret_val = deploy_obj.process(input_json)
+         @endcode
+        @see
+         batch=2 示例代码如下
+         @code
+            import base64
+            import json
+
+            imgPth = "tests/assets/images/1.jpg"
+            f= open(imgPth, 'rb')
+            qrcode = base64.b64encode(f.read()).decode()
+            f.close()
+            file_json = {"type": "base64", "data": qrcode, "ch":3}
+            input_json = {"data_list": [file_json]}
+
+            imgPth = "tests/assets/images/63_1024.jpg"
+            f= open(imgPth, 'rb')
+            qrcode = base64.b64encode(f.read()).decode()
+            f.close()
+            file_json = {"type": "base64", "data": qrcode, "ch":3}
+            input_json["data_list"].append(file_json)
+
+            ret_val = deploy_obj.process(input_json)
+         @endcode
+
         @param input_json input json like dict.
         @return  process result, 0 for success, 1 for failure.
         """

@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.1.0";
+const std::string AisDeployCVersion="v0.2.0";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -60,13 +60,35 @@ AisDeployC_API std::string get_version();
 *  @details
 *   根据模型路径、GPU ID 初始化模型
 *  @see
-*  示例代码如下
+*  c++接口示例代码如下
 *  @code
     int initRet = 0;
     string current_path_str = ".";
     std::string model_path = current_path_str+"/../tests/assets/models/epoch_200_segmentor_setting_oen.aism";
     int gpu_id = 0;
     ptrDeploy = initialize(model_path.c_str(), gpu_id, &initRet);
+*  @endcode
+*  python接口示例代码如下
+*  @code
+    import ctypes
+    import platform
+    lib = None
+    handle = None
+    if "macOS" in platform.platform():
+        # sys.path.append(os.path.join(os.path.dirname(__file__), "../cmake-build-debug"))
+        lib = ctypes.cdll.LoadLibrary("./cmake-build-debug/libAisDeployC.dylib")
+    elif "Windows" in platform.platform():
+        lib = ctypes.windll.LoadLibrary( "./cmake-build-release/AisDeployC.dll" )
+    elif "Linux" in platform.platform():
+        lib = ctypes.cdll.LoadLibrary( "./build/libAisDeployC.so" )
+        lib.initialize.restype = ctypes.c_void_p
+    ret = ctypes.c_int(-1)
+    gpu_id = ctypes.c_int(-1)
+    path_str = "tests/assets/models/epoch_200_segmentor_setting_oen.aism"
+    path_char = ctypes.c_char_p(path_str.encode('utf-8'))
+    handle = lib.initialize(path_char, gpu_id, ctypes.pointer(ret))
+    lib.py_process_json_str.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]
+    lib.release.argtypes = [ctypes.c_void_p]
 *  @endcode
 *  @param model_path  模型路径
 *  @param gpu_id  显卡(GPU) ID，0代表0号显卡；-1代表不使用GPU
@@ -403,9 +425,13 @@ AisDeployC_API  int get_per_batch_instance_mask_areas(
 *  @details
 *   释放实例
 *  @see
-*  示例代码如下
+*  c++接口示例代码如下
 *  @code
  *  int ret = release(ptrDeploy);
+*  @endcode
+*  python接口示例代码如下，一般需要先经过initialize和lib.release.argtypes = [ctypes.c_void_p]的设定
+*  @code
+ *  ret = lib.release(handle)
 *  @endcode
 *  @param base  initialize返回的模型指针
 *  @return 执行结果，0表示执行成功，否则执行失败
@@ -430,4 +456,65 @@ AisDeployC_API int release(
 *  @return 执行结果，0表示检查成功，否则检查失败
 */
 AisDeployC_API int update_license(void *base, const char* path);
+
+/**
+*  @brief python使用的处理json string输入格式的接口
+*
+*  @details
+*   python使用的处理json string输入格式的接口,一般需要先经过initialize和process_json_str.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]的设定
+ *  @see
+ *  示例代码如下
+ *  @code
+    imgPth = "tests/assets/images/1.jpg"
+    f= open(imgPth, 'rb')
+    qrcode = base64.b64encode(f.read()).decode()
+    f.close()
+    file_json = {"type": "base64", "data": qrcode, "ch":3}
+    input_json = {"data_list": [file_json]}
+    data_str = json.dumps(input_json)
+    data_char = ctypes.c_char_p(data_str.encode('utf-8'))
+
+    ret = lib.py_process_json_str(handle, data_char, len(data_str))
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+ *  @param input  输入json string (const char *)
+ *  @param input_size 输入json string长度
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int py_process_json_str(void *base, const char *input, int input_size);
+
+/**
+*  @brief python使用的获取json string输出格式的接口
+*
+*  @details
+*   python使用的获取json string输出格式的接口,一般需要先经过initialize, py_process_json_str
+ *  @see
+ *  示例代码如下
+ *  @code
+ *      ret_char_c = ctypes.c_char_p()
+ *      ret = lib.py_get_json_str_results(handle, ret_char_c, None)
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+ *  @param output  输出json string (char **)
+ *  @param int 输出json string长度
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int py_get_json_str_results(void *base, char **output, int *output_size);
+
+/**
+*  @brief python使用的释放返回结果的接口
+*
+*  @details
+*   python使用的释放返回结果的接口
+ *  @see
+ *  示例代码如下
+ *  @code
+ *      ret_char_c = ctypes.c_char_p()
+ *      ret = lib.py_free_result(ret_char_c)
+ *  @endcode
+ *  @param output  输出json string (char *)
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int py_free_result(char *output);
+
 #endif //AISDEPLOYC_INTERFACE_H
