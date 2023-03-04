@@ -38,4 +38,4 @@ jobs:
       - name: Run Test
         run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && CUDA_VISIBLE_DEVICES=3 ./basic
       - name: Run PyTest
-        run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/ && CUDA_VISIBLE_DEVICES=3 python -m pytest -s tests/test_interface.py
+        run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/&& cp -f ./build/*.so* ./ && CUDA_VISIBLE_DEVICES=3 python -m pytest -s tests/test_interface.py
