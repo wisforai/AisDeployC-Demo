@@ -131,6 +131,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The <a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> class initializer. </p>
+<dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">lib_path = <span class="stringliteral">&quot;./cmake-build-release/AisDeployC.dll&quot;</span></div>
+<div class="line">deploy_obj = AisDeployC(lib_path)</div>
+</div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lib_pth</td><td><a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> library path. </td></tr>
@@ -142,18 +145,24 @@ Public Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00014">14</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   14</span>    <span class="keyword">def </span>__init__(self, lib_pth: str):</div>
 <div class="line"><span class="lineno">   15</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class initializer.</span></div>
-<div class="line"><span class="lineno">   16</span><span class="stringliteral">        </span><span class="preprocessor">@param</span> lib_pth AisDeployC library path.</div>
-<div class="line"><span class="lineno">   17</span>        <span class="preprocessor">@return</span>  An instance of the AisDeployC <span class="keyword">class </span>initialized.</div>
-<div class="line"><span class="lineno">   18</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   19</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">   20</span><span class="stringliteral">        </span><span class="keywordflow">if</span> <span class="stringliteral">&quot;macOS&quot;</span> <span class="keywordflow">in</span> platform.platform():</div>
-<div class="line"><span class="lineno">   21</span>            self.lib = ctypes.cdll.LoadLibrary(lib_pth)</div>
-<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">elif</span> <span class="stringliteral">&quot;Windows&quot;</span> <span class="keywordflow">in</span> platform.platform():</div>
-<div class="line"><span class="lineno">   23</span>            self.lib = ctypes.windll.LoadLibrary(lib_pth)</div>
-<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">elif</span> <span class="stringliteral">&quot;Linux&quot;</span> <span class="keywordflow">in</span> platform.platform():</div>
-<div class="line"><span class="lineno">   25</span>            self.lib = ctypes.cdll.LoadLibrary(lib_pth)</div>
-<div class="line"><span class="lineno">   26</span>        self.handle = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   16</span><span class="stringliteral">        </span><span class="preprocessor">@see</span></div>
+<div class="line"><span class="lineno">   17</span>         示例代码如下</div>
+<div class="line"><span class="lineno">   18</span>         <span class="preprocessor">@code</span></div>
+<div class="line"><span class="lineno">   19</span>            lib_path = <span class="stringliteral">&quot;./cmake-build-release/AisDeployC.dll&quot;</span></div>
+<div class="line"><span class="lineno">   20</span>            deploy_obj = AisDeployC(lib_path)</div>
+<div class="line"><span class="lineno">   21</span>         <span class="preprocessor">@endcode</span></div>
+<div class="line"><span class="lineno">   22</span>        <span class="preprocessor">@param</span> lib_pth AisDeployC library path.</div>
+<div class="line"><span class="lineno">   23</span>        <span class="preprocessor">@return</span>  An instance of the AisDeployC <span class="keyword">class </span>initialized.</div>
+<div class="line"><span class="lineno">   24</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   25</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">   26</span><span class="stringliteral">        </span><span class="keywordflow">if</span> <span class="stringliteral">&quot;macOS&quot;</span> <span class="keywordflow">in</span> platform.platform():</div>
+<div class="line"><span class="lineno">   27</span>            self.lib = ctypes.cdll.LoadLibrary(lib_pth)</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">elif</span> <span class="stringliteral">&quot;Windows&quot;</span> <span class="keywordflow">in</span> platform.platform():</div>
+<div class="line"><span class="lineno">   29</span>            self.lib = ctypes.windll.LoadLibrary(lib_pth)</div>
+<div class="line"><span class="lineno">   30</span>        <span class="keywordflow">elif</span> <span class="stringliteral">&quot;Linux&quot;</span> <span class="keywordflow">in</span> platform.platform():</div>
+<div class="line"><span class="lineno">   31</span>            self.lib = ctypes.cdll.LoadLibrary(lib_pth)</div>
+<div class="line"><span class="lineno">   32</span>        self.handle = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">   33</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -175,14 +184,14 @@ Public Attributes</h2></td></tr>
 
 <p>The <a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> class delete function. </p>
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00028">28</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>    <span class="keyword">def </span>__del__(self):</div>
-<div class="line"><span class="lineno">   29</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class delete function.</span></div>
-<div class="line"><span class="lineno">   30</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   31</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle != <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">   32</span>            self.lib.release.argtypes = [ctypes.c_void_p]</div>
-<div class="line"><span class="lineno">   33</span>            self.lib.<a class="code hl_function" href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a>( self.handle )</div>
-<div class="line"><span class="lineno">   34</span> </div>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00034">34</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>    <span class="keyword">def </span>__del__(self):</div>
+<div class="line"><span class="lineno">   35</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class delete function.</span></div>
+<div class="line"><span class="lineno">   36</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   37</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle != <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">   38</span>            self.lib.release.argtypes = [ctypes.c_void_p]</div>
+<div class="line"><span class="lineno">   39</span>            self.lib.<a class="code hl_function" href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a>( self.handle )</div>
+<div class="line"><span class="lineno">   40</span> </div>
 <div class="ttc" id="ainterface_8h_html_a5a34ba8f0501b8fca2b0fc181d6e91b3"><div class="ttname"><a href="interface_8h.html#a5a34ba8f0501b8fca2b0fc181d6e91b3">release</a></div><div class="ttdeci">AisDeployC_API int release(void *base)</div><div class="ttdoc">释放实例</div></div>
 </div><!-- fragment -->
 </div>
@@ -221,6 +230,10 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The <a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> class model initializer. </p>
+<dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">path_str = <span class="stringliteral">&quot;tests/assets/models/det_setting_oen.aism&quot;</span></div>
+<div class="line">gpu_id = 0</div>
+<div class="line">ret = deploy_obj.model_initialize(path_str, gpu_id)</div>
+</div><!-- fragment --> </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path_str</td><td>model file path. </td></tr>
@@ -230,28 +243,35 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>model_initialize result, 0 for success, 1 for failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00035">35</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   35</span>    <span class="keyword">def </span>model_initialize(self, path_str: str, gpu_id: int):</div>
-<div class="line"><span class="lineno">   36</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class model initializer.</span></div>
-<div class="line"><span class="lineno">   37</span><span class="stringliteral">        </span><span class="preprocessor">@param</span> path_str model file path.</div>
-<div class="line"><span class="lineno">   38</span>        <span class="preprocessor">@param</span> gpu_id gpu id <span class="keywordflow">for</span> model initialize</div>
-<div class="line"><span class="lineno">   39</span>        <span class="preprocessor">@return</span>  model_initialize result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
-<div class="line"><span class="lineno">   40</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   41</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">   42</span><span class="stringliteral">        self.lib.initialize.restype = ctypes.c_void_p</span></div>
-<div class="line"><span class="lineno">   43</span><span class="stringliteral">        ret = ctypes.c_int(-1)</span></div>
-<div class="line"><span class="lineno">   44</span><span class="stringliteral">        gpu_id = ctypes.c_int(gpu_id)</span></div>
-<div class="line"><span class="lineno">   45</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">   46</span><span class="stringliteral">        path_char = ctypes.c_char_p(path_str.encode(&#39;utf-8&#39;</span>))</div>
-<div class="line"><span class="lineno">   47</span>        self.handle = self.lib.<a class="code hl_function" href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a>(path_char, gpu_id, ctypes.pointer(ret))</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>        self.lib.update_license.argtypes = [ctypes.c_void_p, ctypes.c_char_p]</div>
-<div class="line"><span class="lineno">   50</span>        self.lib.py_process_json_str.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]</div>
-<div class="line"><span class="lineno">   51</span>        self.lib.py_get_json_str_results.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]</div>
-<div class="line"><span class="lineno">   52</span>        self.lib.py_free_result.argtypes = [ctypes.c_char_p]</div>
-<div class="line"><span class="lineno">   53</span>        self.lib.release.argtypes = [ctypes.c_void_p]</div>
-<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> ret.value</div>
-<div class="line"><span class="lineno">   55</span> </div>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00041">41</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>    <span class="keyword">def </span>model_initialize(self, path_str: str, gpu_id: int):</div>
+<div class="line"><span class="lineno">   42</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class model initializer.</span></div>
+<div class="line"><span class="lineno">   43</span><span class="stringliteral">         </span><span class="preprocessor">@see</span></div>
+<div class="line"><span class="lineno">   44</span>         示例代码如下</div>
+<div class="line"><span class="lineno">   45</span>         <span class="preprocessor">@code</span></div>
+<div class="line"><span class="lineno">   46</span>            path_str = <span class="stringliteral">&quot;tests/assets/models/det_setting_oen.aism&quot;</span></div>
+<div class="line"><span class="lineno">   47</span>            gpu_id = 0</div>
+<div class="line"><span class="lineno">   48</span>            ret = deploy_obj.model_initialize(path_str, gpu_id)</div>
+<div class="line"><span class="lineno">   49</span>         <span class="preprocessor">@endcode</span></div>
+<div class="line"><span class="lineno">   50</span>        <span class="preprocessor">@param</span> path_str model file path.</div>
+<div class="line"><span class="lineno">   51</span>        <span class="preprocessor">@param</span> gpu_id gpu id <span class="keywordflow">for</span> model initialize</div>
+<div class="line"><span class="lineno">   52</span>        <span class="preprocessor">@return</span>  model_initialize result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
+<div class="line"><span class="lineno">   53</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   54</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">   55</span><span class="stringliteral">        self.lib.initialize.restype = ctypes.c_void_p</span></div>
+<div class="line"><span class="lineno">   56</span><span class="stringliteral">        ret = ctypes.c_int(-1)</span></div>
+<div class="line"><span class="lineno">   57</span><span class="stringliteral">        gpu_id = ctypes.c_int(gpu_id)</span></div>
+<div class="line"><span class="lineno">   58</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">   59</span><span class="stringliteral">        path_char = ctypes.c_char_p(path_str.encode(&#39;utf-8&#39;</span>))</div>
+<div class="line"><span class="lineno">   60</span>        self.handle = self.lib.<a class="code hl_function" href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a>(path_char, gpu_id, ctypes.pointer(ret))</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>        self.lib.update_license.argtypes = [ctypes.c_void_p, ctypes.c_char_p]</div>
+<div class="line"><span class="lineno">   63</span>        self.lib.py_process_json_str.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]</div>
+<div class="line"><span class="lineno">   64</span>        self.lib.py_get_json_str_results.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]</div>
+<div class="line"><span class="lineno">   65</span>        self.lib.py_free_result.argtypes = [ctypes.c_char_p]</div>
+<div class="line"><span class="lineno">   66</span>        self.lib.release.argtypes = [ctypes.c_void_p]</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> ret.value</div>
+<div class="line"><span class="lineno">   68</span> </div>
 <div class="ttc" id="ainterface_8h_html_aeaa3fec503e29e584c7ab175efd068b6"><div class="ttname"><a href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a></div><div class="ttdeci">AisDeployC_API void * initialize(const char *model_path, int gpu_id, int *state)</div><div class="ttdoc">模型初始化</div></div>
 </div><!-- fragment -->
 </div>
@@ -283,6 +303,38 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The <a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> class process function. </p>
+<dl class="section see"><dt>See also</dt><dd>batch=1 示例代码如下 <div class="fragment"><div class="line"><span class="keyword">import</span> base64</div>
+<div class="line"><span class="keyword">import</span> json</div>
+<div class="line"> </div>
+<div class="line">imgPth = <span class="stringliteral">&quot;tests/assets/images/1.jpg&quot;</span></div>
+<div class="line">f= open(imgPth, <span class="stringliteral">&#39;rb&#39;</span>)</div>
+<div class="line">qrcode = base64.b64encode(f.read()).decode()</div>
+<div class="line">f.close()</div>
+<div class="line">file_json = {<span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;base64&quot;</span>, <span class="stringliteral">&quot;data&quot;</span>: qrcode, <span class="stringliteral">&quot;ch&quot;</span>:3}</div>
+<div class="line">input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
+<div class="line"> </div>
+<div class="line">ret_val = deploy_obj.process(input_json)</div>
+</div><!-- fragment --> </dd>
+<dd>
+batch=2 示例代码如下 <div class="fragment"><div class="line"><span class="keyword">import</span> base64</div>
+<div class="line"><span class="keyword">import</span> json</div>
+<div class="line"> </div>
+<div class="line">imgPth = <span class="stringliteral">&quot;tests/assets/images/1.jpg&quot;</span></div>
+<div class="line">f= open(imgPth, <span class="stringliteral">&#39;rb&#39;</span>)</div>
+<div class="line">qrcode = base64.b64encode(f.read()).decode()</div>
+<div class="line">f.close()</div>
+<div class="line">file_json = {<span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;base64&quot;</span>, <span class="stringliteral">&quot;data&quot;</span>: qrcode, <span class="stringliteral">&quot;ch&quot;</span>:3}</div>
+<div class="line">input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
+<div class="line"> </div>
+<div class="line">imgPth = <span class="stringliteral">&quot;tests/assets/images/63_1024.jpg&quot;</span></div>
+<div class="line">f= open(imgPth, <span class="stringliteral">&#39;rb&#39;</span>)</div>
+<div class="line">qrcode = base64.b64encode(f.read()).decode()</div>
+<div class="line">f.close()</div>
+<div class="line">file_json = {<span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;base64&quot;</span>, <span class="stringliteral">&quot;data&quot;</span>: qrcode, <span class="stringliteral">&quot;ch&quot;</span>:3}</div>
+<div class="line">input_json[<span class="stringliteral">&quot;data_list&quot;</span>].append(file_json)</div>
+<div class="line"> </div>
+<div class="line">ret_val = deploy_obj.process(input_json)</div>
+</div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input_json</td><td>input json like dict. </td></tr>
@@ -291,30 +343,68 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>process result, 0 for success, 1 for failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00064">64</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>    <span class="keyword">def </span>process(self, input_json: dict):</div>
-<div class="line"><span class="lineno">   65</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class process function.</span></div>
-<div class="line"><span class="lineno">   66</span><span class="stringliteral">        </span><span class="preprocessor">@param</span> input_json input json like dict.</div>
-<div class="line"><span class="lineno">   67</span>        <span class="preprocessor">@return</span>  process result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
-<div class="line"><span class="lineno">   68</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   69</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">   70</span>            print(<span class="stringliteral">&quot;[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.&quot;</span>)</div>
-<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">   72</span>        data_str = json.dumps(input_json)</div>
-<div class="line"><span class="lineno">   73</span>        data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
-<div class="line"><span class="lineno">   74</span>        ret = self.lib.<a class="code hl_function" href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">py_process_json_str</a>(self.handle, data_char, len(data_str))</div>
-<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">if</span> ret != 0:</div>
-<div class="line"><span class="lineno">   76</span>            print(<span class="stringliteral">&quot;[ERROR] py_process_json_str failed in  AisDeployC. maybe check input of process.&quot;</span>)</div>
-<div class="line"><span class="lineno">   77</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">   78</span>        ret_char_c = ctypes.c_char_p()</div>
-<div class="line"><span class="lineno">   79</span>        ret = self.lib.<a class="code hl_function" href="interface_8h.html#a22e487f1c4a49035d427ca66604ed6da">py_get_json_str_results</a>( self.handle, ctypes.pointer(ret_char_c), <span class="keywordtype">None</span> )</div>
-<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">if</span> ret != 0:</div>
-<div class="line"><span class="lineno">   81</span>            print(<span class="stringliteral">&quot;[ERROR] py_get_json_str_results failed in  AisDeployC. maybe lack py_process_json_str.&quot;</span>)</div>
-<div class="line"><span class="lineno">   82</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">   83</span>        ret_str = ret_char_c.value.decode(<span class="stringliteral">&quot;utf-8&quot;</span>)</div>
-<div class="line"><span class="lineno">   84</span>        ret_value = json.loads(ret_str)</div>
-<div class="line"><span class="lineno">   85</span>        self.lib.<a class="code hl_function" href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a>(ret_char_c)</div>
-<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">return</span> ret_value</div>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00084">84</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>    <span class="keyword">def </span>process(self, input_json: dict):</div>
+<div class="line"><span class="lineno">   85</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class process function.</span></div>
+<div class="line"><span class="lineno">   86</span><span class="stringliteral">        </span><span class="preprocessor">@see</span></div>
+<div class="line"><span class="lineno">   87</span>         batch=1 示例代码如下</div>
+<div class="line"><span class="lineno">   88</span>         <span class="preprocessor">@code</span></div>
+<div class="line"><span class="lineno">   89</span>            <span class="keyword">import</span> base64</div>
+<div class="line"><span class="lineno">   90</span>            <span class="keyword">import</span> json</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>            imgPth = <span class="stringliteral">&quot;tests/assets/images/1.jpg&quot;</span></div>
+<div class="line"><span class="lineno">   93</span>            f= open(imgPth, <span class="stringliteral">&#39;rb&#39;</span>)</div>
+<div class="line"><span class="lineno">   94</span>            qrcode = base64.b64encode(f.read()).decode()</div>
+<div class="line"><span class="lineno">   95</span>            f.close()</div>
+<div class="line"><span class="lineno">   96</span>            file_json = {<span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;base64&quot;</span>, <span class="stringliteral">&quot;data&quot;</span>: qrcode, <span class="stringliteral">&quot;ch&quot;</span>:3}</div>
+<div class="line"><span class="lineno">   97</span>            input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>            ret_val = deploy_obj.process(input_json)</div>
+<div class="line"><span class="lineno">  100</span>         <span class="preprocessor">@endcode</span></div>
+<div class="line"><span class="lineno">  101</span>        <span class="preprocessor">@see</span></div>
+<div class="line"><span class="lineno">  102</span>         batch=2 示例代码如下</div>
+<div class="line"><span class="lineno">  103</span>         <span class="preprocessor">@code</span></div>
+<div class="line"><span class="lineno">  104</span>            <span class="keyword">import</span> base64</div>
+<div class="line"><span class="lineno">  105</span>            <span class="keyword">import</span> json</div>
+<div class="line"><span class="lineno">  106</span> </div>
+<div class="line"><span class="lineno">  107</span>            imgPth = <span class="stringliteral">&quot;tests/assets/images/1.jpg&quot;</span></div>
+<div class="line"><span class="lineno">  108</span>            f= open(imgPth, <span class="stringliteral">&#39;rb&#39;</span>)</div>
+<div class="line"><span class="lineno">  109</span>            qrcode = base64.b64encode(f.read()).decode()</div>
+<div class="line"><span class="lineno">  110</span>            f.close()</div>
+<div class="line"><span class="lineno">  111</span>            file_json = {<span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;base64&quot;</span>, <span class="stringliteral">&quot;data&quot;</span>: qrcode, <span class="stringliteral">&quot;ch&quot;</span>:3}</div>
+<div class="line"><span class="lineno">  112</span>            input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>            imgPth = <span class="stringliteral">&quot;tests/assets/images/63_1024.jpg&quot;</span></div>
+<div class="line"><span class="lineno">  115</span>            f= open(imgPth, <span class="stringliteral">&#39;rb&#39;</span>)</div>
+<div class="line"><span class="lineno">  116</span>            qrcode = base64.b64encode(f.read()).decode()</div>
+<div class="line"><span class="lineno">  117</span>            f.close()</div>
+<div class="line"><span class="lineno">  118</span>            file_json = {<span class="stringliteral">&quot;type&quot;</span>: <span class="stringliteral">&quot;base64&quot;</span>, <span class="stringliteral">&quot;data&quot;</span>: qrcode, <span class="stringliteral">&quot;ch&quot;</span>:3}</div>
+<div class="line"><span class="lineno">  119</span>            input_json[<span class="stringliteral">&quot;data_list&quot;</span>].append(file_json)</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>            ret_val = deploy_obj.process(input_json)</div>
+<div class="line"><span class="lineno">  122</span>         <span class="preprocessor">@endcode</span></div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>        <span class="preprocessor">@param</span> input_json input json like dict.</div>
+<div class="line"><span class="lineno">  125</span>        <span class="preprocessor">@return</span>  process result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
+<div class="line"><span class="lineno">  126</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  127</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  128</span>            print(<span class="stringliteral">&quot;[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.&quot;</span>)</div>
+<div class="line"><span class="lineno">  129</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  130</span>        data_str = json.dumps(input_json)</div>
+<div class="line"><span class="lineno">  131</span>        data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
+<div class="line"><span class="lineno">  132</span>        ret = self.lib.<a class="code hl_function" href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">py_process_json_str</a>(self.handle, data_char, len(data_str))</div>
+<div class="line"><span class="lineno">  133</span>        <span class="keywordflow">if</span> ret != 0:</div>
+<div class="line"><span class="lineno">  134</span>            print(<span class="stringliteral">&quot;[ERROR] py_process_json_str failed in  AisDeployC. maybe check input of process.&quot;</span>)</div>
+<div class="line"><span class="lineno">  135</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  136</span>        ret_char_c = ctypes.c_char_p()</div>
+<div class="line"><span class="lineno">  137</span>        ret = self.lib.<a class="code hl_function" href="interface_8h.html#a22e487f1c4a49035d427ca66604ed6da">py_get_json_str_results</a>( self.handle, ctypes.pointer(ret_char_c), <span class="keywordtype">None</span> )</div>
+<div class="line"><span class="lineno">  138</span>        <span class="keywordflow">if</span> ret != 0:</div>
+<div class="line"><span class="lineno">  139</span>            print(<span class="stringliteral">&quot;[ERROR] py_get_json_str_results failed in  AisDeployC. maybe lack py_process_json_str.&quot;</span>)</div>
+<div class="line"><span class="lineno">  140</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  141</span>        ret_str = ret_char_c.value.decode(<span class="stringliteral">&quot;utf-8&quot;</span>)</div>
+<div class="line"><span class="lineno">  142</span>        ret_value = json.loads(ret_str)</div>
+<div class="line"><span class="lineno">  143</span>        self.lib.<a class="code hl_function" href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a>(ret_char_c)</div>
+<div class="line"><span class="lineno">  144</span>        <span class="keywordflow">return</span> ret_value</div>
 <div class="ttc" id="ainterface_8h_html_a22e487f1c4a49035d427ca66604ed6da"><div class="ttname"><a href="interface_8h.html#a22e487f1c4a49035d427ca66604ed6da">py_get_json_str_results</a></div><div class="ttdeci">AisDeployC_API int py_get_json_str_results(void *base, char **output, int *output_size)</div><div class="ttdoc">python使用的获取json string输出格式的接口</div></div>
 <div class="ttc" id="ainterface_8h_html_a62f252b1ce69d1d693c6611d4fe9c70b"><div class="ttname"><a href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a></div><div class="ttdeci">AisDeployC_API int py_free_result(char *output)</div><div class="ttdoc">python使用的释放返回结果的接口</div></div>
 <div class="ttc" id="ainterface_8h_html_acc947a5e4a526f19943fcb68aedb3cce"><div class="ttname"><a href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">py_process_json_str</a></div><div class="ttdeci">AisDeployC_API int py_process_json_str(void *base, const char *input, int input_size)</div><div class="ttdoc">python使用的处理json string输入格式的接口</div></div>
@@ -348,6 +438,9 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The <a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> class license update function. </p>
+<dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">license_path = <span class="stringliteral">&quot;tests/assets/licenses/registed/windows_registed_info.aisl&quot;</span></div>
+<div class="line">ret = deploy_obj.update_license(license_path)</div>
+</div><!-- fragment --></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path_str</td><td>license file path. </td></tr>
@@ -356,15 +449,22 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>update_license result, 0 for success, 1 for failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00056">56</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>    <span class="keyword">def </span><a class="code hl_function" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a>(self, path_str: str):</div>
-<div class="line"><span class="lineno">   57</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class license update function.</span></div>
-<div class="line"><span class="lineno">   58</span><span class="stringliteral">        </span><span class="preprocessor">@param</span> path_str license file path.</div>
-<div class="line"><span class="lineno">   59</span>        <span class="preprocessor">@return</span>  update_license result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
-<div class="line"><span class="lineno">   60</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   61</span><span class="stringliteral">        path_char = ctypes.c_char_p(path_str.encode(&#39;utf-8&#39;</span>))</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> self.lib.<a class="code hl_function" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a>(self.handle, path_char)</div>
-<div class="line"><span class="lineno">   63</span> </div>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00069">69</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>    <span class="keyword">def </span><a class="code hl_function" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a>(self, path_str: str):</div>
+<div class="line"><span class="lineno">   70</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class license update function.</span></div>
+<div class="line"><span class="lineno">   71</span><span class="stringliteral">        </span><span class="preprocessor">@see</span></div>
+<div class="line"><span class="lineno">   72</span>         示例代码如下</div>
+<div class="line"><span class="lineno">   73</span>         <span class="preprocessor">@code</span></div>
+<div class="line"><span class="lineno">   74</span>            license_path = <span class="stringliteral">&quot;tests/assets/licenses/registed/windows_registed_info.aisl&quot;</span></div>
+<div class="line"><span class="lineno">   75</span>            ret = deploy_obj.update_license(license_path)</div>
+<div class="line"><span class="lineno">   76</span>         <span class="preprocessor">@endcode</span></div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>        <span class="preprocessor">@param</span> path_str license file path.</div>
+<div class="line"><span class="lineno">   79</span>        <span class="preprocessor">@return</span>  update_license result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
+<div class="line"><span class="lineno">   80</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   81</span><span class="stringliteral">        path_char = ctypes.c_char_p(path_str.encode(&#39;utf-8&#39;</span>))</div>
+<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">return</span> self.lib.<a class="code hl_function" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a>(self.handle, path_char)</div>
+<div class="line"><span class="lineno">   83</span> </div>
 <div class="ttc" id="ainterface_8h_html_a1c124301160a2ffac536867beab5b95a"><div class="ttname"><a href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a></div><div class="ttdeci">AisDeployC_API int update_license(void *base, const char *path)</div><div class="ttdoc">更新授权文件信息</div></div>
 </div><!-- fragment -->
 </div>
@@ -382,7 +482,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00026">26</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00032">32</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
 
 </div>
 </div>
@@ -398,7 +498,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00021">21</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00027">27</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
 
 </div>
 </div>
