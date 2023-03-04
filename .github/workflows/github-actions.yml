@@ -34,7 +34,7 @@ jobs:
       - name: make
         run: cd build && make -j8
       - name: copy libs
-        run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && cp -f /home/N3_3090U5/projects/actions-runner/_work/AisDeployC/AisDeployC/build/*.so ./
+        run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && cp -f /home/N3_3090U5/projects/actions-runner/_work/AisDeployC/AisDeployC/build/*.so* ./
       - name: Run Test
         run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && CUDA_VISIBLE_DEVICES=3 ./basic
       - name: Run PyTest
