@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 project(AisDeployC-Demo)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
