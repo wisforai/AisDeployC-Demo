@@ -1,6 +1,39 @@
 name: github-actions
 on: [push]
 jobs:
+  release-linux-gpu:
+    name: Linux GPU Release to Github Releases
+    runs-on: self-hosted-linux
+    if: startsWith(github.ref_name,'v')
+    needs: actions-build-test-linux-gpu
+    steps:
+      - name: Archive Release
+        run: |
+          rm -rf release.zip
+          cd build
+          cp /home/N3_3090U5/packages/onnxruntime-linux-x64-gpu-1.8.1/lib/libonnxruntime*.so* ./
+          cp /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.* ./
+          cp /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.* ./
+          cp /usr/lib/x86_64-linux-gnu/libopencv_core.so.* ./
+          zip -r ../release.zip ./*.so* && cd -
+      - name: Create Github Release
+        id: create-new-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: AisDeployC ${{ github.ref_name }}
+      - name: Upload asset to Github Release
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-new-release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./release.zip
+          asset_name: AisDeployC-linux-x64-gpu-${{ github.ref_name }}.zip
+          asset_content_type: application/zip
   actions-build-test-windows-gpu:
     runs-on: self-hosted
     steps:
