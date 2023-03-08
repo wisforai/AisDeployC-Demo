@@ -1,11 +1,54 @@
 name: github-actions
 on: [push]
 jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref_name,'v')
+    needs: [ actions-build-test-windows-gpu, actions-build-test-linux-gpu ]
+    outputs:
+      upload_url: ${{ steps.create-new-release.outputs.upload_url }}
+    steps:
+      - name: Create Github Release
+        id: create-new-release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: AisDeployC ${{ github.ref_name }}
+
+  release-windows-gpu:
+    name: Windows GPU Release to Github Releases
+    runs-on: self-hosted-windows
+    if: startsWith(github.ref_name,'v')
+    needs: create-release
+    steps:
+      - name: Copy Engine DLL
+        run: |
+          XCOPY E:\\onnxruntime-win-gpu-x64-1.8.1\*.dll cmake-build-release /s/e/y 
+          CD cmake-build-release
+      - name: Archive Release
+        uses: vimtor/action-zip@v1
+        with:
+          files: cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll
+          dest: release.zip
+      - name: Upload asset to Github Release
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./release.zip
+          asset_name: AisDeployC-windows-x64-gpu-${{ github.ref_name }}.zip
+          asset_content_type: application/zip
+
   release-linux-gpu:
     name: Linux GPU Release to Github Releases
     runs-on: self-hosted-linux
     if: startsWith(github.ref_name,'v')
-    needs: actions-build-test-linux-gpu
+    needs: create-release
     steps:
       - name: Archive Release
         run: |
@@ -30,10 +73,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create-new-release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: ./release.zip
           asset_name: AisDeployC-linux-x64-gpu-${{ github.ref_name }}.zip
           asset_content_type: application/zip
+
   actions-build-test-windows-gpu:
     runs-on: self-hosted
     steps:
@@ -55,6 +99,7 @@ jobs:
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
           py.test tests/test_interface.py -s
+
   actions-build-test-linux-gpu:
     runs-on: self-hosted-linux
     steps:
