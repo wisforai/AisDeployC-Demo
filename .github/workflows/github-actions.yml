@@ -71,7 +71,7 @@ jobs:
           asset_content_type: application/zip
 
   actions-build-test-windows-gpu:
-    runs-on: self-hosted
+    runs-on: self-hosted-windows
     steps:
       - uses: actions/checkout@v3
       - name: cmake
