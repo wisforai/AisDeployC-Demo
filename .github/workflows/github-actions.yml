@@ -90,7 +90,7 @@ jobs:
       - name: Run PyTest
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
-          py.test tests/test_interface.py -s
+          python -m pytest -s tests/test_interface.py 
 
   actions-build-test-linux-gpu:
     runs-on: self-hosted-linux
