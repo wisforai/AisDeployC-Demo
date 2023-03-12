@@ -29,17 +29,15 @@ def imageObjectDetect():
         params = request.form
 
     # 请求参数
-    appKey = params.get("appKey")
+    # appKey = params.get("appKey")
     image_base64 = params.get("image_base64", None)  # 接收base64编码的图片
 
     if image_base64:
         file_json = {"type": "base64", "data": image_base64, "ch":3}
         input_json = {"data_list": [file_json]}
         ret_val = deploy_obj.process(input_json)
-        print(ret_val)
+
         data["result"] = ret_val
-
-
         data["code"] = 1000
         data["msg"] = "[INFO] success. {}".format(__name__)
 
