@@ -4,7 +4,7 @@ import ctypes
 import json
 import platform
 
-AisDeployCVersion="v0.2.0"
+AisDeployCVersion="v0.2.1"
 
 class AisDeployC():
     """
@@ -64,6 +64,10 @@ class AisDeployC():
         self.lib.py_get_json_str_results.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
         self.lib.py_free_result.argtypes = [ctypes.c_char_p]
         self.lib.release.argtypes = [ctypes.c_void_p]
+        self.lib.py_load_keys_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]
+        self.lib.py_load_keys_embeddings.restype = ctypes.c_int
+        self.lib.py_compare_with_ground_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
+
         return ret.value
 
     def update_license(self, path_str: str):
@@ -122,7 +126,7 @@ class AisDeployC():
          @endcode
 
         @param input_json input json like dict.
-        @return  process result, 0 for success, 1 for failure.
+        @return  process result, output_json output json like dict. for success, None for failure.
         """
         if self.handle is None:
             print("[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.")
@@ -137,6 +141,67 @@ class AisDeployC():
         ret = self.lib.py_get_json_str_results( self.handle, ctypes.pointer(ret_char_c), None )
         if ret != 0:
             print("[ERROR] py_get_json_str_results failed in  AisDeployC. maybe lack py_process_json_str.")
+            return None
+        ret_str = ret_char_c.value.decode("utf-8")
+        ret_value = json.loads(ret_str)
+        self.lib.py_free_result(ret_char_c)
+        return ret_value
+
+    def load_keys_embeddings(self, input_json: dict):
+        """! The AisDeployC class load_keys_embeddings function.
+        @see
+         batch=1 示例代码如下
+         @code
+            import json
+            key = ""
+            value = list()
+            file_json = {"key": key, "embedding_vector":value}
+            input_json = {"data_list": [file_json]}
+
+            ret_val = deploy_obj.load_keys_embeddings(input_json)
+         @endcode
+
+        @param input_json input json like dict.
+        @return  process result, 0 for success, 1 for failure.
+        """
+        if self.handle is None:
+            print("[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.")
+            return None
+
+        data_str = json.dumps(input_json)
+        data_char = ctypes.c_char_p(data_str.encode('utf-8'))
+
+        ret = self.lib.py_load_keys_embeddings(self.handle, data_char, len(data_str))
+        if ret != 0:
+            print("[ERROR] load_keys_embeddings failed in  AisDeployC. maybe check input of process.")
+            return None
+        return ret
+
+    def compare_with_ground_embeddings(self, input_json: dict):
+        """! The AisDeployC class compare_with_ground_embeddings function.
+        @see
+         示例代码如下
+         @code
+            import json
+            value = list()
+            file_json = {"embedding_vector":value}
+            input_json = {"data_list": [file_json]}
+
+            ret_val = deploy_obj.process(input_json)
+         @endcode
+
+        @param input_json input json like dict.
+        @return  process result, output_json output json like dict. for success, None for failure.
+        """
+        if self.handle is None:
+            print("[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.")
+            return None
+        data_str = json.dumps(input_json)
+        data_char = ctypes.c_char_p(data_str.encode('utf-8'))
+        ret_char_c = ctypes.c_char_p()
+        ret = self.lib.py_compare_with_ground_embeddings(self.handle, data_char, len(data_str), ctypes.pointer(ret_char_c), None )
+        if ret != 0:
+            print("[ERROR] compare_with_ground_embeddings failed in  AisDeployC. maybe check input of process.")
             return None
         ret_str = ret_char_c.value.decode("utf-8")
         ret_value = json.loads(ret_str)
