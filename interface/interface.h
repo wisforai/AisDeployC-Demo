@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.2.0";
+const std::string AisDeployCVersion="v0.2.1";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -516,5 +516,116 @@ AisDeployC_API int py_get_json_str_results(void *base, char **output, int *outpu
 *  @return 执行结果，0表示检查成功，否则检查失败
 */
 AisDeployC_API int py_free_result(char *output);
+
+/**
+*  @brief 获得每个批次的图像特征嵌入
+*
+*  @details
+*   在实例计算结束后，获得每个批次的图像特征嵌入
+*  @see
+*  示例代码如下
+*  @code
+    std::vector<std::vector<float>> & per_batch_embeddings;
+    int ret = get_per_batch_embeddings(ptrDeploy, per_batch_embeddings);
+*  @endcode
+*  @param base  initialize返回的模型指针
+*  @param per_batch_embeddings  获得每个批次的实例的图像特征嵌入
+*  @return 执行结果，0表示执行成功，否则执行失败
+*/
+AisDeployC_API  int get_per_batch_embeddings(
+        void *base,
+        std::vector<std::vector<float>> & per_batch_embeddings
+);
+
+
+/**
+*  @brief 批量加载 字段 和 特征嵌入 对
+*
+*  @details
+*   批量加载 字段 和 特征嵌入 对，形成底库
+*  @see
+*  示例代码如下
+*  @code
+    int ret = load_keys_embeddings(ptrDeploy, vec_keys, vec_embeddings);
+*  @endcode
+*  @param base  initialize返回的模型指针
+*  @param vec_keys  批量的字段
+*  @param vec_embeddings  批量的特征嵌入
+*  @return 执行结果，0表示执行成功，否则执行失败
+*/
+AisDeployC_API  int load_keys_embeddings(
+        void *base,
+        std::vector<std::string> & vec_keys,
+        std::vector<std::vector<float>> & vec_embeddings
+);
+
+
+/**
+*  @brief 将特征嵌入与底库内的特征嵌入进行比较
+*
+*  @details
+*   将特征嵌入与底库内的特征嵌入进行比较，获得比较结果（字段与对应的置信度）
+*  @see
+*  示例代码如下
+*  @code
+    int ret = compare_with_ground_embeddings(ptrDeploy, vec_keys, vec_embeddings);
+*  @endcode
+*  @param base  initialize返回的模型指针
+*  @param vec_embeddings  批量的特征嵌入，维度记为N维
+*  @param ground_keys  底库中的字段，维度记为M维
+*  @param vec_scores  比较的阈值结果，如果比较的vec_embeddings是N维，底库的长度是M维，则输出的vec_scores的维度是NxM
+*  @return 执行结果，0表示执行成功，否则执行失败
+*/
+AisDeployC_API  int compare_with_ground_embeddings(
+        void *base,
+        std::vector<std::vector<float>> & vec_embeddings,
+        std::vector<std::string> & ground_keys,
+        std::vector<std::vector<float>> & vec_scores
+);
+
+
+/**
+*  @brief python使用的批量 字段 和 特征嵌入 对，与底库中特征嵌入做比对，json string输入格式的接口,json string输出格式的接口
+*
+*  @details
+*   python使用的批量 字段 和 特征嵌入 对，与底库中特征嵌入做比对，json string输入格式的接口,json string输出格式的接口
+ *  @see
+ *  示例代码如下
+ *  @code
+    key = ""
+    value = list()
+    file_json = {"embedding_vector":value}
+    input_json = {"data_list": [file_json]}
+    data_str = json.dumps(input_json)
+    data_char = ctypes.c_char_p(data_str.encode('utf-8'))
+    ret_char_c = ctypes.c_char_p()
+    ret = lib.py_compare_with_ground_embeddings(handle, data_char, len(data_str), ret_char_c, None)
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+ *  @param input  输入json string (const char *)
+ *  @param input_size 输入json string长度
+ *  @param output  输出json string (char **)
+ *  @param output_size 输出json string长度
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int py_compare_with_ground_embeddings(void *base, const char *input, int input_size, char **output, int *output_size);
+
+/**
+*  @brief python使用的获取json string输出格式的接口
+*
+*  @details
+*   python使用的获取json string输出格式的接口,一般需要先经过initialize, py_process_json_str
+ *  @see
+ *  示例代码如下
+ *  @code
+ *      ret_char_c = ctypes.c_char_p()
+ *      ret = lib.py_get_json_str_results(handle, ret_char_c, None)
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+ *  @param output  输出json string (char **)
+ *  @param output_size 输出json string长度
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int py_get_json_str_results(void *base, char **output, int *output_size);
 
 #endif //AISDEPLOYC_INTERFACE_H
