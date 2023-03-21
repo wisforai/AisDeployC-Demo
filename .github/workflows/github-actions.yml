@@ -28,10 +28,13 @@ jobs:
         run: |
           XCOPY E:\\onnxruntime-win-gpu-x64-1.8.1\*.dll cmake-build-release /s/e/y 
           CD cmake-build-release
+      - name: Copy AisDeployC lib
+        run: |
+          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\*.lib cmake-build-release /s/e/y
       - name: Archive Release
         uses: vimtor/action-zip@v1
         with:
-          files: cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll
+          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll
           dest: release.zip
       - name: Upload asset to Github Release
         id: upload-release-asset
