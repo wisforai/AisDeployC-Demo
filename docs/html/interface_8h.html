@@ -83,6 +83,8 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbounding__box.html">bounding_box</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclassification.html">classification</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -93,6 +95,8 @@ Macros</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a34e5d2f0127c9ae41d0ba48de7c4a9c8"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structbounding__box.html">bounding_box</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a34e5d2f0127c9ae41d0ba48de7c4a9c8">bounding_box</a></td></tr>
 <tr class="separator:a34e5d2f0127c9ae41d0ba48de7c4a9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f62c8ca3d627d763801f1922e6444b4"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structclassification.html">classification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a6f62c8ca3d627d763801f1922e6444b4">classification</a></td></tr>
+<tr class="separator:a6f62c8ca3d627d763801f1922e6444b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -165,10 +169,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a8c33a77b679f7b43b534ea91727bb605"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a8c33a77b679f7b43b534ea91727bb605">py_compare_with_ground_embeddings</a> (void *base, const char *input, int input_size, char **output, int *output_size)</td></tr>
 <tr class="memdesc:a8c33a77b679f7b43b534ea91727bb605"><td class="mdescLeft">&#160;</td><td class="mdescRight">python使用的批量 字段 和 特征嵌入 对，与底库中特征嵌入做比对，json string输入格式的接口,json string输出格式的接口  <a href="interface_8h.html#a8c33a77b679f7b43b534ea91727bb605">More...</a><br /></td></tr>
 <tr class="separator:a8c33a77b679f7b43b534ea91727bb605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a3ad727e09ef5c0e03a606d71958aea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a1a3ad727e09ef5c0e03a606d71958aea">get_per_batch_classification</a> (void *base, std::vector&lt; <a class="el" href="structclassification.html">classification</a> &gt; &amp;per_batch_cls)</td></tr>
+<tr class="memdesc:a1a3ad727e09ef5c0e03a606d71958aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的分类结果  <a href="interface_8h.html#a1a3ad727e09ef5c0e03a606d71958aea">More...</a><br /></td></tr>
+<tr class="separator:a1a3ad727e09ef5c0e03a606d71958aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.2.1&quot;</td></tr>
+<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.2.2&quot;</td></tr>
 <tr class="separator:abd63dd08f15633a94d93f45f0869c598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -197,6 +204,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">typedef struct <a class="el" href="structbounding__box.html">bounding_box</a> <a class="el" href="structbounding__box.html">bounding_box</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f62c8ca3d627d763801f1922e6444b4" name="a6f62c8ca3d627d763801f1922e6444b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f62c8ca3d627d763801f1922e6444b4">&#9670;&nbsp;</a></span>classification</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structclassification.html">classification</a> <a class="el" href="structclassification.html">classification</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -574,6 +595,48 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
     <tr><td class="paramname">out_categories</td><td>用来接收类别列表变量 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示执行成功，否则执行失败 </dd></dl>
+
+</div>
+</div>
+<a id="a1a3ad727e09ef5c0e03a606d71958aea" name="a1a3ad727e09ef5c0e03a606d71958aea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a3ad727e09ef5c0e03a606d71958aea">&#9670;&nbsp;</a></span>get_per_batch_classification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_per_batch_classification </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structclassification.html">classification</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>per_batch_cls</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获得每个批次的分类结果 </p>
+<p >在实例计算结束后，获得每个批次的分类结果 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;classification&gt; per_batch_cls;</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a1a3ad727e09ef5c0e03a606d71958aea">get_per_batch_classification</a>(ptrDeploy, per_batch_cls);</div>
+<div class="ttc" id="ainterface_8h_html_a1a3ad727e09ef5c0e03a606d71958aea"><div class="ttname"><a href="interface_8h.html#a1a3ad727e09ef5c0e03a606d71958aea">get_per_batch_classification</a></div><div class="ttdeci">AisDeployC_API int get_per_batch_classification(void *base, std::vector&lt; classification &gt; &amp;per_batch_cls)</div><div class="ttdoc">获得每个批次的分类结果</div></div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+    <tr><td class="paramname">per_batch_cls</td><td>获得每个批次的分类结果，分类结果使用结构体classification表达 </td></tr>
   </table>
   </dd>
 </dl>
@@ -1330,7 +1393,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string AisDeployCVersion =&quot;v0.2.1&quot;</td>
+          <td class="memname">const std::string AisDeployCVersion =&quot;v0.2.2&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

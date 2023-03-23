@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.2.1";
+const std::string AisDeployCVersion="v0.2.2";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -25,6 +25,14 @@ typedef struct bounding_box
     float ymax = 0;                   // 目标bbox位置 右下角 纵坐标
 
 }bounding_box;
+
+typedef struct classification
+{
+
+    std::string category = "";        // 类别名称，根据配置文件得到
+    float score = 0.;                  // 置信度
+
+}classification;
 
 /**
 *  @brief 检查当前库版本号与头文件版本号是否一致
@@ -627,5 +635,26 @@ AisDeployC_API int py_compare_with_ground_embeddings(void *base, const char *inp
 *  @return 执行结果，0表示检查成功，否则检查失败
 */
 AisDeployC_API int py_get_json_str_results(void *base, char **output, int *output_size);
+
+
+/**
+*  @brief 获得每个批次的分类结果
+*
+*  @details
+*   在实例计算结束后，获得每个批次的分类结果
+*  @see
+*  示例代码如下
+*  @code
+    std::vector<classification> per_batch_cls;
+    int ret = get_per_batch_classification(ptrDeploy, per_batch_cls);
+*  @endcode
+*  @param base  initialize返回的模型指针
+*  @param per_batch_cls  获得每个批次的分类结果，分类结果使用结构体classification表达
+*  @return 执行结果，0表示执行成功，否则执行失败
+*/
+AisDeployC_API  int get_per_batch_classification(
+        void *base,
+        std::vector<classification> & per_batch_cls
+);
 
 #endif //AISDEPLOYC_INTERFACE_H
