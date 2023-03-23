@@ -161,6 +161,40 @@ def test_interface_image_embedding():
 
     print(ret_val)
 
+def test_interface_cls():
+
+
+    deploy_obj = AisDeployC(lib_path)
+
+    path_str = "tests/assets/models/cifar_cls_setting.aism"
+    gpu_id = 0
+    ret = deploy_obj.model_initialize(path_str, gpu_id)
+    assert ret == 0
+
+    ret = deploy_obj.update_license(license_path)
+
+
+    # process batch=1
+    imgPth = "tests/assets/images/automobile10.png"
+    f= open(imgPth, 'rb')
+    qrcode = base64.b64encode(f.read()).decode()
+    f.close()
+    file_json = {"type": "base64", "data": qrcode, "ch":3}
+    input_json = {"data_list": [file_json]}
+
+    ret_val = deploy_obj.process(input_json)
+
+    # process batch=2
+    imgPth = "tests/assets/images/ship10.png"
+    f= open(imgPth, 'rb')
+    qrcode = base64.b64encode(f.read()).decode()
+    f.close()
+    file_json = {"type": "base64", "data": qrcode, "ch":3}
+    input_json["data_list"].append(file_json)
+
+    ret_val = deploy_obj.process(input_json)
+    print(ret_val)
+
 
 
 
