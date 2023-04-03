@@ -172,10 +172,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a1a3ad727e09ef5c0e03a606d71958aea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a1a3ad727e09ef5c0e03a606d71958aea">get_per_batch_classification</a> (void *base, std::vector&lt; <a class="el" href="structclassification.html">classification</a> &gt; &amp;per_batch_cls)</td></tr>
 <tr class="memdesc:a1a3ad727e09ef5c0e03a606d71958aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的分类结果  <a href="interface_8h.html#a1a3ad727e09ef5c0e03a606d71958aea">More...</a><br /></td></tr>
 <tr class="separator:a1a3ad727e09ef5c0e03a606d71958aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9dc9c76b787d72b78ff16c88ad73553"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ab9dc9c76b787d72b78ff16c88ad73553">get_per_batch_pose_estimation</a> (void *base, std::vector&lt; std::vector&lt; std::vector&lt; float &gt; &gt; &gt; &amp;per_batch_pose)</td></tr>
+<tr class="memdesc:ab9dc9c76b787d72b78ff16c88ad73553"><td class="mdescLeft">&#160;</td><td class="mdescRight">获得每个批次的姿态估计结果  <a href="interface_8h.html#ab9dc9c76b787d72b78ff16c88ad73553">More...</a><br /></td></tr>
+<tr class="separator:ab9dc9c76b787d72b78ff16c88ad73553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.2.2&quot;</td></tr>
+<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.2.3&quot;</td></tr>
 <tr class="separator:abd63dd08f15633a94d93f45f0869c598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -812,6 +815,48 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ab9dc9c76b787d72b78ff16c88ad73553" name="ab9dc9c76b787d72b78ff16c88ad73553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9dc9c76b787d72b78ff16c88ad73553">&#9670;&nbsp;</a></span>get_per_batch_pose_estimation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int get_per_batch_pose_estimation </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; std::vector&lt; float &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>per_batch_pose</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获得每个批次的姿态估计结果 </p>
+<p >在实例计算结束后，获得每个批次的姿态估计结果 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">std::vector&lt;std::vector&lt;std::vector&lt;float&gt;&gt;&gt; per_batch_pose;</div>
+<div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#ab9dc9c76b787d72b78ff16c88ad73553">get_per_batch_pose_estimation</a>(ptrDeploy, per_batch_pose);</div>
+<div class="ttc" id="ainterface_8h_html_ab9dc9c76b787d72b78ff16c88ad73553"><div class="ttname"><a href="interface_8h.html#ab9dc9c76b787d72b78ff16c88ad73553">get_per_batch_pose_estimation</a></div><div class="ttdeci">AisDeployC_API int get_per_batch_pose_estimation(void *base, std::vector&lt; std::vector&lt; std::vector&lt; float &gt; &gt; &gt; &amp;per_batch_pose)</div><div class="ttdoc">获得每个批次的姿态估计结果</div></div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+    <tr><td class="paramname">per_batch_pose</td><td>获得每个批次的姿态估计结果，姿态估计结果结果使用std::vector&lt;float&gt;表示，其中每个float表示一个关键点的坐标{x, y} </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示执行成功，否则执行失败 </dd></dl>
+
+</div>
+</div>
 <a id="aecd38970c14860052c0294eae27ab837" name="aecd38970c14860052c0294eae27ab837"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aecd38970c14860052c0294eae27ab837">&#9670;&nbsp;</a></span>get_per_category_binary_masks()</h2>
 
@@ -1393,7 +1438,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string AisDeployCVersion =&quot;v0.2.2&quot;</td>
+          <td class="memname">const std::string AisDeployCVersion =&quot;v0.2.3&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

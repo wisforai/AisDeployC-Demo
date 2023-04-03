@@ -11,11 +11,13 @@ import cv2
 def parse_args():
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("--image_path", default="", type=str, required=True, help="image_path")
+    parser.add_argument("--gateway_host", default="", type=str, required=True, help="gateway_host")
     args = parser.parse_args()
     return args
 
 def work(kwargs):
     filename = kwargs.get("image_path")
+    gateway_host = kwargs.get("gateway_host")
 
     appKey = "s84dsd#7hf34r3jsk@fs$d#$dd"
     backend_host = "http://127.0.0.1:9003"
@@ -28,7 +30,7 @@ def work(kwargs):
         image_base64 = base64.b64encode(encoded_image_byte)
         image_base64 = image_base64.decode("utf-8")  # str类型
 
-        url = '%s/image/objectDetect'%backend_host
+        url = '{}/{}'.format(backend_host, gateway_host)
 
         t1 = time.time()
         params = {
@@ -52,6 +54,7 @@ def main():
     args = parse_args()
     input_kwargs = dict(
         image_path = args.image_path,
+        gateway_host = args.gateway_host,
     )
     work(input_kwargs)
 
