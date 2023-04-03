@@ -107,8 +107,8 @@ jobs:
       - name: make
         run: cd build && make -j8
       - name: copy libs
-        run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && cp -f /home/N3_3090U5/projects/actions-runner/_work/AisDeployC/AisDeployC/build/*.so* ./
+        run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && cp -f /home/tzvtc/projects/actions-runner/_work/AisDeployC/AisDeployC/build/*.so* ./
       - name: Run Test
-        run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && CUDA_VISIBLE_DEVICES=3 ./basic
+        run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && CUDA_VISIBLE_DEVICES=0 ./basic
       - name: Run PyTest
-        run: cd /home/N3_3090U5/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/&& cp -f ./build/*.so* ./ && CUDA_VISIBLE_DEVICES=3 python -m pytest -s tests/test_interface.py
+        run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/&& cp -f ./build/*.so* ./ && CUDA_VISIBLE_DEVICES=0 python3 -m pytest -s tests/test_interface.py
