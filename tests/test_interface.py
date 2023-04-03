@@ -106,7 +106,7 @@ def test_interface_image_embedding():
     elif "Windows" in platform.platform():
         path_str = "E:\\LargeFiles\\face_embedding_r27_setting.aism"
     elif "Linux" in platform.platform():
-        path_str = "/home/N3_3090U5/data/LargeFiles/face_embedding_r27_setting.aism"
+        path_str = "/home/tzvtc/data/LargeFiles/face_embedding_r27_setting.aism"
 
     deploy_obj = AisDeployC(lib_path)
 
@@ -166,7 +166,15 @@ def test_interface_cls():
 
     deploy_obj = AisDeployC(lib_path)
 
-    path_str = "tests/assets/models/cifar_cls_setting.aism"
+    path_str = None
+    if "macOS" in platform.platform():
+        path_str = "/Users/zhoujinghui/CLionProjects/LargeFiles/face_embedding_r27_setting.aism"
+    elif "Windows" in platform.platform():
+        path_str = "E:\\LargeFiles\\face_embedding_r27_setting.aism"
+    elif "Linux" in platform.platform():
+        path_str = "/home/tzvtc/data/LargeFiles/face_embedding_r27_setting.aism"
+
+
     gpu_id = 0
     ret = deploy_obj.model_initialize(path_str, gpu_id)
     assert ret == 0
@@ -175,7 +183,7 @@ def test_interface_cls():
 
 
     # process batch=1
-    imgPth = "tests/assets/images/automobile10.png"
+    imgPth = "tests/assets/images/A.jpeg"
     f= open(imgPth, 'rb')
     qrcode = base64.b64encode(f.read()).decode()
     f.close()
@@ -185,7 +193,47 @@ def test_interface_cls():
     ret_val = deploy_obj.process(input_json)
 
     # process batch=2
-    imgPth = "tests/assets/images/ship10.png"
+    imgPth = "tests/assets/images/B.jpeg"
+    f= open(imgPth, 'rb')
+    qrcode = base64.b64encode(f.read()).decode()
+    f.close()
+    file_json = {"type": "base64", "data": qrcode, "ch":3}
+    input_json["data_list"].append(file_json)
+
+    ret_val = deploy_obj.process(input_json)
+    print(ret_val)
+
+def test_interface_pose():
+
+
+    deploy_obj = AisDeployC(lib_path)
+
+    path_str = None
+    if "macOS" in platform.platform():
+        path_str = "/Users/zhoujinghui/CLionProjects/LargeFiles/human_pose_est_17p_r50.aism"
+    elif "Windows" in platform.platform():
+        path_str = "E:\\LargeFiles\\human_pose_est_17p_r50.aism"
+    elif "Linux" in platform.platform():
+        path_str = "/home/tzvtc/data/LargeFiles/human_pose_est_17p_r50.aism"
+    gpu_id = 0
+    ret = deploy_obj.model_initialize(path_str, gpu_id)
+    assert ret == 0
+
+    ret = deploy_obj.update_license(license_path)
+
+
+    # process batch=1
+    imgPth = "tests/assets/images/human-pose.jpg"
+    f= open(imgPth, 'rb')
+    qrcode = base64.b64encode(f.read()).decode()
+    f.close()
+    file_json = {"type": "base64", "data": qrcode, "ch":3}
+    input_json = {"data_list": [file_json]}
+
+    ret_val = deploy_obj.process(input_json)
+
+    # process batch=2
+    imgPth = "tests/assets/images/skateboarder-orig.jpeg"
     f= open(imgPth, 'rb')
     qrcode = base64.b64encode(f.read()).decode()
     f.close()

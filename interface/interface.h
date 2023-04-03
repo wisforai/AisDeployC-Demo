@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.2.2";
+const std::string AisDeployCVersion="v0.2.3";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -655,6 +655,26 @@ AisDeployC_API int py_get_json_str_results(void *base, char **output, int *outpu
 AisDeployC_API  int get_per_batch_classification(
         void *base,
         std::vector<classification> & per_batch_cls
+);
+
+/**
+*  @brief 获得每个批次的姿态估计结果
+*
+*  @details
+*   在实例计算结束后，获得每个批次的姿态估计结果
+*  @see
+*  示例代码如下
+*  @code
+    std::vector<std::vector<std::vector<float>>> per_batch_pose;
+    int ret = get_per_batch_pose_estimation(ptrDeploy, per_batch_pose);
+*  @endcode
+*  @param base  initialize返回的模型指针
+*  @param per_batch_pose  获得每个批次的姿态估计结果，姿态估计结果结果使用std::vector<float>表示，其中每个float表示一个关键点的坐标{x, y}
+*  @return 执行结果，0表示执行成功，否则执行失败
+*/
+AisDeployC_API  int get_per_batch_pose_estimation(
+        void *base,
+        std::vector<std::vector<std::vector<float>>>  & per_batch_pose
 );
 
 #endif //AISDEPLOYC_INTERFACE_H
