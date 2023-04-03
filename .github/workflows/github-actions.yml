@@ -9,6 +9,14 @@ jobs:
       - name: Create Build
         run: echo "Create Build"
 
+  smart-doc:
+    name: Smart Doc
+    runs-on: ubuntu-latest
+    if : startsWith(github.ref_name,'doc')
+    steps:
+      - name: Smart Doc
+        run: echo "Smart Doc"
+
   create-release:
     name: Create Release
     runs-on: ubuntu-latest
