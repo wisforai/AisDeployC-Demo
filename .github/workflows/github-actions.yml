@@ -1,6 +1,15 @@
 name: github-actions
 on: [push]
 jobs:
+  create-build:
+    name: Create Build
+    runs-on: ubuntu-latest
+    if: !startsWith(github.ref_name,'doc')
+    steps:
+      - name: Create Build
+          run: |
+          echo "Create Build"
+          echo "Build Number: ${{ github.run_number }}"
   create-release:
     name: Create Release
     runs-on: ubuntu-latest
@@ -75,6 +84,7 @@ jobs:
 
   actions-build-test-windows-gpu:
     runs-on: self-hosted-windows
+    needs: create-build
     steps:
       - uses: actions/checkout@v3
       - name: cmake
@@ -97,6 +107,7 @@ jobs:
 
   actions-build-test-linux-gpu:
     runs-on: self-hosted-linux
+    needs: create-build
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
