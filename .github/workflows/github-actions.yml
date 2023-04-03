@@ -9,7 +9,6 @@ jobs:
       - name: Create Build
           run: |
           echo "Create Build"
-          echo "Build Number: ${{ github.run_number }}"
   create-release:
     name: Create Release
     runs-on: ubuntu-latest
