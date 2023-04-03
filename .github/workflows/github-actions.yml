@@ -4,7 +4,7 @@ jobs:
   create-build:
     name: Create Build
     runs-on: ubuntu-latest
-    if: !startsWith(github.ref_name,'doc')
+    if : startsWith(github.ref_name,'doc') != true
     steps:
       - name: Create Build
         run: echo "Create Build"
