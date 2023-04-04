@@ -15,6 +15,7 @@
 #### 字符识别（OCR）
 
 ##### 字符分割 (char segmentation)
+
 <p align="center">
  <img src="./docs/assets/industry_ocr_seg.png">
 </p>
@@ -24,12 +25,14 @@
 | industry_ocr_seg | 工业OCR字符分割      | 链接: https://pan.baidu.com/s/1xYxZATyMScFstU3dkoHXzw?pwd=91n6 提取码: 91n6 |
 
 ##### 字符分类 (char classification)
+
 <p align="center">
  <img src="./docs/assets/industry_ocr_cls.jpeg">
 </p>
+
 | 名称 Name            | 描述 Description | 链接 Link                                                                |
 | ------------------ | -------------- | ---------------------------------------------------------------------- |
-| industry_ocr_recog | 工业OCR字符分类      | 链接: https://pan.baidu.com/s/1Zg2PFcrDq6eChMYn3fsETA?pwd=0pse 提取码: 0pse |
+| industry_ocr_recog | 工业OCR字符分类      | 链接: https://pan.baidu.com/s/1ZhfBMARR3JmYvCg654Yhjw?pwd=hj7e 提取码: hj7e |
 
 通用 (general)
 
@@ -48,6 +51,9 @@
 | face\-wider | 通用人脸检测         | 链接: https://pan.baidu.com/s/1ePv2JWleusR9Dah-0X4P5g 提取码: hvns |
 
 - 人脸识别（特征嵌入&比对） recognition（embedding&comparision）
+<p align="center">  
+  <img src="./docs/assets/face_embedding.png"> 
+</p>
 
 | 名称 Name            | 描述 Description | 链接 Link                                                                |
 | ------------------ | -------------- | ---------------------------------------------------------------------- |
@@ -56,6 +62,10 @@
 ##### 人体（person）
 
 - 检测 (det)
+
+<p align="center">  
+ <img src="./docs/assets/person_det.jpg">  
+</p>
 
 | 名称 Name      | 描述 Description | 链接 Link                                                       |
 | ------------ | -------------- | ------------------------------------------------------------- |
