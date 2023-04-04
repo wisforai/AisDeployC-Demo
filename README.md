@@ -15,13 +15,18 @@
 #### 字符识别（OCR）
 
 ##### 字符分割 (char segmentation)
+<p align="center">
+ <img src="./docs/assets/industry_ocr_seg.png">
+</p>
 
 | 名称 Name          | 描述 Description | 链接 Link                                                                |
 | ---------------- | -------------- | ---------------------------------------------------------------------- |
 | industry_ocr_seg | 工业OCR字符分割      | 链接: https://pan.baidu.com/s/1xYxZATyMScFstU3dkoHXzw?pwd=91n6 提取码: 91n6 |
 
 ##### 字符分类 (char classification)
-
+<p align="center">
+ <img src="./docs/assets/industry_ocr_cls.jpeg">
+</p>
 | 名称 Name            | 描述 Description | 链接 Link                                                                |
 | ------------------ | -------------- | ---------------------------------------------------------------------- |
 | industry_ocr_recog | 工业OCR字符分类      | 链接: https://pan.baidu.com/s/1Zg2PFcrDq6eChMYn3fsETA?pwd=0pse 提取码: 0pse |
