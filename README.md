@@ -4,11 +4,13 @@
 
 ### Introduction and Description（介绍和说明）
 
+<p align="center">
+ <img src="./docs/assets/os_concat_logo.png">
+</p>
+
 - 本算法库发布Windows Linux 和 MacOs三个平台的库文件，目前支持C++和Python调用接口，具体接口文档在本页最下方链接中。本算法库会持续发布本算法库匹配的高精度算法模型和使用示例，算法库可以在本页ModelZoo中查找，使用示例在源文件的example当中。
 
-- This algorithm library is released on Windows, Linux, and MacOs platforms, and currently supports C++ and Python calling interfaces. The specific interface documents can be found at the bottom link of this page. This algorithm library will continue to release high-precision algorithm models and usage examples matched with this algorithm library, which can be found in the ModelZoo section of this page. The usage examples can be found in the "example" folder of the source files
-
-### Trial and Authorization（试用和授权）
+- This algorithm library is released on Windows, Linux, and MacOs platforms, and currently supports C++ and Python calling interfaces. The specific interface documents can be found at the bottom link of this page. This algorithm library will continue to release high-precision algorithm models and usage examples matched with this algorithm library, which can be found in the ModelZoo section of this page. The usage examples can be found in the "example" folder of the source files### Trial and Authorization（试用和授权）
 
 - 如果您想试用本算法库，请直接下载并进行试用。本算法库仅支持有限次数的调用，如果您超过了试用次数，将会自动保存未经授权的文件。如果您希望继续使用本算法库，请将文件和说明发送到我的电子邮箱。Email:  hit.zhou.j.h@gmail.com
 
