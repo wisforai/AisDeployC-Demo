@@ -41,12 +41,20 @@ INCLUDE_DIRECTORIES(interface/)
 
 
 
-
 set(target_name_basic "basic")
 ADD_EXECUTABLE(${target_name_basic} example/basic.cpp)
 
 if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     TARGET_LINK_LIBRARIES(${target_name_basic} ${LINK_FILES} ${LIBRARIES})
 else()
-    TARGET_LINK_LIBRARIES(${target_name_basic} ${LINK_FILES}  ${OpenCV_LIBS})
+    TARGET_LINK_LIBRARIES(${target_name_basic} ${LINK_FILES} ${LIBRARIES} ${OpenCV_LIBS})
+endif()
+
+set(target_name_basic "industrial_ocr")
+ADD_EXECUTABLE(${target_name_basic} example/industrial_ocr.cpp)
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+    TARGET_LINK_LIBRARIES(${target_name_basic} ${LINK_FILES} ${LIBRARIES})
+else()
+    TARGET_LINK_LIBRARIES(${target_name_basic} ${LINK_FILES} ${LIBRARIES} ${OpenCV_LIBS})
 endif()
