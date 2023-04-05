@@ -16,6 +16,72 @@
 
 - If you want to try this algorithm library, please download and try it directly. This algorithm library only supports limited number of calls. If you exceed the trial limit, unauthorized files will be automatically saved. If you want to continue using it, please send the files and instructions to my email.EMAIL: hit.zhou.j.h@gmail.com
 
+### Usage（使用方式)
+
+#### 1. Environments installation（环境安装）
+
+| Items           | Recommended version<br/>（推荐版本） | Resources<br/>（资源）                                                                                                                                                                                                                                                                        |
+| --------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System<br/>（系统） | Windows 10                     |                                                                                                                                                                                                                                                                                           |
+|                 | Ubuntu 18.04                   |                                                                                                                                                                                                                                                                                           |
+|                 | MacOS                          |                                                                                                                                                                                                                                                                                           |
+| CUDA            | 11.3                           | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cuda_11.3.0_465.89_win10.exe: https://pan.baidu.com/s/18AvyfSq-dUl7egc0CsGYKQ?pwd=j9q2 提取码: j9q2<br/>cuda_11.3.0_465.19.01_linux.run：链接: https://pan.baidu.com/s/1cdMCnZ1FoNv9eVrun39kLQ?pwd=mh6s 提取码: mh6s |
+| cudnn           | 8.8                            | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz：链接: https://pan.baidu.com/s/1S_4VYj63R3zCSJyGDQwsmg?pwd=bgvl 提取码: bgvl                                                                                   |
+
+#### 2. Downloads(下载)
+
+Please download the **latest library files** and **Demo source code** in Releases on the right side of the github homepage.
+
+（请在github主页右侧的Releases中下载**最新库文件**和**Demo源代码**。）
+
+- Library file naming method（库文件命名方式）：
+  
+  - linux：AisDeployC-linux-x64-gpu-version.zip
+  
+  - windows: AisDeployC-windows-x64-gpu-version.zip
+
+- Demo source code（源文件）：Source code (zip)
+
+#### 3. Start Running (开始运行)
+
+##### 3-a C++ Users (C++ 用户)
+
+- 修改CMakeLists.txt
+
+- Run Examples（运行示例）
+  
+  - example code path（示例代码路径）：[repo_root/example](https://github.com/JinghuiZhou/AisDeployC-Demo/tree/master/example)
+
+##### 3-b Python Users（Python 用户）
+
+- Run pytest examples（运行pytest示例）
+  
+  ```
+  python -m pytest -s tests/test_interface.py
+  ```
+
+- Optional api（可选，形成api）
+  
+  **Server:**
+  
+  ```
+  python example/api_server.py \
+   --lib_path build/libAisDeployC.so \
+   --port 9003 \
+   --model tests/assets/models/det_setting_oen.aism \
+   --license tests/assets/licenses/registed/linux_registed_info.aisl
+  ```
+  
+  **Client**
+
+  ```
+  python tests/test_api_server.py \
+   --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
+   --gateway_host /image/objectDetect
+  ```
+
+
+
 ### Issues and Bugs（问题和缺陷）
 
 - 如果您在使用本库时发现问题和缺陷，您可以直接在github上提issue，我们会尽快排查和修复。
