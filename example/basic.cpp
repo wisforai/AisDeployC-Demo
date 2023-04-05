@@ -8,7 +8,8 @@ using namespace std;
 using namespace cv;
 int main(int argc, char** argv) {
     void * ptrDeploy = nullptr;
-
+    // print this program's path and name
+    cout<<"[INFO] Now Process argv[0]: "<<argv[0]<<endl;
     cout<<"Step [0]: get_version and check_version."<<endl;
     std::string version = get_version();
     cout<<"\tVersion: "<<version<<endl;
