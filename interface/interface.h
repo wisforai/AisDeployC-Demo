@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.2.3";
+const std::string AisDeployCVersion="v0.2.4";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)

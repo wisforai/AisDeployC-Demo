@@ -107,6 +107,7 @@ jobs:
           COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC*.dll .\
           COPY E:\onnxruntime-win-gpu-x64-1.8.1\lib\onnxruntime*.dll .\
           .\basic.exe
+          .\industrial_ocr.exe
       - name: Run PyTest
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
@@ -127,6 +128,6 @@ jobs:
       - name: copy libs
         run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && cp -f /home/tzvtc/projects/actions-runner/_work/AisDeployC/AisDeployC/build/*.so* ./
       - name: Run Test
-        run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && CUDA_VISIBLE_DEVICES=0 ./basic
+        run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && CUDA_VISIBLE_DEVICES=0 ./basic && CUDA_VISIBLE_DEVICES=0 ./industrial_ocr
       - name: Run PyTest
         run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/&& cp -f ./build/*.so* ./ && CUDA_VISIBLE_DEVICES=0 python3 -m pytest -s tests/test_interface.py
