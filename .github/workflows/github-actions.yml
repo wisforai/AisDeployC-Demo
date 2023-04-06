@@ -73,7 +73,7 @@ jobs:
         run: |
           rm -rf release.zip
           cd build
-          cp /home/N3_3090U5/packages/onnxruntime-linux-x64-gpu-1.8.1/lib/libonnxruntime*.so* ./
+          cp /home/tzvtc/packages/onnxruntime-linux-x64-gpu-1.8.1/lib/libonnxruntime*.so* ./
           cp /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.* ./
           cp /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.* ./
           cp /usr/lib/x86_64-linux-gnu/libopencv_core.so.* ./
