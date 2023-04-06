@@ -25,6 +25,7 @@
 | System<br/>（系统） | Windows 10                     |                                                                                                                                                                                                                                                                                           |
 |                 | Ubuntu 18.04                   |                                                                                                                                                                                                                                                                                           |
 |                 | MacOS                          |                                                                                                                                                                                                                                                                                           |
+| IDE-Windows     | VS2017                         | 目前我们是使用VS2017编译的库，建议使用相同的版本                                                                                                                                                                                                                                                               |
 | CUDA            | 11.3                           | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cuda_11.3.0_465.89_win10.exe: https://pan.baidu.com/s/18AvyfSq-dUl7egc0CsGYKQ?pwd=j9q2 提取码: j9q2<br/>cuda_11.3.0_465.19.01_linux.run：链接: https://pan.baidu.com/s/1cdMCnZ1FoNv9eVrun39kLQ?pwd=mh6s 提取码: mh6s |
 | cudnn           | 8.8                            | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz：链接: https://pan.baidu.com/s/1S_4VYj63R3zCSJyGDQwsmg?pwd=bgvl 提取码: bgvl                                                                                   |
 
@@ -42,15 +43,36 @@ Please download the **latest library files** and **Demo source code** in Release
 
 - Demo source code（源文件）：Source code (zip)
 
+- 解压源代码，以下称为代码**工程目录**,假设目录地址为 your_dir/aisdeployc_demo
+
+- 解压库文件，解压到代码**工程目录**下，假设解压目录为 your_dir/aisdeployc_demo/build
+
 #### 3. Start Running (开始运行)
 
 ##### 3-a C++ Users (C++ 用户)
 
 - 修改CMakeLists.txt
+  
+  - 修改底层库ONNX地址，目前底层库打包在库文件文件夹中，所以这里选择解压后的库文件地址
+    
+    - 根据你的系统，修改set(ONNX_RUNTIME_PATH your_dir/aisdeployc_demo/build)
+    
+    - Linux修改[Linux修改处，第6行]([AisDeployC-Demo/CMakeLists.txt at master · JinghuiZhou/AisDeployC-Demo · GitHub](https://github.com/JinghuiZhou/AisDeployC-Demo/blob/master/CMakeLists.txt#L6))
+    
+    - Windows修改[Windows修改处，第14行](https://github.com/JinghuiZhou/AisDeployC-Demo/blob/master/CMakeLists.txt#L14)
+  
+  - 修改AisDeployC库链接地址，目前库打包在库文件文件夹中，所以这里选择解压后的库文件地址
+    
+    - 根据你的系统，修改set(LINK_DIRECTORIES your_dir/aisdeployc_demo/build)
+    
+    - Linux修改[Linux修改处，第9行]([[AisDeployC-Demo/CMakeLists.txt at master · JinghuiZhou/AisDeployC-Demo · GitHub](https://github.com/JinghuiZhou/AisDeployC-Demo/blob/master/CMakeLists.txt#L9)))
+    
+    - Windows修改[Windows修改处，第27行]([AisDeployC-Demo/CMakeLists.txt at master · JinghuiZhou/AisDeployC-Demo · GitHub](https://github.com/JinghuiZhou/AisDeployC-Demo/blob/master/CMakeLists.txt#L27))
 
 - Run Examples（运行示例）
   
   - example code path（示例代码路径）：[repo_root/example](https://github.com/JinghuiZhou/AisDeployC-Demo/tree/master/example)
+  - 可执行文件会生成在 your_dir/aisdeployc_demo/build 中
 
 ##### 3-b Python Users（Python 用户）
 
@@ -73,14 +95,12 @@ Please download the **latest library files** and **Demo source code** in Release
   ```
   
   **Client**
-
+  
   ```
   python tests/test_api_server.py \
    --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
    --gateway_host /image/objectDetect
   ```
-
-
 
 ### Issues and Bugs（问题和缺陷）
 
