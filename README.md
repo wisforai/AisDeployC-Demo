@@ -16,18 +16,36 @@
 
 - If you want to try this algorithm library, please download and try it directly. This algorithm library only supports limited number of calls. If you exceed the trial limit, unauthorized files will be automatically saved. If you want to continue using it, please send the files and instructions to my email.EMAIL: hit.zhou.j.h@gmail.com
 
+### FAQ
+
+[FAQ.md](docs/FAQ.md)
+
 ### Usage（使用方式)
 
 #### 1. Environments installation（环境安装）
 
-| Items           | Recommended version<br/>（推荐版本） | Resources<br/>（资源）                                                                                                                                                                                                                                                                        |
-| --------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| System<br/>（系统） | Windows 10                     |                                                                                                                                                                                                                                                                                           |
-|                 | Ubuntu 18.04                   |                                                                                                                                                                                                                                                                                           |
-|                 | MacOS                          |                                                                                                                                                                                                                                                                                           |
-| IDE-Windows     | VS2017                         | 目前我们是使用VS2017编译的库，建议使用相同的版本                                                                                                                                                                                                                                                               |
-| CUDA            | 11.3                           | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cuda_11.3.0_465.89_win10.exe: https://pan.baidu.com/s/18AvyfSq-dUl7egc0CsGYKQ?pwd=j9q2 提取码: j9q2<br/>cuda_11.3.0_465.19.01_linux.run：链接: https://pan.baidu.com/s/1cdMCnZ1FoNv9eVrun39kLQ?pwd=mh6s 提取码: mh6s |
-| cudnn           | 8.8                            | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz：链接: https://pan.baidu.com/s/1S_4VYj63R3zCSJyGDQwsmg?pwd=bgvl 提取码: bgvl                                                                                   |
+| Items           | Recommended version<br/>（推荐版本） | Resources<br/>（资源）                                                                                                                                                                                                                                                                                                                  |
+| --------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System<br/>（系统） | Windows 10                     |                                                                                                                                                                                                                                                                                                                                     |
+|                 | Ubuntu 18.04                   |                                                                                                                                                                                                                                                                                                                                     |
+|                 | MacOS                          |                                                                                                                                                                                                                                                                                                                                     |
+| IDE-Windows     | VS2017                         | 目前我们是使用VS2017编译的库，建议使用相同的版本                                                                                                                                                                                                                                                                                                         |
+| CUDA            | 11.3                           | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cuda_11.3.0_465.89_win10.exe: https://pan.baidu.com/s/18AvyfSq-dUl7egc0CsGYKQ?pwd=j9q2 提取码: j9q2<br/>cuda_11.3.0_465.19.01_linux.run：链接: https://pan.baidu.com/s/1cdMCnZ1FoNv9eVrun39kLQ?pwd=mh6s 提取码: mh6s                                           |
+| cudnn           | 8.8                            | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz：链接: https://pan.baidu.com/s/1S_4VYj63R3zCSJyGDQwsmg?pwd=bgvl 提取码: bgvl<br/>cudnn-windows-x86_64-8.8.1.3_cuda11-archive.zip: 链接: https://pan.baidu.com/s/11P64Ks8IDfxmvhAjPaCusg?pwd=3tdl 提取码: 3tdl |
+
+##### Cuda & Cudnn Install（Cuda Cudnn 安装）
+
+Windows:
+
+- Step1（步骤1）：Use cuda_11.3.0_465.89_win10.exe  to install, make sure to check if your Environment variables have the path to CUDA as belows. (使用cuda_11.3.0_465.89_win10.exe安装，确保您的环境变量设置如下)
+  
+  - CUDA_PATH  — -> C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0
+  
+  - CUDA_PATH_V11_03 — → C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0
+
+- Step2（步骤2）：Extract cudnn-windows-x86_64-8.8.1.3_cuda11-archive.zip（解压 udnn-windows-x86_64-8.8.1.3_cuda11-archive.zip）
+  
+  - Copy the contents of the cuDNN folder to the path where we installed CUDA in Step1. We need the contents of the **bin**, **include** & **lib** folders from cuDNN to be inside the **bin**, **include** and **lib** folders of the CUDA directory （将cuDNN中内容拷贝到步骤1中CUDA位置中，需要将bin include 和 lib文件夹中文件从cuDNN中拷贝到cuda文件夹中相应位置中）
 
 #### 2. Downloads(下载)
 
