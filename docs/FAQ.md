@@ -153,7 +153,7 @@ A: Visual Studio对于interface.h文件的编码格式问题
 
 A：
 
-onnxruntime版本冲突，系统可能有其他版本的onnxruntime，检查 C:\Windows\System32 是否有其他onnxruntime.dll；可能需要将本库中onnxruntime.dll覆盖到该路径下
+输入图像有问题，可能是imread的路径不存在
 
 ## Q: # C1083: 无法打开包括文件: “opencv2/opencv.hpp”: No such file or directory
 
