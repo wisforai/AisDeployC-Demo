@@ -18,7 +18,7 @@
 
 ### FAQ
 
-[FAQ.md](docs/FAQ.md)
+[FAQ.pdf](docs/FAQ.pdf)
 
 ### Usage（使用方式)
 
