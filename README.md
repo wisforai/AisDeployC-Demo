@@ -103,7 +103,7 @@ Please download the **latest library files** and **Demo source code** in Release
 
 - link lib files (链接 lib 库文件)
   
-  项⽬->项⽬属性-VC++⽬录-库⽬录，加入附加依赖项
+  项⽬->项⽬属性-链接器-输入，加入附加依赖项
   
   ```
   AisDeployC.lib
@@ -123,7 +123,11 @@ Please download the **latest library files** and **Demo source code** in Release
   zlib.lib
   ```
 
--  选择编译器，x64 Release，编译，生成的工作路径一般在 x64/Release
+- 选择编译器，x64 Release，编译，生成的工作路径一般在 x64/Release
+
+- 若出现 值“MT_StaticRelease”不匹配值“MD_DynamicRelease”
+  
+  - 属性-c/c++-代码⽣成-运⾏库中，改成（release为MT，debug为MTD）
 
 - 将库文件AisDeployC-windows-gpu-vxxx 中的lib拷贝到工作路径中
 
