@@ -67,7 +67,75 @@ Please download the **latest library files** and **Demo source code** in Release
 
 #### 3. Start Running (开始运行)
 
-##### 3-a C++ Users (C++ 用户)
+##### 3-a C++ Visual Studio sln Users (C++ Visual Studio sln 解决方案用户)
+
+- AisDeployC header （AisDeployC头文件）
+  
+  项⽬->项⽬属性->C/C+±>常规->附加包含⽬录，加入本工程路径，例如
+  
+  ```
+  xxxx/Desktop/AisDeployC-Demo
+  ```
+
+- opencv2 header （opencv 头文件）
+  
+  项⽬->项⽬属性->C/C+±>常规->附加包含⽬录，加入opencv2⽂件夹的⽗⽬录，例如
+  
+  ```
+  xxxx/Desktop/AisDeployC-Demo/thirdparty/opencv3/include
+  ```
+
+- add AisDeployC.lib （增加 AisDeployC.lib附加库目录）
+  
+  项⽬->项⽬属性-链接器-常规-附加库⽬录，加入AisDeployC.lib库所在的⽂件夹，例如
+  
+  ```
+  xxxx/Desktop/AisDeployC-windows-gpu-vxxx
+  ```
+
+- add opencv libs（增加 opencv库目录）
+  
+  项⽬->项⽬属性-VC++⽬录-库⽬录，加入opencv各lib库所在的文件夹，例如
+  
+  ```
+  xxxx/Desktop/AisDeployC-Demo/thirdparty/opencv3/lib/Windows
+  ```
+
+- link lib files (链接 lib 库文件)
+  
+  项⽬->项⽬属性-VC++⽬录-库⽬录，加入附加依赖项
+  
+  ```
+  AisDeployC.lib
+  IlmImf.lib
+  ippicvmt.lib
+  ippiw.lib
+  ittnotify.lib
+  libjasper.lib
+  libjpeg-turbo.lib
+  libpng.lib
+  libprotobuf.lib
+  libtiff.lib
+  libwebp.lib
+  opencv_imgproc3416.lib
+  opencv_imgcodecs3416.lib
+  opencv_core3416.lib
+  zlib.lib
+  ```
+
+-  选择编译器，x64 Release，编译，生成的工作路径一般在 x64/Release
+
+- 将库文件AisDeployC-windows-gpu-vxxx 中的lib拷贝到工作路径中
+
+- 在工作路径中终端启动（方便显示print结果）：shift + 鼠标右键，选择PowerShell，执行 .\工程名.exe
+
+- 可能会出现路径问题，请在example的代码中修改模型文件路径和输入图像路径
+
+- 如果出现[ERROR] .aisl显示授权错误 unauthorize 或未激活，是因为.aisl过期或未激活，请将文件和说明发送到我的电子邮箱。Email: [hit.zhou.j.h@gmail.com](mailto:hit.zhou.j.h@gmail.com)
+
+- 如果有其他问题，可以先看 [FAQ.md](docs/FAQ.md)
+
+##### 3-b C++ CMAKE Users (C++ CMAKE用户)
 
 - 修改CMakeLists.txt
   
@@ -92,7 +160,7 @@ Please download the **latest library files** and **Demo source code** in Release
   - example code path（示例代码路径）：[repo_root/example](https://github.com/JinghuiZhou/AisDeployC-Demo/tree/master/example)
   - 可执行文件会生成在 your_dir/aisdeployc_demo/build 中
 
-##### 3-b Python Users（Python 用户）
+##### 3-c Python Users（Python 用户）
 
 - Run pytest examples（运行pytest示例）
   
