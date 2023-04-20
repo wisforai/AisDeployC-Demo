@@ -4,7 +4,7 @@ import ctypes
 import json
 import platform
 
-AisDeployCVersion="v0.2.4"
+AisDeployCVersion="v0.2.5"
 
 class AisDeployC():
     """

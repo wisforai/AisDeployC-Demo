@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.2.4";
+const std::string AisDeployCVersion="v0.2.5";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -17,20 +17,20 @@ const std::string AisDeployCVersion="v0.2.4";
 typedef struct bounding_box
 {
 
-    std::string category = "";        // 类别名称，根据配置文件得到
-    float score = 0.;                  // 置信度
-    float xmin = 0;                   // 目标bbox位置 左上角 横坐标
-    float ymin = 0;                   // 目标bbox位置 左上角 纵坐标
-    float xmax = 0;                   // 目标bbox位置 右下角 横坐标
-    float ymax = 0;                   // 目标bbox位置 右下角 纵坐标
+    std::string category = "";        // category name, get from config file
+    float score = 0.;                  // confidence
+    float xmin = 0;                   // target bbox position, left top x
+    float ymin = 0;                   // target bbox position, left top y
+    float xmax = 0;                   // target bbox position, right bottom x
+    float ymax = 0;                   // target bbox position, right bottom y
 
 }bounding_box;
 
 typedef struct classification
 {
 
-    std::string category = "";        // 类别名称，根据配置文件得到
-    float score = 0.;                  // 置信度
+    std::string category = "";        // category name, get from config file
+    float score = 0.;                  // confidence
 
 }classification;
 
