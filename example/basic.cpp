@@ -2,7 +2,7 @@
 // Created by Jinghui Zhou on 2023/2/3.
 //
 #include <iostream>
-#include<opencv2/opencv.hpp>
+#include "opencv2/opencv.hpp"
 #include "interface/interface.h"
 using namespace std;
 using namespace cv;

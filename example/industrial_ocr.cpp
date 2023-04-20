@@ -2,7 +2,7 @@
 // Created by Jinghui Zhou on 2023/4/5.
 //
 #include <iostream>
-#include<opencv2/opencv.hpp>
+#include "opencv2/opencv.hpp"
 #include "interface/interface.h"
 using namespace std;
 using namespace cv;
@@ -377,10 +377,10 @@ int main(int argc, char** argv) {
     cout<<"[INFO] Now Process argv[0]: "<<argv[0]<<endl;
 
     // intialization parameters
-    string current_path_str = ".";
-    std::string segmentation_model_path = current_path_str+"/../tests/assets/models/industry_ocr_seg.aism";
-    std::string recognition_model_path = current_path_str+"/../tests/assets/models/sft_recog_compose.aism";
-    std::string license_path = current_path_str+"/../tests/assets/licenses/registed/windows_registed_info.aisl";
+    string test_assets_path_str = "./../tests/assets/";
+    std::string segmentation_model_path = test_assets_path_str+"models/industry_ocr_seg.aism";
+    std::string recognition_model_path = test_assets_path_str+"models/sft_recog_compose.aism";
+    std::string license_path = test_assets_path_str+"/licenses/registed/windows_registed_info.aisl";
 
 
     // initialize_models
@@ -398,13 +398,13 @@ int main(int argc, char** argv) {
     }
 
     // load the images to be processed
-    String str = current_path_str+"/../tests/assets/images/industrial_seq.png";
+    String str = test_assets_path_str+"images/industrial_seq.png";
 
     Mat image = imread(str);
     std::vector<cv::Mat> imgs;
     imgs.push_back(image);
 
-    string str1 = current_path_str+"/../tests/assets/images/industrial_seq_sh.png";
+    string str1 = test_assets_path_str+"images/industrial_seq_sh.png";
     Mat image1 = imread(str1);
     imgs.push_back(image1);
 
