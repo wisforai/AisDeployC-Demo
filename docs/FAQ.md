@@ -164,3 +164,19 @@ A:
 ```
 本工程目录/thirdparty/opencv3/include
 ```
+
+## Q: # C1083: 无法打开包括文件: “interface/interface.h”: No such file or directory
+
+## Q: 找不到windows sdk版本8.1
+
+A:
+
+参考链接：[VS2017 C++报错：找不到windows sdk版本8.1](https://blog.csdn.net/qq_41727666/article/details/84330959)
+
+打开VS2017，点击工具——获取工具和更新
+
+![](https://img-blog.csdnimg.cn/20181121215812984.png)
+
+击C++，选取 c++桌面开发
+
+右侧安装详细信息 勾选 Windows 8.1 SDK和UCRT SDK![](https://img-blog.csdnimg.cn/20181121215902729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNzI3NjY2,size_16,color_FFFFFF,t_70)
