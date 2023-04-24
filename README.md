@@ -219,6 +219,15 @@ Please download the **latest library files** and **Demo source code** in Release
 ## Model Zoo
 
 工业 (industry)
+#### 区域分割 (region segmentation)
+<p align="center">
+ <img src="./docs/assets/wheel_hub_motor_seg.png">
+</p>
+
+| 名称 Name             | 描述 Description | 链接 Link                                                                |
+|---------------------|----------------| ---------------------------------------------------------------------- |
+| 2d_gear_wheel_seg_e200 | 轮毂电机2D齿轮分割     | 链接: https://pan.baidu.com/s/1ZYQfFSuZjMqKlrsLqog3xw?pwd=jca0 提取码: jca0 |
+
 
 #### 字符识别（OCR）
 
