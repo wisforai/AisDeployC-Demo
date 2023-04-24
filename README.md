@@ -166,6 +166,18 @@ Please download the **latest library files** and **Demo source code** in Release
 
 ##### 3-c Python Users（Python 用户）
 
+- Run example (运行示例)
+  
+  - Semantic Segmentation(语义分割)
+    
+    ```
+    python python example/run_sem.py\
+     --lib_path  /your_lib_or_dll_dir/AisDeployC.dll
+     --model /your_model_dir/xxx.aism
+     --image_path /your_image_dir/xxx.jpg
+     --vis_dir /your_vis_dir
+    ```
+
 - Run pytest examples（运行pytest示例）
   
   ```
