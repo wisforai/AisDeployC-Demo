@@ -88,6 +88,7 @@ if __name__ == "__main__":
     # process batch=N
     input_json = {"data_list": []}
     for image_path in image_list:
+        assert os.path.exists(image_path), "[ERROR] image_path: {} is not exist".format(image_path)
         f= open(image_path, 'rb')
         qrcode = base64.b64encode(f.read()).decode()
         f.close()
@@ -105,12 +106,17 @@ if __name__ == "__main__":
     for image_path in image_list:
         image_vis_list.append(cv2.imread(image_path))
 
+    print("ret_val: ", ret_val)
     for i, res in enumerate(ret_val):
         for per_class_res in res:
             category = per_class_res["category"]
             save_name = "result_" + str(i) + "_" + category+"_"
             mask_get = per_class_res["mask"]
-            mask = rle2mask(mask_get.get("RLE"), width=mask_get.get("size")[0], height=mask_get.get("size")[1])
+            rle = mask_get.get("RLE")
+            if rle is None:
+                print("[WARN] mask_get.get(\"RLE\") is None, continue")
+                continue
+            mask = rle2mask(rle, width=mask_get.get("size")[0], height=mask_get.get("size")[1])
 
             cv2.imwrite(os.path.join(vis_dir, save_name + "mask.png"), mask)
             image_vis_tmp = image_vis_list[i].copy()
