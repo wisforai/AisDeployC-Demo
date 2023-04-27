@@ -180,3 +180,21 @@ A:
 击C++，选取 c++桌面开发
 
 右侧安装详细信息 勾选 Windows 8.1 SDK和UCRT SDK![](https://img-blog.csdnimg.cn/20181121215902729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNzI3NjY2,size_16,color_FFFFFF,t_70)
+
+## Q: Windows Error 0xe06d7363
+
+A:
+
+推理库与系统不匹配，请检查您下载的release库的系统和您运行的系统是否一致。
+
+## Q: 如何增加虚拟内存
+
+A:
+
+1、右键点击“我的电脑”，选择“属性”。
+
+2、在打开的面板中依次打开“高级系统设置”—“高级”选项卡—“设置”—“高级”选项卡—“更改”，就进入了虚拟内存的设置界面。
+
+3、将“自动管理所有驱动器的分页文件大小”选项前的方框里的勾取消，选择一个盘符（尽量是非系统盘），选择自定义大小，将初始大小和最大值尽量设置为同一数值（可以根据自己电脑的物理内存设置，如电脑物理内存是2GB，就在3GB到6GB之间选择一个数值），然后点击“设置”，最后点击“确定”并重启电脑。
+
+以上就是有关电脑虚拟内存的内容了，其它版本的Windows系统可参考Win10来进行设置。
