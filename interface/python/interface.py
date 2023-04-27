@@ -4,7 +4,7 @@ import ctypes
 import json
 import platform
 
-AisDeployCVersion="v0.2.5"
+AisDeployCVersion="v0.2.6"
 
 class AisDeployC():
     """
@@ -60,6 +60,7 @@ class AisDeployC():
         self.handle = self.lib.initialize(path_char, gpu_id, ctypes.pointer(ret))
 
         self.lib.update_license.argtypes = [ctypes.c_void_p, ctypes.c_char_p]
+        self.lib.generate_license.argtypes = [ctypes.c_void_p]
         self.lib.py_process_json_str.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]
         self.lib.py_get_json_str_results.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
         self.lib.py_free_result.argtypes = [ctypes.c_char_p]
@@ -69,6 +70,17 @@ class AisDeployC():
         self.lib.py_compare_with_ground_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
 
         return ret.value
+
+    def generate_license(self):
+        """! The AisDeployC class license generate function.
+        @see
+         示例代码如下
+         @code
+            ret = deploy_obj.generate_license()
+         @endcode
+        @return  generate_license result, 0 for success, 1 for failure.
+        """
+        return self.lib.generate_license(self.handle)
 
     def update_license(self, path_str: str):
         """! The AisDeployC class license update function.

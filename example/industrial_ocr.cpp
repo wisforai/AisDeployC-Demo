@@ -376,15 +376,15 @@ int main(int argc, char** argv) {
 
     cout<<"[INFO] Now Process argv[0]: "<<argv[0]<<endl;
 
+
     // intialization parameters
     string test_assets_path_str = "./../tests/assets/";
     std::string segmentation_model_path = test_assets_path_str+"models/industry_ocr_seg.aism";
     std::string recognition_model_path = test_assets_path_str+"models/sft_recog_compose.aism";
     std::string license_path = test_assets_path_str+"/licenses/registed/windows_registed_info.aisl";
-
-
+    int ret = 0;
     // initialize_models
-    int ret = initialize_models(
+    ret = initialize_models(
             segmentation_model_path,
             recognition_model_path,
             license_path,
@@ -394,6 +394,14 @@ int main(int argc, char** argv) {
     );
     if (ret != 0) {
         cout << "[ERROR] Failed to initialize models." << endl;
+        return ret;
+    }
+
+    // first run, generate the unregister license file
+    cout<<"[INFO] generate the unregister license file. Suggetion: use in the first run."<<endl;
+    ret = generate_license(ptrDeployCls);
+    if (ret != 0) {
+        cout << "[ERROR] Failed to generate unregister license file." << endl;
         return ret;
     }
 

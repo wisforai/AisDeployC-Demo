@@ -25,6 +25,9 @@ int main(int argc, char** argv) {
     cout<<"Step [1.2]: update_license."<<endl;
     int ret_update =  update_license(ptrDeploy, "../tests/assets/licenses/registed/windows_registed_info.aisl");
 
+    cout<<"Optional Step [1.3]: generate_license."<<endl;
+    int ret_generate = generate_license(ptrDeploy);
+
     cout<<"Step [2.1]: process_images. batch=1"<<endl;
     String str = current_path_str+"/../tests/assets/images/1.jpg";
     Mat image = imread(str);

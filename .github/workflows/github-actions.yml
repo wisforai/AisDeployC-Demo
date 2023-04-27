@@ -43,6 +43,7 @@ jobs:
       - name: Copy Engine DLL
         run: |
           XCOPY E:\\onnxruntime-win-gpu-x64-1.8.1\*.dll cmake-build-release /s/e/y 
+          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\thirdparty\dependencies\*.dll cmake-build-release /s/e/y
           CD cmake-build-release
       - name: Copy AisDeployC lib
         run: |
@@ -50,7 +51,7 @@ jobs:
       - name: Archive Release
         uses: vimtor/action-zip@v1
         with:
-          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll
+          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll cmake-build-release\vcruntime140_1.dll
           dest: release.zip
       - name: Upload asset to Github Release
         id: upload-release-asset
@@ -106,6 +107,7 @@ jobs:
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
           COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC*.dll .\
           COPY E:\onnxruntime-win-gpu-x64-1.8.1\lib\onnxruntime*.dll .\
+          COPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\
           .\basic.exe
           .\industrial_ocr.exe
       - name: Run PyTest
