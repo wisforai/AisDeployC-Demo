@@ -16,6 +16,12 @@
 
 - If you want to try this algorithm library, please download and try it directly. This algorithm library only supports limited number of calls. If you exceed the trial limit, unauthorized files will be automatically saved. If you want to continue using it, please send the files and instructions to my email.EMAIL: hit.zhou.j.h@gmail.com
 
+- 请使用generate_license接口生成未授权license文件.
+
+- Please use  interface generate_license to generate unregisted license file. 
+
+- 
+
 ### FAQ
 
 [FAQ.pdf](docs/FAQ.pdf)
@@ -219,15 +225,16 @@ Please download the **latest library files** and **Demo source code** in Release
 ## Model Zoo
 
 工业 (industry)
+
 #### 区域分割 (region segmentation)
+
 <p align="center">
  <img src="./docs/assets/wheel_hub_motor_seg.png">
 </p>
 
-| 名称 Name             | 描述 Description | 链接 Link                                                                |
-|---------------------|----------------| ---------------------------------------------------------------------- |
+| 名称 Name                | 描述 Description | 链接 Link                                                                |
+| ---------------------- | -------------- | ---------------------------------------------------------------------- |
 | 2d_gear_wheel_seg_e200 | 轮毂电机2D齿轮分割     | 链接: https://pan.baidu.com/s/1ZYQfFSuZjMqKlrsLqog3xw?pwd=jca0 提取码: jca0 |
-
 
 #### 字符识别（OCR）
 

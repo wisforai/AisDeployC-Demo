@@ -243,6 +243,15 @@ def test_interface_pose():
     ret_val = deploy_obj.process(input_json)
     print(ret_val)
 
+def test_generate_license():
+    deploy_obj = AisDeployC(lib_path)
+
+    path_str = "tests/assets/models/det_setting_oen.aism"
+    gpu_id = 0
+    ret = deploy_obj.model_initialize(path_str, gpu_id)
+    assert ret == 0
+    ret = deploy_obj.generate_license()
+    assert ret == 0
 
 
 

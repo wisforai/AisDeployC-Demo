@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.2.5";
+const std::string AisDeployCVersion="v0.2.6";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -464,6 +464,21 @@ AisDeployC_API int release(
 *  @return 执行结果，0表示检查成功，否则检查失败
 */
 AisDeployC_API int update_license(void *base, const char* path);
+
+/**
+*  @brief 生成未授权文件
+*
+*  @details
+*   生成授权文件
+ *  @see
+ *  示例代码如下
+ *  @code
+ *  int ret = generate_license(ptrDeploy);
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int generate_license(void *base);
 
 /**
 *  @brief python使用的处理json string输入格式的接口

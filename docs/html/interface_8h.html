@@ -148,6 +148,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1c124301160a2ffac536867beab5b95a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">update_license</a> (void *base, const char *path)</td></tr>
 <tr class="memdesc:a1c124301160a2ffac536867beab5b95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">更新授权文件信息  <a href="interface_8h.html#a1c124301160a2ffac536867beab5b95a">More...</a><br /></td></tr>
 <tr class="separator:a1c124301160a2ffac536867beab5b95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a058a4cd5a62fb494057ffcadf433c3dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a058a4cd5a62fb494057ffcadf433c3dc">generate_license</a> (void *base)</td></tr>
+<tr class="memdesc:a058a4cd5a62fb494057ffcadf433c3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">生成未授权文件  <a href="interface_8h.html#a058a4cd5a62fb494057ffcadf433c3dc">More...</a><br /></td></tr>
+<tr class="separator:a058a4cd5a62fb494057ffcadf433c3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc947a5e4a526f19943fcb68aedb3cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">py_process_json_str</a> (void *base, const char *input, int input_size)</td></tr>
 <tr class="memdesc:acc947a5e4a526f19943fcb68aedb3cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">python使用的处理json string输入格式的接口  <a href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">More...</a><br /></td></tr>
 <tr class="separator:acc947a5e4a526f19943fcb68aedb3cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,7 +181,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.2.5&quot;</td></tr>
+<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.2.6&quot;</td></tr>
 <tr class="separator:abd63dd08f15633a94d93f45f0869c598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -496,6 +499,36 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>执行结果，0表示执行成功，否则执行失败 </dd></dl>
+
+</div>
+</div>
+<a id="a058a4cd5a62fb494057ffcadf433c3dc" name="a058a4cd5a62fb494057ffcadf433c3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a058a4cd5a62fb494057ffcadf433c3dc">&#9670;&nbsp;</a></span>generate_license()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int generate_license </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>生成未授权文件 </p>
+<p >生成授权文件 </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line"><span class="keywordtype">int</span> ret = <a class="code hl_function" href="interface_8h.html#a058a4cd5a62fb494057ffcadf433c3dc">generate_license</a>(ptrDeploy);</div>
+<div class="ttc" id="ainterface_8h_html_a058a4cd5a62fb494057ffcadf433c3dc"><div class="ttname"><a href="interface_8h.html#a058a4cd5a62fb494057ffcadf433c3dc">generate_license</a></div><div class="ttdeci">AisDeployC_API int generate_license(void *base)</div><div class="ttdoc">生成未授权文件</div></div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>执行结果，0表示检查成功，否则检查失败 </dd></dl>
 
 </div>
 </div>
@@ -1438,7 +1471,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string AisDeployCVersion =&quot;v0.2.5&quot;</td>
+          <td class="memname">const std::string AisDeployCVersion =&quot;v0.2.6&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -44,7 +44,7 @@ if __name__ == "__main__":
     parse = argparse.ArgumentParser()
     parse.add_argument("--lib_path", type=str, default="build/libAisDeployC.so", required=True, help="lib file path default:build/libAisDeployC.so")
     parse.add_argument("--model", type=str, default="tests/assets/models/epoch_200_segmentor_setting_oen.aism", required=True, help="model file path")
-    parse.add_argument("--license", type=str, default="tests/assets/licenses/registed/macos_registed_info.aisl", required=False, help="license file path")
+    parse.add_argument("--license", type=str, default="", required=False, help="license file path")
     parse.add_argument("--gpu_id", type=int, default=0, help="gpu_id default:0")
     parse.add_argument("--image_path", type=str, default=0, required=True, help="image_path")
     parse.add_argument("--vis_dir", type=str, default=0, required=True, help="vis_dir")
@@ -63,6 +63,8 @@ if __name__ == "__main__":
 
     ret = deploy_obj.model_initialize(model_path, gpu_id)
     assert ret == 0
+
+
     if not license_path:
         print("\n---------------------------------------------------------------------------------------------------------------")
         print("\t[WARN] 您尚未给入参数 \'license\', 猜测到您可能是想试用。没有提供授权文件，则处理次数会受限制")
@@ -70,6 +72,9 @@ if __name__ == "__main__":
         print("\t[WARN] 不用担心, 待授权文件 unregisted_info.aisl，稍后若干次处理调用后会自动生成，您可以联系我获得授权 Email: hit.zhou.j.h@gmail.com")
         print("\t[WARN] Don't worry. unauthorized license file, named unregisted_info.aisl, will be saved automatically in several process usages，you can send it to me for the authorized file. Email: hit.zhou.j.h@gmail.com")
         print("\n---------------------------------------------------------------------------------------------------------------")
+        ret = deploy_obj.generate_license()
+        assert ret == 0, "[ERROR] generate_license failed"
+
     else:
         ret = deploy_obj.update_license(license_path)
         assert ret == 0, "[ERROR] update_license failed, please use a correct license file."
