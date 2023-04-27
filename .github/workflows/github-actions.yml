@@ -43,7 +43,7 @@ jobs:
       - name: Copy Engine DLL
         run: |
           XCOPY E:\\onnxruntime-win-gpu-x64-1.8.1\*.dll cmake-build-release /s/e/y 
-          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\thirdparty\dependencies\*.dll cmake-build-release /s/e/y
+          XCOPY E:\\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll cmake-build-release /s/e/y
           CD cmake-build-release
       - name: Copy AisDeployC lib
         run: |
