@@ -178,10 +178,40 @@ Please download the **latest library files** and **Demo source code** in Release
     
     ```
     python python example/run_sem.py\
-     --lib_path  /your_lib_or_dll_dir/AisDeployC.dll
-     --model /your_model_dir/xxx.aism
-     --image_path /your_image_dir/xxx.jpg
-     --vis_dir /your_vis_dir
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model tests/assets/models/epoch_200_segmentor_setting_oen.aism
+     --image_path tests/assets/images/1.jpg
+     --vis_dir tests/assets/images/vis
+    ```
+  
+  - Object Detection(目标检测)
+    
+    ```
+    python python example/run_det.py\
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model tests/assets/models/sft_recog_compose.aism
+     --image_path tests/assets/images/A.jpeg
+     --vis_dir tests/assets/images/vis
+    ```
+  
+  - Pose Estimation(姿态估计)
+    
+    ```
+    python python example/run_pose.py\
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model E:\\LargeFiles\\human_pose_est_17p_r50.aism
+     --image_path tests/assets/images/human-pose.jpg
+     --vis_dir tests/assets/images/vis
+    ```
+  
+  - Face Recognition(人脸识别)
+    
+    ```
+    python python example/run_face_recog.py\
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model E:\\LargeFiles\\face_embedding_r27_setting.aism
+     --image_path tests/assets/images/Salma_Hayek_0001.jpg,tests/assets/images/Salma_Hayek_0002.jpg,tests/assets/images/Martina_McBride_0004.jpg
+     --vis_dir tests/assets/images/vis
     ```
 
 - Run pytest examples（运行pytest示例）
