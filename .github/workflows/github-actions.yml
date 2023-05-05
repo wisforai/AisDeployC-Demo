@@ -113,7 +113,11 @@ jobs:
       - name: Run PyTest
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
-          python -m pytest -s tests/test_interface.py 
+          python -m pytest -s tests/test_interface.py
+      - name: Run Test Example
+        run: |
+          cd E:\actions-runner\_work\AisDeployC\AisDeployC
+          .\tests\test_example.bat
 
   actions-build-test-linux-gpu:
     runs-on: self-hosted-linux
@@ -133,3 +137,5 @@ jobs:
         run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/build/ && CUDA_VISIBLE_DEVICES=0 ./basic && CUDA_VISIBLE_DEVICES=0 ./industrial_ocr
       - name: Run PyTest
         run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/&& cp -f ./build/*.so* ./ && CUDA_VISIBLE_DEVICES=0 python3 -m pytest -s tests/test_interface.py
+      - name: Run Test Example
+        run: cd /home/tzvtc/projects/actions-runner-demo/_work/AisDeployC-Demo/AisDeployC-Demo/ && bash tests/test_example.sh

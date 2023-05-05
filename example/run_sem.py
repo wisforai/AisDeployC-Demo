@@ -51,7 +51,8 @@ if __name__ == "__main__":
 
     flags, unparsed = parse.parse_known_args(sys.argv[1:])
 
-
+    print("[INFO] Running with the following arguments:")
+    print(flags)
     model_path = flags.model
     license_path = flags.license
     lib_path = flags.lib_path
@@ -59,13 +60,38 @@ if __name__ == "__main__":
     image_path = flags.image_path
     vis_dir = flags.vis_dir
 
-    deploy_obj = AisDeployC(lib_path)
+    model_path = os.path.abspath(model_path)
+    license_path = os.path.abspath(license_path)
+    lib_path = os.path.abspath(lib_path)
+    image_path = os.path.abspath(image_path)
+    vis_dir = os.path.abspath(vis_dir)
 
+    if not os.path.exists(model_path):
+        print("[ERROR] model_path: {} is not exist".format(model_path))
+        exit(0)
+
+    if not os.path.exists(lib_path):
+        print("[ERROR] lib_path: {} is not exist".format(lib_path))
+        exit(0)
+
+    if not os.path.exists(vis_dir):
+        os.makedirs(vis_dir)
+    print("[INFO] load lib_path: {}".format(lib_path))
+    deploy_obj = AisDeployC(lib_path)
+    print("[INFO] load model_path: {}".format(model_path))
     ret = deploy_obj.model_initialize(model_path, gpu_id)
     assert ret == 0
 
+    license_flag = False
+    if os.path.exists(license_path):
+        # ensure license file is not a directory
+        if os.path.isfile(license_path):
+            license_flag = True
 
     if not license_path:
+        ret = deploy_obj.update_license(license_path)
+        assert ret == 0, "[ERROR] update_license failed, please use a correct license file."
+    else:
         print("\n---------------------------------------------------------------------------------------------------------------")
         print("\t[WARN] 您尚未给入参数 \'license\', 猜测到您可能是想试用。没有提供授权文件，则处理次数会受限制")
         print("\t[WARN] Hi, input arg is not provided:  \'license\', if license not provided, process iteration number is limited.")
@@ -74,10 +100,6 @@ if __name__ == "__main__":
         print("\n---------------------------------------------------------------------------------------------------------------")
         ret = deploy_obj.generate_license()
         assert ret == 0, "[ERROR] generate_license failed"
-
-    else:
-        ret = deploy_obj.update_license(license_path)
-        assert ret == 0, "[ERROR] update_license failed, please use a correct license file."
 
     # parse image_path, if image_path is a image file, then use cv2.imread to read it
     # if image_path is a video file, then split it into image list,example is as follows
@@ -111,7 +133,6 @@ if __name__ == "__main__":
     for image_path in image_list:
         image_vis_list.append(cv2.imread(image_path))
 
-    print("ret_val: ", ret_val)
     for i, res in enumerate(ret_val):
         for per_class_res in res:
             category = per_class_res["category"]

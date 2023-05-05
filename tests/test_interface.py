@@ -166,14 +166,7 @@ def test_interface_cls():
 
     deploy_obj = AisDeployC(lib_path)
 
-    path_str = None
-    if "macOS" in platform.platform():
-        path_str = "/Users/zhoujinghui/CLionProjects/LargeFiles/face_embedding_r27_setting.aism"
-    elif "Windows" in platform.platform():
-        path_str = "E:\\LargeFiles\\face_embedding_r27_setting.aism"
-    elif "Linux" in platform.platform():
-        path_str = "/home/tzvtc/data/LargeFiles/face_embedding_r27_setting.aism"
-
+    path_str = "tests/assets/models/sft_recog_compose.aism"
 
     gpu_id = 0
     ret = deploy_obj.model_initialize(path_str, gpu_id)
