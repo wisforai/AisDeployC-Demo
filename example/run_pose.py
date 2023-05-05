@@ -11,33 +11,34 @@ import platform
 sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
 from interface.python.interface import AisDeployC
 
-# convert rle to mask
-def rle2mask(rle, width, height):
-    mask = np.zeros(width * height, dtype=np.uint8)
-    array = np.asarray(rle)
-    starts = array[0::2]
-    lengths = array[1::2]
-    current_position = 0
-    for index, start in enumerate(starts):
-        current_position += start
-        mask[current_position:current_position + lengths[index]] = 255
-        current_position += lengths[index]
-    return mask.reshape((width, height)).transpose((1, 0))
 
-# 分割mask为多个联通区域，返回每个联通区域mask的bbox
-def mask2bbox(mask):
-    contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    bbox_list = []
-    for i in range(len(contours)):
-        x, y, w, h = cv2.boundingRect(contours[i])
-        bbox_list.append([x, y, x + w, y + h])
-    return bbox_list
 
-# visulize bbox_list
-def vis_bbox(img, bbox_list, color=(0, 255, 0), thickness=2):
-    for bbox in bbox_list:
-        cv2.rectangle(img, (bbox[0], bbox[1]), (bbox[2], bbox[3]), color, thickness)
+def show_skeleton(img,kpts,color=(255,128,128)):
+    kpts = np.array(kpts).reshape(-1,2)
+    skelenton = [[16, 14], [14, 12], [17, 15], [15, 13], [12, 13], [6, 12], [7, 13], [6, 7], [6, 8], [7, 9], [8, 10],
+                 [9, 11], [2, 3], [1, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7]]
+
+    points_num = [num for num in range(17)]
+    for sk in skelenton:
+
+        pos1 = (int(kpts[sk[0] - 1, 0]), int(kpts[sk[0] - 1, 1]))
+        pos2 = (int(kpts[sk[1] - 1, 0]), int(kpts[sk[1] - 1, 1]))
+        if pos1[0] > 0 and pos1[1] > 0 and pos2[0] > 0 and pos2[1] > 0:
+            cv2.line(img, pos1, pos2, color, 2, 8)
+    for points in points_num:
+        pos = (int(kpts[points,0]),int(kpts[points,1]))
+        if pos[0] > 0 and pos[1] > 0:
+            cv2.circle(img, pos,4,(0,0,255),-1)  # 为肢体点画红色实心圆
     return img
+
+def vis_pose(img, results):
+    for result in results:
+        coords = result["pose_vector"]
+        color = (np.random.randint(0, 255), np.random.randint(0, 255), np.random.randint(0, 255))
+        img = show_skeleton(img, coords, color=color)
+    return img
+
+
 
 if __name__ == "__main__":
 
@@ -60,11 +61,13 @@ if __name__ == "__main__":
     image_path = flags.image_path
     vis_dir = flags.vis_dir
 
+
     model_path = os.path.abspath(model_path)
     license_path = os.path.abspath(license_path)
     lib_path = os.path.abspath(lib_path)
     image_path = os.path.abspath(image_path)
     vis_dir = os.path.abspath(vis_dir)
+
 
     if not os.path.exists(model_path):
         print("[ERROR] model_path: {} is not exist".format(model_path))
@@ -134,27 +137,10 @@ if __name__ == "__main__":
         image_vis_list.append(cv2.imread(image_path))
 
     for i, res in enumerate(ret_val):
-        for per_class_res in res:
-            category = per_class_res["category"]
-            save_name = "result_" + str(i) + "_" + category+"_"
-            mask_get = per_class_res["mask"]
-            rle = mask_get.get("RLE")
-            if rle is None:
-                print("[WARN] mask_get.get(\"RLE\") is None, continue")
-                continue
-            mask = rle2mask(rle, width=mask_get.get("size")[0], height=mask_get.get("size")[1])
-
-            cv2.imwrite(os.path.join(vis_dir, save_name + "mask.png"), mask)
-            image_vis_tmp = image_vis_list[i].copy()
-            # vis mask with alpha channel on image_vis_tmp, use cv2.addWeighted
-            mask_cvt = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
-            image_vis_tmp = cv2.addWeighted(image_vis_tmp, 0.5, mask_cvt, 0.5, 0)
-            cv2.imwrite(os.path.join(vis_dir, save_name + "mask_alpha.png"), image_vis_tmp)
-
-            bboxs = mask2bbox(mask)
-            print("bboxs:", bboxs)
-            image_vis = vis_bbox(image_vis_list[i], bboxs)
-            cv2.imwrite(os.path.join(vis_dir, save_name + "bbox.png"), image_vis)
+        save_name = "result_" + str(i) + "_"
+        print("res: ", res)
+        image_vis = vis_pose(image_vis_list[i], res)
+        cv2.imwrite(os.path.join(vis_dir, save_name + "pose.png"), image_vis)
 
 
 

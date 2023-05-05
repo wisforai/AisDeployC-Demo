@@ -7,37 +7,27 @@ import cv2
 import os
 import ctypes
 import platform
-
+from PIL import Image, ImageDraw, ImageFont
 sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
 from interface.python.interface import AisDeployC
 
-# convert rle to mask
-def rle2mask(rle, width, height):
-    mask = np.zeros(width * height, dtype=np.uint8)
-    array = np.asarray(rle)
-    starts = array[0::2]
-    lengths = array[1::2]
-    current_position = 0
-    for index, start in enumerate(starts):
-        current_position += start
-        mask[current_position:current_position + lengths[index]] = 255
-        current_position += lengths[index]
-    return mask.reshape((width, height)).transpose((1, 0))
 
-# 分割mask为多个联通区域，返回每个联通区域mask的bbox
-def mask2bbox(mask):
-    contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    bbox_list = []
-    for i in range(len(contours)):
-        x, y, w, h = cv2.boundingRect(contours[i])
-        bbox_list.append([x, y, x + w, y + h])
-    return bbox_list
 
-# visulize bbox_list
-def vis_bbox(img, bbox_list, color=(0, 255, 0), thickness=2):
-    for bbox in bbox_list:
-        cv2.rectangle(img, (bbox[0], bbox[1]), (bbox[2], bbox[3]), color, thickness)
-    return img
+
+def AddText(img, text, left, top, font_path, textColor=(255, 255, 0), textSize=20):
+    if (isinstance(img, np.ndarray)): # 判断是否OpenCV图片类型
+        img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    # 创建一个可以在给定图像上绘图的对象
+    draw = ImageDraw.Draw(img)
+    # 字体的格式
+    fontStyle = ImageFont.truetype(
+        font_path, textSize, encoding="utf-8")
+    # 绘制文本
+    draw.text((left, top), text, textColor, font=fontStyle)
+    # 转换回OpenCV格式
+    return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
+
+
 
 if __name__ == "__main__":
 
@@ -48,6 +38,7 @@ if __name__ == "__main__":
     parse.add_argument("--gpu_id", type=int, default=0, help="gpu_id default:0")
     parse.add_argument("--image_path", type=str, default=0, required=True, help="image_path")
     parse.add_argument("--vis_dir", type=str, default=0, required=True, help="vis_dir")
+    parse.add_argument("--font_path", type=str, default="tests/assets/fonts/Alibaba-PuHuiTi-Light.ttf", required=False, help="font_path")
 
     flags, unparsed = parse.parse_known_args(sys.argv[1:])
 
@@ -59,12 +50,14 @@ if __name__ == "__main__":
     gpu_id = flags.gpu_id
     image_path = flags.image_path
     vis_dir = flags.vis_dir
+    font_path = flags.font_path
 
     model_path = os.path.abspath(model_path)
     license_path = os.path.abspath(license_path)
     lib_path = os.path.abspath(lib_path)
     image_path = os.path.abspath(image_path)
     vis_dir = os.path.abspath(vis_dir)
+    font_path = os.path.abspath(font_path)
 
     if not os.path.exists(model_path):
         print("[ERROR] model_path: {} is not exist".format(model_path))
@@ -72,6 +65,10 @@ if __name__ == "__main__":
 
     if not os.path.exists(lib_path):
         print("[ERROR] lib_path: {} is not exist".format(lib_path))
+        exit(0)
+
+    if not os.path.exists(font_path):
+        print("[ERROR] font_path: {} is not exist".format(font_path))
         exit(0)
 
     if not os.path.exists(vis_dir):
@@ -129,32 +126,24 @@ if __name__ == "__main__":
         os.makedirs(vis_dir)
 
 
-    image_vis_list = []
+    data_list=list()
+    # key_list is the image_file_name
+    key_list = []
     for image_path in image_list:
-        image_vis_list.append(cv2.imread(image_path))
+        key_list.append(os.path.basename(image_path))
 
-    for i, res in enumerate(ret_val):
-        for per_class_res in res:
-            category = per_class_res["category"]
-            save_name = "result_" + str(i) + "_" + category+"_"
-            mask_get = per_class_res["mask"]
-            rle = mask_get.get("RLE")
-            if rle is None:
-                print("[WARN] mask_get.get(\"RLE\") is None, continue")
-                continue
-            mask = rle2mask(rle, width=mask_get.get("size")[0], height=mask_get.get("size")[1])
+    for key, single_res in zip(key_list, ret_val):
+        value = single_res[0]["embedding_vector"]
+        file_json = {"key": key, "embedding_vector":value}
+        data_list.append(file_json)
+    input_json = {"data_list": data_list}
 
-            cv2.imwrite(os.path.join(vis_dir, save_name + "mask.png"), mask)
-            image_vis_tmp = image_vis_list[i].copy()
-            # vis mask with alpha channel on image_vis_tmp, use cv2.addWeighted
-            mask_cvt = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
-            image_vis_tmp = cv2.addWeighted(image_vis_tmp, 0.5, mask_cvt, 0.5, 0)
-            cv2.imwrite(os.path.join(vis_dir, save_name + "mask_alpha.png"), image_vis_tmp)
+    ret_val = deploy_obj.load_keys_embeddings(input_json)
 
-            bboxs = mask2bbox(mask)
-            print("bboxs:", bboxs)
-            image_vis = vis_bbox(image_vis_list[i], bboxs)
-            cv2.imwrite(os.path.join(vis_dir, save_name + "bbox.png"), image_vis)
+    ret_val = deploy_obj.compare_with_ground_embeddings(input_json)
+
+    print(ret_val)
+
 
 
 
