@@ -116,7 +116,7 @@ jobs:
           python -m pytest -s tests/test_interface.py
       - name: Run Test Example
         run: |
-          cd E:\actions-runner\_work\AisDeployC-Demo\AisDeployC-Demo
+          cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
           .\tests\test_example.bat
 
   windows-server-build-test:
@@ -126,7 +126,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: cmake
         run: |
-          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8770.66\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/bin/ninja/win/x64/ninja.exe -G Ninja -S E:\actions-runner\_work\AisDeployC-Demo\AisDeployC-Demo -B E:\actions-runner\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
+          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8770.66\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/bin/ninja/win/x64/ninja.exe -G Ninja -S E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo -B E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
       - name: build
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
