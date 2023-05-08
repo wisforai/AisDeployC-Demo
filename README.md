@@ -19,8 +19,8 @@
 - 请使用generate_license接口生成未授权license文件.
 
 - Please use  interface generate_license to generate unregisted license file. 
-
-- 
+  
+  
 
 ### FAQ
 
@@ -30,14 +30,14 @@
 
 #### 1. Environments installation（环境安装）
 
-| Items           | Recommended version<br/>（推荐版本） | Resources<br/>（资源）                                                                                                                                                                                                                                                                                                                  |
-| --------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| System<br/>（系统） | Windows 10                     |                                                                                                                                                                                                                                                                                                                                     |
-|                 | Ubuntu 18.04                   |                                                                                                                                                                                                                                                                                                                                     |
-|                 | MacOS                          |                                                                                                                                                                                                                                                                                                                                     |
-| IDE-Windows     | VS2017                         | 目前我们是使用VS2017编译的库，建议使用相同的版本                                                                                                                                                                                                                                                                                                         |
-| CUDA            | 11.3                           | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cuda_11.3.0_465.89_win10.exe: https://pan.baidu.com/s/18AvyfSq-dUl7egc0CsGYKQ?pwd=j9q2 提取码: j9q2<br/>cuda_11.3.0_465.19.01_linux.run：链接: https://pan.baidu.com/s/1cdMCnZ1FoNv9eVrun39kLQ?pwd=mh6s 提取码: mh6s                                           |
-| cudnn           | 8.8                            | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz：链接: https://pan.baidu.com/s/1S_4VYj63R3zCSJyGDQwsmg?pwd=bgvl 提取码: bgvl<br/>cudnn-windows-x86_64-8.8.1.3_cuda11-archive.zip: 链接: https://pan.baidu.com/s/11P64Ks8IDfxmvhAjPaCusg?pwd=3tdl 提取码: 3tdl |
+| Items           | Recommended version<br/>（推荐版本）     | Resources<br/>（资源）                                                                                                                                                                                                                                                                                                                  |
+| --------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| System<br/>（系统） | Windows 10<br/>Windows Server 2019 |                                                                                                                                                                                                                                                                                                                                     |
+|                 | Ubuntu 18.04<br/>Docker            |                                                                                                                                                                                                                                                                                                                                     |
+|                 | MacOS                              |                                                                                                                                                                                                                                                                                                                                     |
+| IDE-Windows     | VS2017                             | 目前我们是使用VS2017编译的库，建议使用相同的版本                                                                                                                                                                                                                                                                                                         |
+| CUDA            | 11.3                               | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cuda_11.3.0_465.89_win10.exe: https://pan.baidu.com/s/18AvyfSq-dUl7egc0CsGYKQ?pwd=j9q2 提取码: j9q2<br/>cuda_11.3.0_465.19.01_linux.run：链接: https://pan.baidu.com/s/1cdMCnZ1FoNv9eVrun39kLQ?pwd=mh6s 提取码: mh6s                                           |
+| cudnn           | 8.8                                | **No installation is required if you use a cpu.**<br/>**如果您使用cpu则不需要安装**.<br/>cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz：链接: https://pan.baidu.com/s/1S_4VYj63R3zCSJyGDQwsmg?pwd=bgvl 提取码: bgvl<br/>cudnn-windows-x86_64-8.8.1.3_cuda11-archive.zip: 链接: https://pan.baidu.com/s/11P64Ks8IDfxmvhAjPaCusg?pwd=3tdl 提取码: 3tdl |
 
 ##### Cuda & Cudnn Install（Cuda Cudnn 安装）
 
@@ -73,7 +73,77 @@ Please download the **latest library files** and **Demo source code** in Release
 
 #### 3. Start Running (开始运行)
 
-##### 3-a C++ Visual Studio sln Users (C++ Visual Studio sln 解决方案用户)
+3-a Python Users（Python 用户）
+
+- Run example (运行示例)
+  
+  - Semantic Segmentation(语义分割)
+    
+    ```
+    python python example/run_sem.py\
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model tests/assets/models/epoch_200_segmentor_setting_oen.aism
+     --image_path tests/assets/images/1.jpg
+     --vis_dir tests/assets/images/vis
+    ```
+  
+  - Object Detection(目标检测)
+    
+    ```
+    python python example/run_det.py\
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model tests/assets/models/sft_recog_compose.aism
+     --image_path tests/assets/images/A.jpeg
+     --vis_dir tests/assets/images/vis
+    ```
+  
+  - Pose Estimation(姿态估计)
+    
+    ```
+    python python example/run_pose.py\
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model E:\\LargeFiles\\human_pose_est_17p_r50.aism
+     --image_path tests/assets/images/human-pose.jpg
+     --vis_dir tests/assets/images/vis
+    ```
+  
+  - Face Recognition(人脸识别)
+    
+    ```
+    python python example/run_face_recog.py\
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model E:\\LargeFiles\\face_embedding_r27_setting.aism
+     --image_path tests/assets/images/Salma_Hayek_0001.jpg,tests/assets/images/Salma_Hayek_0002.jpg,tests/assets/images/Martina_McBride_0004.jpg
+     --vis_dir tests/assets/images/vis
+    ```
+
+- Run pytest examples（运行pytest示例）
+  
+  ```
+  python -m pytest -s tests/test_interface.py
+  ```
+
+- Optional api（可选，形成api）
+  
+  **Server:**
+  
+  ```
+  python example/api_server.py \
+   --lib_path build/libAisDeployC.so \
+   --port 9003 \
+   --model tests/assets/models/det_setting_oen.aism \
+   --license tests/assets/licenses/registed/linux_registed_info.aisl
+  ```
+  
+  **Client**
+  
+  ```
+  python tests/test_api_server.py \
+   --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
+   --gateway_host /image/objectDetect
+  ```
+
+##### 3-b C++ Visual Studio sln Users (C++ Visual Studio sln 解决方案用户)
 
 - AisDeployC header （AisDeployC头文件）
   
@@ -145,7 +215,7 @@ Please download the **latest library files** and **Demo source code** in Release
 
 - 如果有其他问题，可以先看 [FAQ.md](docs/FAQ.md)
 
-##### 3-b C++ CMAKE Users (C++ CMAKE用户)
+##### 3-c C++ CMAKE Users (C++ CMAKE用户)
 
 - 修改CMakeLists.txt
   
@@ -169,76 +239,6 @@ Please download the **latest library files** and **Demo source code** in Release
   
   - example code path（示例代码路径）：[repo_root/example](https://github.com/JinghuiZhou/AisDeployC-Demo/tree/master/example)
   - 可执行文件会生成在 your_dir/aisdeployc_demo/build 中
-
-##### 3-c Python Users（Python 用户）
-
-- Run example (运行示例)
-  
-  - Semantic Segmentation(语义分割)
-    
-    ```
-    python python example/run_sem.py\
-     --lib_path  cmake-build-release/AisDeployC.dll
-     --model tests/assets/models/epoch_200_segmentor_setting_oen.aism
-     --image_path tests/assets/images/1.jpg
-     --vis_dir tests/assets/images/vis
-    ```
-  
-  - Object Detection(目标检测)
-    
-    ```
-    python python example/run_det.py\
-     --lib_path  cmake-build-release/AisDeployC.dll
-     --model tests/assets/models/sft_recog_compose.aism
-     --image_path tests/assets/images/A.jpeg
-     --vis_dir tests/assets/images/vis
-    ```
-  
-  - Pose Estimation(姿态估计)
-    
-    ```
-    python python example/run_pose.py\
-     --lib_path  cmake-build-release/AisDeployC.dll
-     --model E:\\LargeFiles\\human_pose_est_17p_r50.aism
-     --image_path tests/assets/images/human-pose.jpg
-     --vis_dir tests/assets/images/vis
-    ```
-  
-  - Face Recognition(人脸识别)
-    
-    ```
-    python python example/run_face_recog.py\
-     --lib_path  cmake-build-release/AisDeployC.dll
-     --model E:\\LargeFiles\\face_embedding_r27_setting.aism
-     --image_path tests/assets/images/Salma_Hayek_0001.jpg,tests/assets/images/Salma_Hayek_0002.jpg,tests/assets/images/Martina_McBride_0004.jpg
-     --vis_dir tests/assets/images/vis
-    ```
-
-- Run pytest examples（运行pytest示例）
-  
-  ```
-  python -m pytest -s tests/test_interface.py
-  ```
-
-- Optional api（可选，形成api）
-  
-  **Server:**
-  
-  ```
-  python example/api_server.py \
-   --lib_path build/libAisDeployC.so \
-   --port 9003 \
-   --model tests/assets/models/det_setting_oen.aism \
-   --license tests/assets/licenses/registed/linux_registed_info.aisl
-  ```
-  
-  **Client**
-  
-  ```
-  python tests/test_api_server.py \
-   --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
-   --gateway_host /image/objectDetect
-  ```
 
 ### Issues and Bugs（问题和缺陷）
 
