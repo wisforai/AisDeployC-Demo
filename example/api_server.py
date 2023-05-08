@@ -17,8 +17,8 @@ app = Flask(__name__)
 
 deploy_obj = None
 
-@app.route("/image/objectDetect",methods=['POST'])
-def imageObjectDetect():
+@app.route("/image/<name>",methods=['POST'])
+def imageGeneral(name):
     data = {
         "code": 0,
         "msg": "unknown error",
