@@ -19,8 +19,6 @@
 - 请使用generate_license接口生成未授权license文件.
 
 - Please use  interface generate_license to generate unregisted license file. 
-  
-  
 
 ### FAQ
 
@@ -137,10 +135,12 @@ Please download the **latest library files** and **Demo source code** in Release
   
   **Client**
   
+  *--gateway_host （后面的路由名字取决于server的文件名，因为server路由中定义为@app.route("/image/<name>",methods=['POST'])）*
+  
   ```
   python tests/test_api_server.py \
    --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
-   --gateway_host /image/objectDetect
+   --gateway_host /image/api_server
   ```
 
 ##### 3-b C++ Visual Studio sln Users (C++ Visual Studio sln 解决方案用户)
