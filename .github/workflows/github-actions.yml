@@ -21,7 +21,7 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     if: startsWith(github.ref_name,'v')
-    needs: [ actions-build-test-windows-gpu, actions-build-test-linux-gpu ]
+    needs: [ windows-10-build-test, linux-ubuntu-actions-build ]
     outputs:
       upload_url: ${{ steps.create-new-release.outputs.upload_url }}
     steps:
@@ -35,7 +35,7 @@ jobs:
           release_name: AisDeployC ${{ github.ref_name }}
 
   release-windows-gpu:
-    name: Windows GPU Release to Github Releases
+    name: Windows Server Release
     runs-on: self-hosted-windows
     if: startsWith(github.ref_name,'v')
     needs: create-release
@@ -65,7 +65,7 @@ jobs:
           asset_content_type: application/zip
 
   release-linux-gpu:
-    name: Linux GPU Release to Github Releases
+    name: Linux GPU Release
     runs-on: self-hosted-linux
     if: startsWith(github.ref_name,'v')
     needs: create-release
@@ -90,7 +90,7 @@ jobs:
           asset_name: AisDeployC-linux-x64-${{ github.ref_name }}.zip
           asset_content_type: application/zip
 
-  actions-build-test-windows-gpu:
+  windows-10-build-test:
     runs-on: self-hosted-windows
     needs: create-build
     steps:
@@ -116,10 +116,31 @@ jobs:
           python -m pytest -s tests/test_interface.py
       - name: Run Test Example
         run: |
-          cd E:\actions-runner\_work\AisDeployC\AisDeployC
+          cd E:\actions-runner\_work\AisDeployC-Demo\AisDeployC-Demo
           .\tests\test_example.bat
 
-  actions-build-test-linux-gpu:
+  windows-server-build-test:
+    runs-on: self-hosted-server
+    needs: create-build
+    steps:
+      - uses: actions/checkout@v3
+      - name: cmake
+        run: |
+          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8770.66\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/bin/ninja/win/x64/ninja.exe -G Ninja -S E:\actions-runner\_work\AisDeployC-Demo\AisDeployC-Demo -B E:\actions-runner\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
+      - name: build
+        run: |
+          cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
+          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\221.5921.27\bin\cmake\win\bin\cmake.exe --build .
+      - name: Run Test
+        run: |
+          cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
+          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC*.dll .\
+          COPY E:\onnxruntime-win-gpu-x64-1.8.1\lib\onnxruntime*.dll .\
+          COPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\
+          .\basic.exe
+          .\industrial_ocr.exe
+
+  linux-ubuntu-actions-build:
     runs-on: self-hosted-linux
     needs: create-build
     steps:
