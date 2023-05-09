@@ -91,7 +91,7 @@ if __name__ == "__main__":
         if os.path.isfile(license_path):
             license_flag = True
 
-    if not license_path:
+    if license_flag:
         ret = deploy_obj.update_license(license_path)
         assert ret == 0, "[ERROR] update_license failed, please use a correct license file."
     else:
