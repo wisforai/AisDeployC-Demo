@@ -12,15 +12,17 @@ def parse_args():
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("--image_path", default="", type=str, required=True, help="image_path")
     parser.add_argument("--route", default="", type=str, required=True, help="route")
+    parser.add_argument("--port", default=9003, type=int, required=False, help="port")
     args = parser.parse_args()
     return args
 
 def work(kwargs):
     filename = kwargs.get("image_path")
     route = kwargs.get("route")
+    port = kwargs.get("port")
 
     appKey = "s84dsd#7hf34r3jsk@fs$d#$dd"
-    backend_host = "http://127.0.0.1:9003"
+    backend_host = "http://127.0.0.1:{}".format(port)
 
     iteration_number = 1
     for _ in range(iteration_number):
@@ -57,6 +59,7 @@ def main():
     input_kwargs = dict(
         image_path = args.image_path,
         route = args.route,
+        port = args.port,
     )
     work(input_kwargs)
 
