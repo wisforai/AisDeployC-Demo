@@ -1,0 +1,19 @@
+{
+  "model_config_list": [
+    {
+      "route": "/image/detection_face",
+      "model_path": "tests/assets/models/det_setting_oen.aism",
+      "gpu_id": 0
+    },
+    {
+      "route": "/image/segmentation_wheelhubmotor",
+      "model_path": "tests/assets/models/epoch_200_segmentor_setting_oen.aism",
+      "gpu_id": 0
+    },
+    {
+      "route": "/image/classification_character",
+      "model_path": "tests/assets/models/sft_recog_compose.aism",
+      "gpu_id": 0
+    }
+  ]
+}

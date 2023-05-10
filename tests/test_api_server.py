@@ -11,13 +11,13 @@ import cv2
 def parse_args():
     parser = argparse.ArgumentParser(description="")
     parser.add_argument("--image_path", default="", type=str, required=True, help="image_path")
-    parser.add_argument("--gateway_host", default="", type=str, required=True, help="gateway_host")
+    parser.add_argument("--route", default="", type=str, required=True, help="route")
     args = parser.parse_args()
     return args
 
 def work(kwargs):
     filename = kwargs.get("image_path")
-    gateway_host = kwargs.get("gateway_host")
+    route = kwargs.get("route")
 
     appKey = "s84dsd#7hf34r3jsk@fs$d#$dd"
     backend_host = "http://127.0.0.1:9003"
@@ -30,7 +30,7 @@ def work(kwargs):
         image_base64 = base64.b64encode(encoded_image_byte)
         image_base64 = image_base64.decode("utf-8")  # str类型
 
-        url = '{}/{}'.format(backend_host, gateway_host)
+        url = '{}/{}'.format(backend_host, route)
 
         t1 = time.time()
         params = {
@@ -42,8 +42,10 @@ def work(kwargs):
         res=requests.post(url,data=params)
         t2 = time.time()
         t = "spend %.5f 秒"%(t2 - t1)
+        print("[INFO] time {} {}".format(__name__, t))
         # print(t,res.status_code,res.content)
-        print(t,res.status_code,res.json())
+        print("[INFO] {}\n\tstatus_code:{}\n\tcontent:{}".format(__name__, res.status_code, res.content))
+
 
 
 
@@ -54,7 +56,7 @@ def main():
     args = parse_args()
     input_kwargs = dict(
         image_path = args.image_path,
-        gateway_host = args.gateway_host,
+        route = args.route,
     )
     work(input_kwargs)
 
