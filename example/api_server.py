@@ -15,10 +15,9 @@ from flask import Flask,request
 app = Flask(__name__)
 
 
-deploy_obj = None
+# def imageGeneral function
+def imageGeneral(deploy_obj):
 
-@app.route("/image/<name>",methods=['POST'])
-def imageGeneral(name):
     data = {
         "code": 0,
         "msg": "unknown error",
@@ -83,5 +82,13 @@ if __name__ == "__main__":
         ret = deploy_obj.update_license(license_path)
         assert ret == 0, "[ERROR] update_license failed, please use a correct license file."
 
-
+    name = "api_server"
+    # use flask add_url_rule to add api
+    print("[INFO] add url rule: /image/{}".format(name))
+    app.add_url_rule(
+        "/image/{}".format(name),
+        view_func=imageGeneral,
+        methods=['POST'],
+        defaults={'deploy_obj': deploy_obj}
+    )
     app.run(host="0.0.0.0",port=port,debug=debug)

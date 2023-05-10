@@ -121,7 +121,7 @@ Please download the **latest library files** and **Demo source code** in Release
   python -m pytest -s tests/test_interface.py
   ```
 
-- Optional api（可选，形成api）
+- Optional single api （可选，形成单个api）
   
   **Server:**
   
@@ -141,6 +141,28 @@ Please download the **latest library files** and **Demo source code** in Release
   python tests/test_api_server.py \
    --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
    --gateway_host /image/api_server
+  ```
+
+- Optional multiple api （可选，形成多个api）
+  
+  **Server:**
+  
+  ```
+  python example/api_server_dynamic.py \
+   --lib_path build/libAisDeployC.so \
+   --port 9003 \
+   --config_path tests/assets/settings/api_server_dynamic.json\
+   --license tests/assets/licenses/registed/linux_registed_info.aisl
+  ```
+  
+  **Client**
+  
+  *--gateway_host （后面的路由名字取决于server的文件名，因为server路由中定义为@app.route("/image/",methods=['POST'])）*
+  
+  ```
+  python tests/test_api_server.py \
+   --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
+   --gateway_host /image/
   ```
 
 ##### 3-b C++ Visual Studio sln Users (C++ Visual Studio sln 解决方案用户)
