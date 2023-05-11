@@ -23,7 +23,7 @@ def work(kwargs):
 
     appKey = "s84dsd#7hf34r3jsk@fs$d#$dd"
     backend_host = "http://127.0.0.1:{}".format(port)
-
+    headers = {'Content-Type': 'application/json'}
     iteration_number = 1
     for _ in range(iteration_number):
         image = cv2.imread(filename)
@@ -41,7 +41,7 @@ def work(kwargs):
 
         }
 
-        res=requests.post(url,data=params)
+        res=requests.post(url, json=params, headers=headers)
         t2 = time.time()
         t = "spend %.5f 秒"%(t2 - t1)
         print("[INFO] time {} {}".format(__name__, t))
