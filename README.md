@@ -78,7 +78,7 @@ Please download the **latest library files** and **Demo source code** in Release
   - Semantic Segmentation(语义分割)
     
     ```
-    python python example/run_sem.py\
+    python example/run_sem.py\
      --lib_path  cmake-build-release/AisDeployC.dll
      --model tests/assets/models/epoch_200_segmentor_setting_oen.aism
      --image_path tests/assets/images/1.jpg
@@ -88,7 +88,7 @@ Please download the **latest library files** and **Demo source code** in Release
   - Object Detection(目标检测)
     
     ```
-    python python example/run_det.py\
+    python example/run_det.py\
      --lib_path  cmake-build-release/AisDeployC.dll
      --model tests/assets/models/sft_recog_compose.aism
      --image_path tests/assets/images/A.jpeg
@@ -98,7 +98,7 @@ Please download the **latest library files** and **Demo source code** in Release
   - Pose Estimation(姿态估计)
     
     ```
-    python python example/run_pose.py\
+    python example/run_pose.py\
      --lib_path  cmake-build-release/AisDeployC.dll
      --model E:\\LargeFiles\\human_pose_est_17p_r50.aism
      --image_path tests/assets/images/human-pose.jpg
@@ -108,7 +108,7 @@ Please download the **latest library files** and **Demo source code** in Release
   - Face Recognition(人脸识别)
     
     ```
-    python python example/run_face_recog.py\
+    python example/run_face_recog.py\
      --lib_path  cmake-build-release/AisDeployC.dll
      --model E:\\LargeFiles\\face_embedding_r27_setting.aism
      --image_path tests/assets/images/Salma_Hayek_0001.jpg,tests/assets/images/Salma_Hayek_0002.jpg,tests/assets/images/Martina_McBride_0004.jpg
@@ -162,7 +162,7 @@ Please download the **latest library files** and **Demo source code** in Release
   ```
   python tests/test_api_server.py \
    --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg \
-   --gateway_host /image/
+   --gateway_host /image/detection_face
   ```
 
 ##### 3-b C++ Visual Studio sln Users (C++ Visual Studio sln 解决方案用户)
