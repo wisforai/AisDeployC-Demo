@@ -13,6 +13,7 @@ def parse_args():
     parser.add_argument("--image_path", default="", type=str, required=True, help="image_path")
     parser.add_argument("--route", default="", type=str, required=True, help="route")
     parser.add_argument("--port", default=9003, type=int, required=False, help="port")
+    parser.add_argument("--ip", default="127.0.0.1", type=str, required=False, help="str")
     args = parser.parse_args()
     return args
 
@@ -20,9 +21,10 @@ def work(kwargs):
     filename = kwargs.get("image_path")
     route = kwargs.get("route")
     port = kwargs.get("port")
+    ip = kwargs.get("ip")
 
     appKey = "s84dsd#7hf34r3jsk@fs$d#$dd"
-    backend_host = "http://127.0.0.1:{}".format(port)
+    backend_host = "http://{}:{}".format(ip, port)
     headers = {'Content-Type': 'application/json'}
     iteration_number = 1
     for _ in range(iteration_number):
@@ -60,6 +62,7 @@ def main():
         image_path = args.image_path,
         route = args.route,
         port = args.port,
+        ip = args.ip,
     )
     work(input_kwargs)
 
