@@ -18,15 +18,6 @@ jobs:
         run: echo "Smart Doc"
 
   create-release:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: Changelog
-      uses: Bullrich/generate-release-changelog@master
-      id: Changelog
-      env:
-        REPO: ${{ github.repository }}
     name: Create Release
     runs-on: ubuntu-latest
     if: startsWith(github.ref_name,'v')
@@ -34,6 +25,15 @@ jobs:
     outputs:
       upload_url: ${{ steps.create-new-release.outputs.upload_url }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Changelog
+        uses: Bullrich/generate-release-changelog@master
+        id: Changelog
+        env:
+          REPO: ${{ github.repository }}
       - name: Create Github Release
         id: create-new-release
         uses: actions/create-release@v1
