@@ -276,41 +276,20 @@ Please download the **latest library files** and **Demo source code** in Release
 
 ## Model Zoo
 
-工业 (industry)
+### 通用 (general)
 
-#### 区域分割 (region segmentation)
+#### 所有(anything)
 
-<p align="center">
- <img src="./docs/assets/wheel_hub_motor_seg.png">
-</p>
+##### 分割(segmentation)
 
-| 名称 Name                | 描述 Description | 链接 Link                                                                |
-| ---------------------- | -------------- | ---------------------------------------------------------------------- |
-| 2d_gear_wheel_seg_e200 | 轮毂电机2D齿轮分割     | 链接: https://pan.baidu.com/s/1ZYQfFSuZjMqKlrsLqog3xw?pwd=jca0 提取码: jca0 |
 
-#### 字符识别（OCR）
 
-##### 字符分割 (char segmentation)
+![](./docs/assets/anything_general_seg.jpg)
 
-<p align="center">
- <img src="./docs/assets/industry_ocr_seg.png">
-</p>
-
-| 名称 Name          | 描述 Description | 链接 Link                                                                |
-| ---------------- | -------------- | ---------------------------------------------------------------------- |
-| industry_ocr_seg | 工业OCR字符分割      | 链接: https://pan.baidu.com/s/1xYxZATyMScFstU3dkoHXzw?pwd=91n6 提取码: 91n6 |
-
-##### 字符分类 (char classification)
-
-<p align="center">
- <img src="./docs/assets/industry_ocr_cls.jpeg">
-</p>
-
-| 名称 Name            | 描述 Description | 链接 Link                                                                |
-| ------------------ | -------------- | ---------------------------------------------------------------------- |
-| industry_ocr_recog | 工业OCR字符分类      | 链接: https://pan.baidu.com/s/1ZhfBMARR3JmYvCg654Yhjw?pwd=hj7e 提取码: hj7e |
-
-通用 (general)
+| 名称 Name   | 描述 Description | 链接 Link                                                                |
+| --------- | -------------- | ---------------------------------------------------------------------- |
+| GSM-E-B-Q | 通用分割编码器（量化）    | 链接: https://pan.baidu.com/s/1wWLz0ZwYmQPu744hkzgIbw?pwd=otj6 提取码: otj6 |
+| GSM-D-B-Q | 通用分割解码器（量化）    | 链接: https://pan.baidu.com/s/1McUpBDgn3QjUej-a9EU8ng?pwd=up9s 提取码: up9s |
 
 #### 人 (human)
 
@@ -357,6 +336,34 @@ Please download the **latest library files** and **Demo source code** in Release
 | 名称 Name     | 描述 Description | 链接 Link                                                       |
 | ----------- | -------------- | ------------------------------------------------------------- |
 | person-pose | 通用人体关键点        | 链接: https://pan.baidu.com/s/1Hg1F9codS2qX3EaU0ah0tg 提取码: sfk2 |
+
+### 工业 (industry)
+
+#### 区域分割 (region segmentation)
+
+![](./docs/assets/wheel_hub_motor_seg.png)
+
+| 名称 Name                | 描述 Description | 链接 Link                                                                               |
+| ---------------------- | -------------- | ------------------------------------------------------------------------------------- |
+| 2d_gear_wheel_seg_e200 | 轮毂电机2D齿轮分割     | 链接: [百度网盘 请输入提取码](https://pan.baidu.com/s/1ZYQfFSuZjMqKlrsLqog3xw?pwd=jca0) 提取码: jca0 |
+
+#### 字符识别（OCR）
+
+##### 字符分割 (char segmentation)
+
+![](./docs/assets/industry_ocr_seg.png)
+
+| 名称 Name          | 描述 Description | 链接 Link                                                                               |
+| ---------------- | -------------- | ------------------------------------------------------------------------------------- |
+| industry_ocr_seg | 工业OCR字符分割      | 链接: [百度网盘 请输入提取码](https://pan.baidu.com/s/1xYxZATyMScFstU3dkoHXzw?pwd=91n6) 提取码: 91n6 |
+
+##### 字符分类 (char classification)
+
+![](./docs/assets/industry_ocr_cls.jpeg)
+
+| 名称 Name            | 描述 Description | 链接 Link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| industry_ocr_recog | 工业OCR字符分类      | 链接: [百度网盘 请输入提取码](https://pan.baidu.com/s/1ZhfBMARR3JmYvCg654Yhjw?pwd=hj7e) 提取码: hj7e工业 (industry)<br/><br/>#### 区域分割 (region segmentation)<br/><br/><p align="center"><br/> <img src="./docs/assets/wheel_hub_motor_seg.png"><br/></p><br/><br/>\| 名称 Name \| 描述 Description \| 链接 Link \|<br/>\| --- \| --- \| --- \|<br/>\| 2d_gear_wheel_seg_e200 \| 轮毂电机2D齿轮分割 \| 链接: https://pan.baidu.com/s/1ZYQfFSuZjMqKlrsLqog3xw?pwd=jca0 提取码: jca0 \|<br/><br/>#### 字符识别（OCR）<br/><br/>##### 字符分割 (char segmentation)<br/><br/><p align="center"><br/> <img src="./docs/assets/industry_ocr_seg.png"><br/></p><br/><br/>\| 名称 Name \| 描述 Description \| 链接 Link \|<br/>\| --- \| --- \| --- \|<br/>\| industry_ocr_seg \| 工业OCR字符分割 \| 链接: https://pan.baidu.com/s/1xYxZATyMScFstU3dkoHXzw?pwd=91n6 提取码: 91n6 \|<br/><br/>##### 字符分类 (char classification)<br/><br/><p align="center"><br/> <img src="./docs/assets/industry_ocr_cls.jpeg"><br/></p><br/><br/>\| 名称 Name \| 描述 Description \| 链接 Link \|<br/>\| --- \| --- \| --- \|<br/>\| industry_ocr_recog \| 工业OCR字符分类 \| 链接: https://pan.baidu.com/s/1ZhfBMARR3JmYvCg654Yhjw?pwd=hj7e 提取码: hj7e \| |
 
 ## User's documents
 
