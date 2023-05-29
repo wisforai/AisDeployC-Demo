@@ -18,6 +18,15 @@ jobs:
         run: echo "Smart Doc"
 
   create-release:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Changelog
+      uses: Bullrich/generate-release-changelog@master
+      id: Changelog
+      env:
+        REPO: ${{ github.repository }}
     name: Create Release
     runs-on: ubuntu-latest
     if: startsWith(github.ref_name,'v')
@@ -33,6 +42,10 @@ jobs:
         with:
           tag_name: ${{ github.ref_name }}
           release_name: AisDeployC ${{ github.ref_name }}
+          body: |
+            ${{ steps.Changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
 
   release-windows-10:
     name: Windows 10 Release

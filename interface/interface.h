@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.2.7";
+const std::string AisDeployCVersion="v0.3.0";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -560,6 +560,43 @@ AisDeployC_API  int get_per_batch_embeddings(
         std::vector<std::vector<float>> & per_batch_embeddings
 );
 
+/**
+*  @brief 获得每个批次的图像3D特征嵌入
+*
+*  @details
+*   在实例计算结束后，获得每个批次的图像特征嵌入
+*  @see
+*  示例代码如下
+*  @code
+    std::vector<std::vector<std::vector<std::vector<float>>>> & per_batch_embeddings;
+    int ret = get_per_batch_embeddings_3d(ptrDeploy, per_batch_embeddings);
+*  @endcode
+*  @param base  initialize返回的模型指针
+*  @param per_batch_embeddings  获得每个批次的实例的图像特征嵌入
+*  @return 执行结果，0表示执行成功，否则执行失败
+*/
+AisDeployC_API  int get_per_batch_embeddings_3d(
+        void *base,
+        std::vector<std::vector<std::vector<std::vector<float>>>> & per_batch_embeddings
+);
+
+/**
+*  @brief 处理图片
+*
+*  @details
+*   使用模型处理3维嵌入和提示词（前向推理）
+
+*/
+
+AisDeployC_API int process_embedding_3d_prompt(
+        void *base,
+        std::vector<std::vector<std::vector<std::vector<float>>>>  batch_embeddings,
+        std::vector<std::vector<std::vector<float>>> point_coords,
+        std::vector<std::vector<float>> point_labels,
+        std::vector<std::vector<std::vector<std::vector<float>>>> batch_mask_input,
+        std::vector<float> has_mask_input,
+        std::vector<std::vector<float>> orig_im_size
+);
 
 /**
 *  @brief 批量加载 字段 和 特征嵌入 对
