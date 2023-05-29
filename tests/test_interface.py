@@ -30,7 +30,7 @@ elif "Linux" in platform.platform():
 if "macOS" in platform.platform():
     license_path = "tests/assets/licenses/registed/macos_registed_info.aisl"
 elif "Windows" in platform.platform():
-    license_path = "tests/assets/licenses/registed/windows_registed_info.aisl"
+    license_path = "E:\\licenses\\windows_registed_info.aisl"
 elif "Linux" in platform.platform():
     license_path = "tests/assets/licenses/registed/linux_registed_info.aisl"
 
@@ -161,12 +161,46 @@ def test_interface_image_embedding():
 
     print(ret_val)
 
+def test_interface_gsam_embedding():
+    path_str = None
+    if "macOS" in platform.platform():
+        path_str = "/Users/zhoujinghui/CLionProjects/LargeFiles/sam_vit_b_01ec64_encoder-quant.aism"
+    elif "Windows" in platform.platform():
+        path_str = "E:\\LargeFiles\\sam_vit_b_01ec64_encoder-quant.aism"
+    elif "Linux" in platform.platform():
+        path_str = "/home/tzvtc/data/LargeFiles/sam_vit_b_01ec64_encoder-quant.aism"
+
+    deploy_obj = AisDeployC(lib_path)
+
+
+    gpu_id = -1
+    ret = deploy_obj.model_initialize(path_str, gpu_id)
+    assert ret == 0
+
+    ret = deploy_obj.update_license(license_path)
+
+
+    # process batch=1
+    imgPth = "tests/assets/images/0_Parade_marchingband_1_100.jpg"
+    f= open(imgPth, 'rb')
+    qrcode = base64.b64encode(f.read()).decode()
+    f.close()
+    file_json = {"type": "base64", "data": qrcode, "ch":3}
+    input_json = {"data_list": [file_json]}
+
+    ret_val = deploy_obj.process(input_json)
+    with open("tests/assets/images/_0_Parade_marchingband_1_100.json", "w") as f:
+        json.dump(ret_val, f, indent=4)
+
+
+
 def test_interface_cls():
 
 
     deploy_obj = AisDeployC(lib_path)
 
     path_str = "tests/assets/models/sft_recog_compose.aism"
+
 
     gpu_id = 0
     ret = deploy_obj.model_initialize(path_str, gpu_id)
@@ -200,14 +234,8 @@ def test_interface_pose():
 
 
     deploy_obj = AisDeployC(lib_path)
+    path_str = "tests/assets/models/human_pose_est_17p_mov2.aism"
 
-    path_str = None
-    if "macOS" in platform.platform():
-        path_str = "/Users/zhoujinghui/CLionProjects/LargeFiles/human_pose_est_17p_r50.aism"
-    elif "Windows" in platform.platform():
-        path_str = "E:\\LargeFiles\\human_pose_est_17p_r50.aism"
-    elif "Linux" in platform.platform():
-        path_str = "/home/tzvtc/data/LargeFiles/human_pose_est_17p_r50.aism"
     gpu_id = 0
     ret = deploy_obj.model_initialize(path_str, gpu_id)
     assert ret == 0
