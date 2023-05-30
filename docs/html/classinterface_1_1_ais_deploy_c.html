@@ -95,6 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a80b3e6d8ec36da99678527e39302e540"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinterface_1_1_ais_deploy_c.html#a80b3e6d8ec36da99678527e39302e540">process</a> (self, dict input_json)</td></tr>
 <tr class="memdesc:a80b3e6d8ec36da99678527e39302e540"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> class process function.  <a href="classinterface_1_1_ais_deploy_c.html#a80b3e6d8ec36da99678527e39302e540">More...</a><br /></td></tr>
 <tr class="separator:a80b3e6d8ec36da99678527e39302e540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6d18de12cbfb47457990cfb1a78c95b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinterface_1_1_ais_deploy_c.html#ad6d18de12cbfb47457990cfb1a78c95b">process_decoder</a> (self, dict input_json)</td></tr>
+<tr class="separator:ad6d18de12cbfb47457990cfb1a78c95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30aff7652f0a022ee2caa80fe2d2151f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinterface_1_1_ais_deploy_c.html#a30aff7652f0a022ee2caa80fe2d2151f">load_keys_embeddings</a> (self, dict input_json)</td></tr>
 <tr class="memdesc:a30aff7652f0a022ee2caa80fe2d2151f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classinterface_1_1_ais_deploy_c.html">AisDeployC</a> class load_keys_embeddings function.  <a href="classinterface_1_1_ais_deploy_c.html#a30aff7652f0a022ee2caa80fe2d2151f">More...</a><br /></td></tr>
 <tr class="separator:a30aff7652f0a022ee2caa80fe2d2151f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,37 +250,37 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>process result, output_json output json like dict. for success, None for failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00192">192</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  192</span>    <span class="keyword">def </span><a class="code hl_function" href="interface_8h.html#a13f560d5d3b08b8253a4cfd39379073d">compare_with_ground_embeddings</a>(self, input_json: dict):</div>
-<div class="line"><span class="lineno">  193</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class compare_with_ground_embeddings function.</span></div>
-<div class="line"><span class="lineno">  194</span><span class="stringliteral">        </span><span class="preprocessor">@see</span></div>
-<div class="line"><span class="lineno">  195</span>         示例代码如下</div>
-<div class="line"><span class="lineno">  196</span>         <span class="preprocessor">@code</span></div>
-<div class="line"><span class="lineno">  197</span>            <span class="keyword">import</span> json</div>
-<div class="line"><span class="lineno">  198</span>            value = list()</div>
-<div class="line"><span class="lineno">  199</span>            file_json = {<span class="stringliteral">&quot;embedding_vector&quot;</span>:value}</div>
-<div class="line"><span class="lineno">  200</span>            input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
-<div class="line"><span class="lineno">  201</span> </div>
-<div class="line"><span class="lineno">  202</span>            ret_val = deploy_obj.process(input_json)</div>
-<div class="line"><span class="lineno">  203</span>         <span class="preprocessor">@endcode</span></div>
-<div class="line"><span class="lineno">  204</span> </div>
-<div class="line"><span class="lineno">  205</span>        <span class="preprocessor">@param</span> input_json input json like dict.</div>
-<div class="line"><span class="lineno">  206</span>        <span class="preprocessor">@return</span>  process result, output_json output json like dict. <span class="keywordflow">for</span> success, <span class="keywordtype">None</span> <span class="keywordflow">for</span> failure.</div>
-<div class="line"><span class="lineno">  207</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  208</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  209</span>            print(<span class="stringliteral">&quot;[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.&quot;</span>)</div>
-<div class="line"><span class="lineno">  210</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  211</span>        data_str = json.dumps(input_json)</div>
-<div class="line"><span class="lineno">  212</span>        data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
-<div class="line"><span class="lineno">  213</span>        ret_char_c = ctypes.c_char_p()</div>
-<div class="line"><span class="lineno">  214</span>        ret = self.lib.<a class="code hl_function" href="interface_8h.html#a8c33a77b679f7b43b534ea91727bb605">py_compare_with_ground_embeddings</a>(self.handle, data_char, len(data_str), ctypes.pointer(ret_char_c), <span class="keywordtype">None</span> )</div>
-<div class="line"><span class="lineno">  215</span>        <span class="keywordflow">if</span> ret != 0:</div>
-<div class="line"><span class="lineno">  216</span>            print(<span class="stringliteral">&quot;[ERROR] compare_with_ground_embeddings failed in  AisDeployC. maybe check input of process.&quot;</span>)</div>
-<div class="line"><span class="lineno">  217</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  218</span>        ret_str = ret_char_c.value.decode(<span class="stringliteral">&quot;utf-8&quot;</span>)</div>
-<div class="line"><span class="lineno">  219</span>        ret_value = json.loads(ret_str)</div>
-<div class="line"><span class="lineno">  220</span>        self.lib.<a class="code hl_function" href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a>(ret_char_c)</div>
-<div class="line"><span class="lineno">  221</span>        <span class="keywordflow">return</span> ret_value</div>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00208">208</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  208</span>    <span class="keyword">def </span><a class="code hl_function" href="interface_8h.html#a13f560d5d3b08b8253a4cfd39379073d">compare_with_ground_embeddings</a>(self, input_json: dict):</div>
+<div class="line"><span class="lineno">  209</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class compare_with_ground_embeddings function.</span></div>
+<div class="line"><span class="lineno">  210</span><span class="stringliteral">        </span><span class="preprocessor">@see</span></div>
+<div class="line"><span class="lineno">  211</span>         示例代码如下</div>
+<div class="line"><span class="lineno">  212</span>         <span class="preprocessor">@code</span></div>
+<div class="line"><span class="lineno">  213</span>            <span class="keyword">import</span> json</div>
+<div class="line"><span class="lineno">  214</span>            value = list()</div>
+<div class="line"><span class="lineno">  215</span>            file_json = {<span class="stringliteral">&quot;embedding_vector&quot;</span>:value}</div>
+<div class="line"><span class="lineno">  216</span>            input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>            ret_val = deploy_obj.process(input_json)</div>
+<div class="line"><span class="lineno">  219</span>         <span class="preprocessor">@endcode</span></div>
+<div class="line"><span class="lineno">  220</span> </div>
+<div class="line"><span class="lineno">  221</span>        <span class="preprocessor">@param</span> input_json input json like dict.</div>
+<div class="line"><span class="lineno">  222</span>        <span class="preprocessor">@return</span>  process result, output_json output json like dict. <span class="keywordflow">for</span> success, <span class="keywordtype">None</span> <span class="keywordflow">for</span> failure.</div>
+<div class="line"><span class="lineno">  223</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  224</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  225</span>            print(<span class="stringliteral">&quot;[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.&quot;</span>)</div>
+<div class="line"><span class="lineno">  226</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  227</span>        data_str = json.dumps(input_json)</div>
+<div class="line"><span class="lineno">  228</span>        data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
+<div class="line"><span class="lineno">  229</span>        ret_char_c = ctypes.c_char_p()</div>
+<div class="line"><span class="lineno">  230</span>        ret = self.lib.<a class="code hl_function" href="interface_8h.html#a8c33a77b679f7b43b534ea91727bb605">py_compare_with_ground_embeddings</a>(self.handle, data_char, len(data_str), ctypes.pointer(ret_char_c), <span class="keywordtype">None</span> )</div>
+<div class="line"><span class="lineno">  231</span>        <span class="keywordflow">if</span> ret != 0:</div>
+<div class="line"><span class="lineno">  232</span>            print(<span class="stringliteral">&quot;[ERROR] compare_with_ground_embeddings failed in  AisDeployC. maybe check input of process.&quot;</span>)</div>
+<div class="line"><span class="lineno">  233</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  234</span>        ret_str = ret_char_c.value.decode(<span class="stringliteral">&quot;utf-8&quot;</span>)</div>
+<div class="line"><span class="lineno">  235</span>        ret_value = json.loads(ret_str)</div>
+<div class="line"><span class="lineno">  236</span>        self.lib.<a class="code hl_function" href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a>(ret_char_c)</div>
+<div class="line"><span class="lineno">  237</span>        <span class="keywordflow">return</span> ret_value</div>
 <div class="ttc" id="ainterface_8h_html_a13f560d5d3b08b8253a4cfd39379073d"><div class="ttname"><a href="interface_8h.html#a13f560d5d3b08b8253a4cfd39379073d">compare_with_ground_embeddings</a></div><div class="ttdeci">AisDeployC_API int compare_with_ground_embeddings(void *base, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;vec_embeddings, std::vector&lt; std::string &gt; &amp;ground_keys, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;vec_scores)</div><div class="ttdoc">将特征嵌入与底库内的特征嵌入进行比较</div></div>
 <div class="ttc" id="ainterface_8h_html_a62f252b1ce69d1d693c6611d4fe9c70b"><div class="ttname"><a href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a></div><div class="ttdeci">AisDeployC_API int py_free_result(char *output)</div><div class="ttdoc">python使用的释放返回结果的接口</div></div>
 <div class="ttc" id="ainterface_8h_html_a8c33a77b679f7b43b534ea91727bb605"><div class="ttname"><a href="interface_8h.html#a8c33a77b679f7b43b534ea91727bb605">py_compare_with_ground_embeddings</a></div><div class="ttdeci">AisDeployC_API int py_compare_with_ground_embeddings(void *base, const char *input, int input_size, char **output, int *output_size)</div><div class="ttdoc">python使用的批量 字段 和 特征嵌入 对，与底库中特征嵌入做比对，json string输入格式的接口,json string输出格式的接口</div></div>
@@ -365,37 +367,37 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>process result, 0 for success, 1 for failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00162">162</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  162</span>    <span class="keyword">def </span><a class="code hl_function" href="interface_8h.html#a7d34e5a752177fc20079c162d1c7097a">load_keys_embeddings</a>(self, input_json: dict):</div>
-<div class="line"><span class="lineno">  163</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class load_keys_embeddings function.</span></div>
-<div class="line"><span class="lineno">  164</span><span class="stringliteral">        </span><span class="preprocessor">@see</span></div>
-<div class="line"><span class="lineno">  165</span>         batch=1 示例代码如下</div>
-<div class="line"><span class="lineno">  166</span>         <span class="preprocessor">@code</span></div>
-<div class="line"><span class="lineno">  167</span>            <span class="keyword">import</span> json</div>
-<div class="line"><span class="lineno">  168</span>            key = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  169</span>            value = list()</div>
-<div class="line"><span class="lineno">  170</span>            file_json = {<span class="stringliteral">&quot;key&quot;</span>: key, <span class="stringliteral">&quot;embedding_vector&quot;</span>:value}</div>
-<div class="line"><span class="lineno">  171</span>            input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
-<div class="line"><span class="lineno">  172</span> </div>
-<div class="line"><span class="lineno">  173</span>            ret_val = deploy_obj.load_keys_embeddings(input_json)</div>
-<div class="line"><span class="lineno">  174</span>         <span class="preprocessor">@endcode</span></div>
-<div class="line"><span class="lineno">  175</span> </div>
-<div class="line"><span class="lineno">  176</span>        <span class="preprocessor">@param</span> input_json input json like dict.</div>
-<div class="line"><span class="lineno">  177</span>        <span class="preprocessor">@return</span>  process result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
-<div class="line"><span class="lineno">  178</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  179</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  180</span>            print(<span class="stringliteral">&quot;[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.&quot;</span>)</div>
-<div class="line"><span class="lineno">  181</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  182</span> </div>
-<div class="line"><span class="lineno">  183</span>        data_str = json.dumps(input_json)</div>
-<div class="line"><span class="lineno">  184</span>        data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
-<div class="line"><span class="lineno">  185</span> </div>
-<div class="line"><span class="lineno">  186</span>        ret = self.lib.py_load_keys_embeddings(self.handle, data_char, len(data_str))</div>
-<div class="line"><span class="lineno">  187</span>        <span class="keywordflow">if</span> ret != 0:</div>
-<div class="line"><span class="lineno">  188</span>            print(<span class="stringliteral">&quot;[ERROR] load_keys_embeddings failed in  AisDeployC. maybe check input of process.&quot;</span>)</div>
-<div class="line"><span class="lineno">  189</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">return</span> ret</div>
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00178">178</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  178</span>    <span class="keyword">def </span><a class="code hl_function" href="interface_8h.html#a7d34e5a752177fc20079c162d1c7097a">load_keys_embeddings</a>(self, input_json: dict):</div>
+<div class="line"><span class="lineno">  179</span>        <span class="stringliteral">&quot;&quot;&quot;! The AisDeployC class load_keys_embeddings function.</span></div>
+<div class="line"><span class="lineno">  180</span><span class="stringliteral">        </span><span class="preprocessor">@see</span></div>
+<div class="line"><span class="lineno">  181</span>         batch=1 示例代码如下</div>
+<div class="line"><span class="lineno">  182</span>         <span class="preprocessor">@code</span></div>
+<div class="line"><span class="lineno">  183</span>            <span class="keyword">import</span> json</div>
+<div class="line"><span class="lineno">  184</span>            key = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  185</span>            value = list()</div>
+<div class="line"><span class="lineno">  186</span>            file_json = {<span class="stringliteral">&quot;key&quot;</span>: key, <span class="stringliteral">&quot;embedding_vector&quot;</span>:value}</div>
+<div class="line"><span class="lineno">  187</span>            input_json = {<span class="stringliteral">&quot;data_list&quot;</span>: [file_json]}</div>
+<div class="line"><span class="lineno">  188</span> </div>
+<div class="line"><span class="lineno">  189</span>            ret_val = deploy_obj.load_keys_embeddings(input_json)</div>
+<div class="line"><span class="lineno">  190</span>         <span class="preprocessor">@endcode</span></div>
 <div class="line"><span class="lineno">  191</span> </div>
+<div class="line"><span class="lineno">  192</span>        <span class="preprocessor">@param</span> input_json input json like dict.</div>
+<div class="line"><span class="lineno">  193</span>        <span class="preprocessor">@return</span>  process result, 0 <span class="keywordflow">for</span> success, 1 <span class="keywordflow">for</span> failure.</div>
+<div class="line"><span class="lineno">  194</span>        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  195</span><span class="stringliteral">        </span><span class="keywordflow">if</span> self.handle <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  196</span>            print(<span class="stringliteral">&quot;[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.&quot;</span>)</div>
+<div class="line"><span class="lineno">  197</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  198</span> </div>
+<div class="line"><span class="lineno">  199</span>        data_str = json.dumps(input_json)</div>
+<div class="line"><span class="lineno">  200</span>        data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
+<div class="line"><span class="lineno">  201</span> </div>
+<div class="line"><span class="lineno">  202</span>        ret = self.lib.py_load_keys_embeddings(self.handle, data_char, len(data_str))</div>
+<div class="line"><span class="lineno">  203</span>        <span class="keywordflow">if</span> ret != 0:</div>
+<div class="line"><span class="lineno">  204</span>            print(<span class="stringliteral">&quot;[ERROR] load_keys_embeddings failed in  AisDeployC. maybe check input of process.&quot;</span>)</div>
+<div class="line"><span class="lineno">  205</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  206</span>        <span class="keywordflow">return</span> ret</div>
+<div class="line"><span class="lineno">  207</span> </div>
 <div class="ttc" id="ainterface_8h_html_a7d34e5a752177fc20079c162d1c7097a"><div class="ttname"><a href="interface_8h.html#a7d34e5a752177fc20079c162d1c7097a">load_keys_embeddings</a></div><div class="ttdeci">AisDeployC_API int load_keys_embeddings(void *base, std::vector&lt; std::string &gt; &amp;vec_keys, std::vector&lt; std::vector&lt; float &gt; &gt; &amp;vec_embeddings)</div><div class="ttdoc">批量加载 字段 和 特征嵌入 对</div></div>
 </div><!-- fragment -->
 </div>
@@ -477,7 +479,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   68</span>        self.lib.py_load_keys_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]</div>
 <div class="line"><span class="lineno">   69</span>        self.lib.py_load_keys_embeddings.restype = ctypes.c_int</div>
 <div class="line"><span class="lineno">   70</span>        self.lib.py_compare_with_ground_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]</div>
-<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   71</span>        self.lib.py_process_decoder.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]</div>
 <div class="line"><span class="lineno">   72</span>        <span class="keywordflow">return</span> ret.value</div>
 <div class="line"><span class="lineno">   73</span> </div>
 <div class="ttc" id="ainterface_8h_html_aeaa3fec503e29e584c7ab175efd068b6"><div class="ttname"><a href="interface_8h.html#aeaa3fec503e29e584c7ab175efd068b6">initialize</a></div><div class="ttdeci">AisDeployC_API void * initialize(const char *model_path, int gpu_id, int *state)</div><div class="ttdoc">模型初始化</div></div>
@@ -616,6 +618,53 @@ batch=2 示例代码如下 <div class="fragment"><div class="line"><span class="
 <div class="line"><span class="lineno">  161</span> </div>
 <div class="ttc" id="ainterface_8h_html_a22e487f1c4a49035d427ca66604ed6da"><div class="ttname"><a href="interface_8h.html#a22e487f1c4a49035d427ca66604ed6da">py_get_json_str_results</a></div><div class="ttdeci">AisDeployC_API int py_get_json_str_results(void *base, char **output, int *output_size)</div><div class="ttdoc">python使用的获取json string输出格式的接口</div></div>
 <div class="ttc" id="ainterface_8h_html_acc947a5e4a526f19943fcb68aedb3cce"><div class="ttname"><a href="interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce">py_process_json_str</a></div><div class="ttdeci">AisDeployC_API int py_process_json_str(void *base, const char *input, int input_size)</div><div class="ttdoc">python使用的处理json string输入格式的接口</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad6d18de12cbfb47457990cfb1a78c95b" name="ad6d18de12cbfb47457990cfb1a78c95b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6d18de12cbfb47457990cfb1a78c95b">&#9670;&nbsp;</a></span>process_decoder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def interface.AisDeployC.process_decoder </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dict&#160;</td>
+          <td class="paramname"><em>input_json</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="interface_8py_source.html#l00162">162</a> of file <a class="el" href="interface_8py_source.html">interface.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  162</span>    <span class="keyword">def </span>process_decoder(self, input_json: dict):</div>
+<div class="line"><span class="lineno">  163</span>        <span class="keywordflow">if</span> self.handle <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  164</span>            print(<span class="stringliteral">&quot;[ERROR] Check handle failed in AisDeployC.process_decoder. maybe lack initialization.&quot;</span>)</div>
+<div class="line"><span class="lineno">  165</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  166</span>        data_str = json.dumps(input_json)</div>
+<div class="line"><span class="lineno">  167</span>        data_char = ctypes.c_char_p(data_str.encode(<span class="stringliteral">&#39;utf-8&#39;</span>))</div>
+<div class="line"><span class="lineno">  168</span>        ret_char_c = ctypes.c_char_p()</div>
+<div class="line"><span class="lineno">  169</span>        ret = self.lib.<a class="code hl_function" href="interface_8h.html#af45e65ef6bcd9a783248b7fda7180070">py_process_decoder</a>(self.handle, data_char, len(data_str),ctypes.pointer(ret_char_c), <span class="keywordtype">None</span>)</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">if</span> ret != 0:</div>
+<div class="line"><span class="lineno">  171</span>            print(<span class="stringliteral">&quot;[ERROR] py_process_decoder failed in  AisDeployC. maybe check input of process_decoder.&quot;</span>)</div>
+<div class="line"><span class="lineno">  172</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  173</span>        ret_str = ret_char_c.value.decode(<span class="stringliteral">&quot;utf-8&quot;</span>)</div>
+<div class="line"><span class="lineno">  174</span>        ret_value = json.loads(ret_str)</div>
+<div class="line"><span class="lineno">  175</span>        self.lib.<a class="code hl_function" href="interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b">py_free_result</a>(ret_char_c)</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> ret_value</div>
+<div class="line"><span class="lineno">  177</span> </div>
+<div class="ttc" id="ainterface_8h_html_af45e65ef6bcd9a783248b7fda7180070"><div class="ttname"><a href="interface_8h.html#af45e65ef6bcd9a783248b7fda7180070">py_process_decoder</a></div><div class="ttdeci">AisDeployC_API int py_process_decoder(void *base, const char *input, int input_size, char **output, int *output_size)</div><div class="ttdoc">python使用的解码器处理接口，输入特征嵌入和提示prompt，json string输入格式的接口,json string输出格式的接口</div></div>
 </div><!-- fragment -->
 </div>
 </div>

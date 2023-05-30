@@ -192,6 +192,36 @@ def test_interface_gsam_embedding():
     with open("tests/assets/images/_0_Parade_marchingband_1_100.json", "w") as f:
         json.dump(ret_val, f, indent=4)
 
+def test_interface_gsam_decoder():
+    path_str = "tests/assets/models/sam_vit_b_01ec64_decoder-quant_merge.aism"
+    deploy_obj = AisDeployC(lib_path)
+    gpu_id = -1
+    ret = deploy_obj.model_initialize(path_str, gpu_id)
+    assert ret == 0
+
+    f = open("tests/assets/images/image_embedding.json", "r")
+    image_embeddings = json.load(f)
+    f.close()
+    point_coords = [[[400, 150],[500, 250],[450, 200]]]
+    point_labels = [[0, 3, 2]]
+    # generate all zeros mask, shape is (1, 1, 256, 256), not use numpy
+    mask_input = []
+    tmp = []
+    for i in range(256):
+        tmp.append(0)
+    for i in range(256):
+        mask_input.append(tmp)
+    mask_input = [mask_input]
+    mask_input = [mask_input]
+
+
+    orig_im_size = [[682, 1024]]
+
+    has_mask_input = [0]
+    input_json = {"image_embeddings": image_embeddings, "point_coords": point_coords, "point_labels": point_labels,
+                    "mask_input": mask_input, "has_mask_input": has_mask_input, "orig_im_size": orig_im_size}
+    ret = deploy_obj.process_decoder(input_json)
+    print(ret)
 
 
 def test_interface_cls():
