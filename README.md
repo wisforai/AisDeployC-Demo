@@ -114,6 +114,17 @@ Please download the **latest library files** and **Demo source code** in Release
      --image_path tests/assets/images/Salma_Hayek_0001.jpg,tests/assets/images/Salma_Hayek_0002.jpg,tests/assets/images/Martina_McBride_0004.jpg
      --vis_dir tests/assets/images/vis
     ```
+  
+  - Segment Anything (分割所有)
+    
+    ```
+    python example/run_gsem.py\ 
+     --lib_path cmake-build-release/AisDeployC.dll
+     --encoder_model E:\\LargeFiles\\sam_vit_b_01ec64_encoder-quant.aism
+     --decoder_model E:\\LargeFiles\\sam_vit_b_01ec64_decoder-quant_merge.aism
+     --vis_dir _vis
+     --image_path tests/assets/images/0_Parade_marchingband_1_100.jpg
+    ```
 
 - Run pytest examples（运行pytest示例）
   

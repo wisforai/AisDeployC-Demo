@@ -68,7 +68,7 @@ class AisDeployC():
         self.lib.py_load_keys_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]
         self.lib.py_load_keys_embeddings.restype = ctypes.c_int
         self.lib.py_compare_with_ground_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
-
+        self.lib.py_process_decoder.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
         return ret.value
 
     def generate_license(self):
@@ -153,6 +153,22 @@ class AisDeployC():
         ret = self.lib.py_get_json_str_results( self.handle, ctypes.pointer(ret_char_c), None )
         if ret != 0:
             print("[ERROR] py_get_json_str_results failed in  AisDeployC. maybe lack py_process_json_str.")
+            return None
+        ret_str = ret_char_c.value.decode("utf-8")
+        ret_value = json.loads(ret_str)
+        self.lib.py_free_result(ret_char_c)
+        return ret_value
+
+    def process_decoder(self, input_json: dict):
+        if self.handle is None:
+            print("[ERROR] Check handle failed in AisDeployC.process_decoder. maybe lack initialization.")
+            return None
+        data_str = json.dumps(input_json)
+        data_char = ctypes.c_char_p(data_str.encode('utf-8'))
+        ret_char_c = ctypes.c_char_p()
+        ret = self.lib.py_process_decoder(self.handle, data_char, len(data_str),ctypes.pointer(ret_char_c), None)
+        if ret != 0:
+            print("[ERROR] py_process_decoder failed in  AisDeployC. maybe check input of process_decoder.")
             return None
         ret_str = ret_char_c.value.decode("utf-8")
         ret_value = json.loads(ret_str)

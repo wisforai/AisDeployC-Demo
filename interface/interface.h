@@ -671,6 +671,33 @@ AisDeployC_API  int compare_with_ground_embeddings(
 AisDeployC_API int py_compare_with_ground_embeddings(void *base, const char *input, int input_size, char **output, int *output_size);
 
 /**
+*  @brief python使用的解码器处理接口，输入特征嵌入和提示prompt，json string输入格式的接口,json string输出格式的接口
+*
+*  @details
+*   python使用的解码器处理接口，输入特征嵌入和提示prompt，json string输入格式的接口,json string输出格式的接口
+ *  @see
+ *  示例代码如下
+ *  @code
+    key = ""
+    value = list()
+    file_json = {"embedding_vector":value}
+    input_json = {"data_list": [file_json]}
+    data_str = json.dumps(input_json)
+    data_char = ctypes.c_char_p(data_str.encode('utf-8'))
+    ret_char_c = ctypes.c_char_p()
+    ret = lib.py_process_decoder(handle, data_char, len(data_str), ret_char_c, None)
+ *  @endcode
+ *  @param base  initialize返回的模型指针
+ *  @param input  输入json string (const char *)
+ *  @param input_size 输入json string长度
+ *  @param output  输出json string (char **)
+ *  @param output_size 输出json string长度
+*  @return 执行结果，0表示检查成功，否则检查失败
+*/
+AisDeployC_API int py_process_decoder(void *base, const char *input, int input_size, char **output, int *output_size);
+
+
+/**
 *  @brief python使用的获取json string输出格式的接口
 *
 *  @details
