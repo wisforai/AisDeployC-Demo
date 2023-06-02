@@ -347,6 +347,20 @@ Please download the **latest library files** and **Demo source code** in Release
 | person-pose      | 通用人体关键点        | 链接: https://pan.baidu.com/s/1Hg1F9codS2qX3EaU0ah0tg 提取码: sfk2          |
 | person-pose-tiny | 轻量级通用人体关键点     | 链接: https://pan.baidu.com/s/16NR3HgO6awzIRN2K2nuCLQ?pwd=ej89 提取码: ej89 |
 
+### 医学(medicine)
+
+#### 口腔(oral)
+
+#### 全景片牙体分割(panoramic tooth segmentation)
+
+<p align="center">    
+<img src="./docs/assets/panoramic_tooth_seg.png">   
+</p>
+
+| 名称 Name                 | 描述 Description | 链接 Link                                                                |
+| ----------------------- | -------------- | ---------------------------------------------------------------------- |
+| panoramic_tooth_seg_e10 | 全景片牙体分割        | 链接: https://pan.baidu.com/s/1UDL87LzKVgbUOWJX7iK8Yg?pwd=y4ka 提取码: y4ka |
+
 ### 工业 (industry)
 
 #### 区域分割 (region segmentation)
