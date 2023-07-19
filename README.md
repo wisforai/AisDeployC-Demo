@@ -347,6 +347,28 @@ Please download the **latest library files** and **Demo source code** in Release
 | person-pose      | 通用人体关键点        | 链接: https://pan.baidu.com/s/1Hg1F9codS2qX3EaU0ah0tg 提取码: sfk2          |
 | person-pose-tiny | 轻量级通用人体关键点     | 链接: https://pan.baidu.com/s/16NR3HgO6awzIRN2K2nuCLQ?pwd=ej89 提取码: ej89 |
 
+- 行为-玩手机(action-play phone)
+
+<p align="center">
+<img src="./docs/assets/hold_phone.png">
+</p>
+
+| 名称 Name           | 描述 Description | 链接 Link                                                                |
+| ----------------- | -------------- | ---------------------------------------------------------------------- |
+| person-hold_phone | 通用人体行为-玩手机     | 链接: https://pan.baidu.com/s/1LebQ4-AWLLN1BW4rDOHUqA?pwd=dnpw 提取码: dnpw |
+
+#### 工厂 (factory)
+
+##### 行车钩子分割 (hook segmentation)
+
+<p align="center">
+<img src="./docs/assets/factory_hook_crop.png">
+</p>
+
+| 名称 Name      | 描述 Description | 链接 Link                                                                |
+| ------------ | -------------- | ---------------------------------------------------------------------- |
+| factory-hook | 通用-工厂行车-钩子分割   | 链接: https://pan.baidu.com/s/1jS4HFh0_Oridf_8SftIWPA?pwd=i5bf 提取码: i5bf |
+
 ### 医学(medicine)
 
 #### 口腔(oral)
