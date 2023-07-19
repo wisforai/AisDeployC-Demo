@@ -369,6 +369,20 @@ Please download the **latest library files** and **Demo source code** in Release
 | ------------ | -------------- | ---------------------------------------------------------------------- |
 | factory-hook | 通用-工厂行车-钩子分割   | 链接: https://pan.baidu.com/s/1jS4HFh0_Oridf_8SftIWPA?pwd=i5bf 提取码: i5bf |
 
+### 医学(medicine)
+
+#### 口腔(oral)
+
+#### 全景片牙体分割(panoramic tooth segmentation)
+
+<p align="center">    
+<img src="./docs/assets/panoramic_tooth_seg.png">   
+</p>
+
+| 名称 Name                 | 描述 Description | 链接 Link                                                                |
+| ----------------------- | -------------- | ---------------------------------------------------------------------- |
+| panoramic_tooth_seg_e10 | 全景片牙体分割        | 链接: https://pan.baidu.com/s/1UDL87LzKVgbUOWJX7iK8Yg?pwd=y4ka 提取码: y4ka |
+
 ### 工业 (industry)
 
 #### 区域分割 (region segmentation)
