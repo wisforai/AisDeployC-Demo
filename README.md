@@ -87,12 +87,25 @@ Please download the **latest library files** and **Demo source code** in Release
   
   - Object Detection(目标检测)
     
+    处理图片
+    
     ```
     python example/run_det.py\
      --lib_path  cmake-build-release/AisDeployC.dll
      --model tests/assets/models/sft_recog_compose.aism
      --image_path tests/assets/images/A.jpeg
      --vis_dir tests/assets/images/vis
+    ```
+    
+    处理视频
+    
+    ```
+    python example/run_det_video.py \
+     --lib_path  cmake-build-release/AisDeployC.dll
+     --model tests/assets/models/sft_recog_compose.aism
+     --video_path xxx/xxx.mp4
+     --vis_dir tests/assets/images/vis
+     --license xxx/reisted_info.aisl
     ```
   
   - Pose Estimation(姿态估计)
