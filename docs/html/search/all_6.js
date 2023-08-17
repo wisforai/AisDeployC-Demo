@@ -12,5 +12,6 @@ var searchData=
   ['get_5fper_5fbatch_5fpose_5festimation_9',['get_per_batch_pose_estimation',['../interface_8h.html#ab9dc9c76b787d72b78ff16c88ad73553',1,'interface.h']]],
   ['get_5fper_5fcategory_5fbinary_5fmasks_10',['get_per_category_binary_masks',['../interface_8h.html#aecd38970c14860052c0294eae27ab837',1,'interface.h']]],
   ['get_5fper_5fcategory_5fscore_5fmaps_11',['get_per_category_score_maps',['../interface_8h.html#a0525c374545f97b789215cd6fbfe19b2',1,'interface.h']]],
-  ['get_5fversion_12',['get_version',['../interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392',1,'interface.h']]]
+  ['get_5fprocess_5fstatus_12',['get_process_status',['../classinterface_1_1_ais_deploy_c.html#a856915cc8c96512d3727bdf85644511b',1,'interface::AisDeployC']]],
+  ['get_5fversion_13',['get_version',['../interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392',1,'interface.h']]]
 ];
