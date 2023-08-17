@@ -7,6 +7,7 @@ var searchData=
   ['py_5fcompare_5fwith_5fground_5fembeddings_4',['py_compare_with_ground_embeddings',['../interface_8h.html#a8c33a77b679f7b43b534ea91727bb605',1,'interface.h']]],
   ['py_5ffree_5fresult_5',['py_free_result',['../interface_8h.html#a62f252b1ce69d1d693c6611d4fe9c70b',1,'interface.h']]],
   ['py_5fget_5fjson_5fstr_5fresults_6',['py_get_json_str_results',['../interface_8h.html#a22e487f1c4a49035d427ca66604ed6da',1,'interface.h']]],
-  ['py_5fprocess_5fdecoder_7',['py_process_decoder',['../interface_8h.html#af45e65ef6bcd9a783248b7fda7180070',1,'interface.h']]],
-  ['py_5fprocess_5fjson_5fstr_8',['py_process_json_str',['../interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce',1,'interface.h']]]
+  ['py_5fget_5fprocess_5fstatus_7',['py_get_process_status',['../interface_8h.html#a155cbdf2aba5c4df44a42c44d881ec64',1,'interface.h']]],
+  ['py_5fprocess_5fdecoder_8',['py_process_decoder',['../interface_8h.html#af45e65ef6bcd9a783248b7fda7180070',1,'interface.h']]],
+  ['py_5fprocess_5fjson_5fstr_9',['py_process_json_str',['../interface_8h.html#acc947a5e4a526f19943fcb68aedb3cce',1,'interface.h']]]
 ];

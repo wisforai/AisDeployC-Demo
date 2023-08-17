@@ -100,6 +100,9 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a155cbdf2aba5c4df44a42c44d881ec64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#a155cbdf2aba5c4df44a42c44d881ec64">py_get_process_status</a> (void *base)</td></tr>
+<tr class="memdesc:a155cbdf2aba5c4df44a42c44d881ec64"><td class="mdescLeft">&#160;</td><td class="mdescRight">python使用的获取处理状态的接口  <a href="interface_8h.html#a155cbdf2aba5c4df44a42c44d881ec64">More...</a><br /></td></tr>
+<tr class="separator:a155cbdf2aba5c4df44a42c44d881ec64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4b1ea517ea6d90ae50c621ec0ee0060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#ae4b1ea517ea6d90ae50c621ec0ee0060">check_version</a> ()</td></tr>
 <tr class="memdesc:ae4b1ea517ea6d90ae50c621ec0ee0060"><td class="mdescLeft">&#160;</td><td class="mdescRight">检查当前库版本号与头文件版本号是否一致  <a href="interface_8h.html#ae4b1ea517ea6d90ae50c621ec0ee0060">More...</a><br /></td></tr>
 <tr class="separator:ae4b1ea517ea6d90ae50c621ec0ee0060"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,7 +193,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.3.0&quot;</td></tr>
+<tr class="memitem:abd63dd08f15633a94d93f45f0869c598"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8h.html#abd63dd08f15633a94d93f45f0869c598">AisDeployCVersion</a> =&quot;v0.3.1&quot;</td></tr>
 <tr class="separator:abd63dd08f15633a94d93f45f0869c598"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -1447,6 +1450,35 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a155cbdf2aba5c4df44a42c44d881ec64" name="a155cbdf2aba5c4df44a42c44d881ec64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155cbdf2aba5c4df44a42c44d881ec64">&#9670;&nbsp;</a></span>py_get_process_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_8h.html#a8d2a0e283c407e2bda8a52ceeb7597a8">AisDeployC_API</a> int py_get_process_status </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>base</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>python使用的获取处理状态的接口 </p>
+<p >python使用的获取处理状态的接口,一般需要先经过initialize </p><dl class="section see"><dt>See also</dt><dd>示例代码如下 <div class="fragment"><div class="line">ret = lib.py_get_json_str_results(handle)</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>initialize返回的模型指针 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>处理状态结果，0表示未初始化，1表示初始化完成，2表示正在处理 </dd></dl>
+
+</div>
+</div>
 <a id="af45e65ef6bcd9a783248b7fda7180070" name="af45e65ef6bcd9a783248b7fda7180070"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af45e65ef6bcd9a783248b7fda7180070">&#9670;&nbsp;</a></span>py_process_decoder()</h2>
 
@@ -1651,7 +1683,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string AisDeployCVersion =&quot;v0.3.0&quot;</td>
+          <td class="memname">const std::string AisDeployCVersion =&quot;v0.3.1&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -14,6 +14,16 @@ from interface.python.interface import AisDeployC
 from flask import Flask,request
 app = Flask(__name__)
 
+def check_base64(image_base64:str):
+    startswith_str = "data:image/jpeg;base64,"
+    startswith_str_len = len(startswith_str)
+    if image_base64.startswith(startswith_str):
+        return image_base64[startswith_str_len:]
+    startswith_str = "data:image/png;base64,"
+    startswith_str_len = len(startswith_str)
+    if image_base64.startswith(startswith_str):
+        return image_base64[startswith_str_len:]
+    return None
 
 # def imageGeneral function
 def imageGeneral(deploy_obj):
@@ -30,7 +40,7 @@ def imageGeneral(deploy_obj):
     # 请求参数
     # appKey = params.get("appKey")
     image_base64 = params.get("image_base64", None)  # 接收base64编码的图片
-
+    image_base64 = check_base64(image_base64)
     if image_base64:
         file_json = {"type": "base64", "data": image_base64, "ch":3}
         input_json = {"data_list": [file_json]}

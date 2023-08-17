@@ -33,7 +33,7 @@ def work(kwargs):
         encoded_image_byte = cv2.imencode(".jpg", image)[1].tobytes()  # bytes类型
         image_base64 = base64.b64encode(encoded_image_byte)
         image_base64 = image_base64.decode("utf-8")  # str类型
-
+        image_base64 = "data:image/jpeg;base64," + image_base64
         url = '{}/{}'.format(backend_host, route)
 
         t1 = time.time()
