@@ -12,6 +12,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
 from interface.python.interface import AisDeployC
 
 from flask import Flask,request
+from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 algrithm_list = []
 
@@ -144,4 +145,6 @@ if __name__ == "__main__":
         )
 
 
-    app.run(host="0.0.0.0",port=port,debug=debug)
+    # app.run(host="0.0.0.0",port=port,debug=debug)
+    http_server = WSGIServer(('0.0.0.0', port), app)
+    http_server.serve_forever()

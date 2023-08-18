@@ -12,6 +12,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "../"))
 from interface.python.interface import AisDeployC
 
 from flask import Flask,request
+from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 def check_base64(image_base64:str):
@@ -101,4 +102,6 @@ if __name__ == "__main__":
         methods=['POST'],
         defaults={'deploy_obj': deploy_obj}
     )
-    app.run(host="0.0.0.0",port=port,debug=debug)
+    # app.run(host="0.0.0.0",port=port,debug=debug)
+    http_server = WSGIServer(('0.0.0.0', port), app)
+    http_server.serve_forever()
