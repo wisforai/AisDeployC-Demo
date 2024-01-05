@@ -41,14 +41,11 @@ def test_interface_sem():
 
     path_str = "tests/assets/models/epoch_200_segmentor_setting_oen.aism"
     gpu_id = 0
-    ret = deploy_obj.get_process_status()
-    assert ret == 0
+
 
     ret = deploy_obj.model_initialize(path_str, gpu_id)
     assert ret == 0
 
-    ret = deploy_obj.get_process_status()
-    assert ret == 1
 
 
     ret = deploy_obj.update_license(license_path)

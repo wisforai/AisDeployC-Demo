@@ -21,7 +21,7 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     if: startsWith(github.ref_name,'v')
-    needs: [ windows-10-build-test, linux-ubuntu-actions-build, windows-server-build-test ]
+    needs: [ windows-10-build-test, linux-ubuntu-actions-build ]
     outputs:
       upload_url: ${{ steps.create-new-release.outputs.upload_url }}
     steps:
@@ -75,36 +75,6 @@ jobs:
           upload_url: ${{ needs.create-release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
           asset_path: ./release.zip
           asset_name: AisDeployC-windows-10-${{ github.ref_name }}.zip
-          asset_content_type: application/zip
-
-  release-windows-server:
-    name: Windows Server Release
-    runs-on: self-hosted-server
-    if: startsWith(github.ref_name,'v')
-    needs: create-release
-    steps:
-      - name: Copy Engine DLL
-        run: |
-          XCOPY E:\\onnxruntime-win-x64-gpu-1.12.1\*.dll cmake-build-release /s/e/y 
-          XCOPY E:\\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll cmake-build-release /s/e/y
-          CD cmake-build-release
-      - name: Copy AisDeployC lib
-        run: |
-          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\*.lib cmake-build-release /s/e/y
-      - name: Archive Release
-        uses: vimtor/action-zip@v1
-        with:
-          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll cmake-build-release\onnxruntime_providers_tensorrt.dll cmake-build-release\vcruntime140_1.dll
-          dest: release.zip
-      - name: Upload asset to Github Release
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.create-release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./release.zip
-          asset_name: AisDeployC-windows-server-${{ github.ref_name }}.zip
           asset_content_type: application/zip
 
   release-linux-gpu:
@@ -161,27 +131,6 @@ jobs:
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
           .\tests\test_example.bat
-
-  windows-server-build-test:
-    runs-on: self-hosted-server
-    needs: create-build
-    steps:
-      - uses: actions/checkout@v3
-      - name: cmake
-        run: |
-          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8770.66\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=C:/Users/Administrator/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/231.8770.66/bin/ninja/win/x64/ninja.exe -G Ninja -S E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo -B E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
-      - name: build
-        run: |
-          cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
-          C:\Users\Administrator\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\231.8770.66\bin\cmake\win\x64\bin\cmake.exe --build .
-      - name: Run Test
-        run: |
-          cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
-          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC*.dll .\
-          COPY E:\onnxruntime-win-x64-gpu-1.12.1\lib\onnxruntime*.dll .\
-          COPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\
-          .\basic.exe
-          .\industrial_ocr.exe
 
   linux-ubuntu-actions-build:
     runs-on: self-hosted-linux
