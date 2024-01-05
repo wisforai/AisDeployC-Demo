@@ -69,20 +69,8 @@ class AisDeployC():
         self.lib.py_load_keys_embeddings.restype = ctypes.c_int
         self.lib.py_compare_with_ground_embeddings.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
         self.lib.py_process_decoder.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int, ctypes.POINTER(ctypes.c_char_p), ctypes.POINTER(ctypes.c_int)]
-        self.lib.py_get_process_status.argtypes = [ctypes.c_void_p]
-        self.lib.py_get_process_status.restype = ctypes.c_int
-        return ret.value
 
-    def get_process_status(self):
-        """! The AisDeployC class get_process_status function.
-        @see
-         示例代码如下
-         @code
-            ret = deploy_obj.get_process_status()
-         @endcode
-        @return  get_process_status result, 0 for PROCESS_NOT_INIT, 1 for PROCESS_INITED, 2 for PROCESSING
-        """
-        return self.lib.py_get_process_status(self.handle)
+        return ret.value
 
     def generate_license(self):
         """! The AisDeployC class license generate function.
@@ -155,9 +143,6 @@ class AisDeployC():
         """
         if self.handle is None:
             print("[ERROR] Check handle failed in AisDeployC.process. maybe lack initialization.")
-            return None
-        if self.get_process_status() != 1:
-            print("[ERROR] Check process status failed in AisDeployC.process. maybe is processing.")
             return None
         data_str = json.dumps(input_json)
         data_char = ctypes.c_char_p(data_str.encode('utf-8'))
