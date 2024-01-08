@@ -16,7 +16,7 @@
 
 - If you want to try this algorithm library, please download and try it directly. This algorithm library only supports limited number of calls. If you exceed the trial limit, unauthorized files will be automatically saved. If you want to continue using it, please send the files and instructions to my email.EMAIL: hit.zhou.j.h@gmail.com
 
-- 请使用generate_license接口生成未授权license文件.
+- 请使用generate_license接口生成未授权license文件. (注意：以v结尾的版本使用硬件加密狗方式加密，例如v0.3.3v)
 
 - Please use  interface generate_license to generate unregisted license file. 
 
@@ -145,7 +145,7 @@ Please download the **latest library files** and **Demo source code** in Release
   python -m pytest -s tests/test_interface.py
   ```
 
-- Optional single api （可选，形成单个api）
+- Optional single api （可选，形成单个api）(注意：以v结尾的版本使用硬件加密狗方式加密，例如v0.3.3v)
   
   **Server:**
   
@@ -167,7 +167,7 @@ Please download the **latest library files** and **Demo source code** in Release
    --gateway_host /image/api_server
   ```
 
-- Optional multiple api （可选，形成多个api）
+- Optional multiple api （可选，形成多个api）(注意：以v结尾的版本使用硬件加密狗方式加密，例如v0.3.3v)
   
   **Server:**
   
