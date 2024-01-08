@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generate_5flicense_0',['generate_license',['../classinterface_1_1_ais_deploy_c.html#a1385f480eeb3a85bdaa38568cfd57f2c',1,'interface.AisDeployC.generate_license()'],['../interface_8h.html#a058a4cd5a62fb494057ffcadf433c3dc',1,'generate_license(void *base):&#160;interface.h']]],
+  ['generate_5flicense_0',['generate_license',['../classinterface_1_1_ais_deploy_c.html#ab982b03ff5d12c4457072f2cf3a43014',1,'interface.AisDeployC.generate_license()'],['../interface_8h.html#a058a4cd5a62fb494057ffcadf433c3dc',1,'generate_license(void *base):&#160;interface.h']]],
   ['get_5fbinary_5fmask_5ffrom_5fscore_5fmap_1',['get_binary_mask_from_score_map',['../interface_8h.html#a56330c0d16ef4aa529f1a6bc71040352',1,'interface.h']]],
   ['get_5fcategories_2',['get_categories',['../interface_8h.html#ad910064ee799fc5edcb87daad8d4779f',1,'interface.h']]],
   ['get_5fper_5fbatch_5fclassification_3',['get_per_batch_classification',['../interface_8h.html#a1a3ad727e09ef5c0e03a606d71958aea',1,'interface.h']]],
@@ -12,6 +12,5 @@ var searchData=
   ['get_5fper_5fbatch_5fpose_5festimation_9',['get_per_batch_pose_estimation',['../interface_8h.html#ab9dc9c76b787d72b78ff16c88ad73553',1,'interface.h']]],
   ['get_5fper_5fcategory_5fbinary_5fmasks_10',['get_per_category_binary_masks',['../interface_8h.html#aecd38970c14860052c0294eae27ab837',1,'interface.h']]],
   ['get_5fper_5fcategory_5fscore_5fmaps_11',['get_per_category_score_maps',['../interface_8h.html#a0525c374545f97b789215cd6fbfe19b2',1,'interface.h']]],
-  ['get_5fprocess_5fstatus_12',['get_process_status',['../classinterface_1_1_ais_deploy_c.html#a856915cc8c96512d3727bdf85644511b',1,'interface::AisDeployC']]],
-  ['get_5fversion_13',['get_version',['../interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392',1,'interface.h']]]
+  ['get_5fversion_12',['get_version',['../interface_8h.html#a6c823c15d0437d817cbde0af6d7f4392',1,'interface.h']]]
 ];

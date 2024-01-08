@@ -5,7 +5,7 @@
 #ifndef AISDEPLOYC_INTERFACE_H
 #define AISDEPLOYC_INTERFACE_H
 
-const std::string AisDeployCVersion="v0.3.1";
+const std::string AisDeployCVersion="v0.3.3b";
 
 #ifdef DEPLOY_ON_WINDOWS
 #define AisDeployC_API extern "C" __declspec(dllexport)
@@ -33,21 +33,6 @@ typedef struct classification
     float score = 0.;                  // confidence
 
 }classification;
-
-/**
-*  @brief python使用的获取处理状态的接口
-*
-*  @details
-*   python使用的获取处理状态的接口,一般需要先经过initialize
- *  @see
- *  示例代码如下
- *  @code
- *      ret = lib.py_get_json_str_results(handle)
- *  @endcode
- *  @param base  initialize返回的模型指针
-*  @return 处理状态结果，0表示未初始化，1表示初始化完成，2表示正在处理
-*/
-AisDeployC_API int py_get_process_status(void *base);
 
 /**
 *  @brief 检查当前库版本号与头文件版本号是否一致
