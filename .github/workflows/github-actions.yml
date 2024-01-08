@@ -80,7 +80,7 @@ jobs:
   release-linux-gpu:
     name: Linux GPU Release
     runs-on: self-hosted-linux # if startsWith(github.ref_name,'v') and not endsWith(github.ref_name,'v')
-    if: startsWith(github.ref_name,'v') and not endsWith(github.ref_name,'v')
+    if: startsWith(github.ref_name,'v')  && !endsWith(github.ref_name,'v')
     needs: create-release
     steps:
       - name: Archive Release
