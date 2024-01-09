@@ -60,12 +60,13 @@ jobs:
           CD cmake-build-release
       - name: Copy AisDeployC lib
         run: |
-          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\*.lib cmake-build-release /s/e/y
+          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeploy.lib .\ /s/e/y
       - name: Archive Release
         uses: vimtor/action-zip@v1
         with:
           files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll cmake-build-release\onnxruntime_providers_tensorrt.dll cmake-build-release\vcruntime140_1.dll  cmake-build-release\slm_runtime_windows_x64.dll
           dest: release.zip
+          recursive: false
       - name: Upload asset to Github Release
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -118,7 +119,7 @@ jobs:
       - name: Run Test
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
-          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\*.dll .\
+          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC.dll .\
           COPY E:\onnxruntime-win-x64-gpu-1.12.1\lib\onnxruntime*.dll .\
           COPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\
           .\basic.exe
