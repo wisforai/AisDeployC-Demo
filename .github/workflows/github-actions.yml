@@ -64,7 +64,7 @@ jobs:
       - name: Archive Release
         uses: vimtor/action-zip@v1
         with:
-          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll cmake-build-release\onnxruntime_providers_tensorrt.dll cmake-build-release\vcruntime140_1.dll
+          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll cmake-build-release\onnxruntime_providers_tensorrt.dll cmake-build-release\vcruntime140_1.dll  cmake-build-release\slm_runtime_windows_x64.dll
           dest: release.zip
       - name: Upload asset to Github Release
         id: upload-release-asset
