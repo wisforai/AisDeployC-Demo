@@ -60,7 +60,7 @@ jobs:
           CD cmake-build-release
       - name: Copy AisDeployC lib
         run: |
-          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeploy.lib .\ /s/e/y
+          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC.lib .\ /s/e/y
       - name: Archive Release
         uses: vimtor/action-zip@v1
         with:
