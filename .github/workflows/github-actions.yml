@@ -55,17 +55,18 @@ jobs:
     steps:
       - name: Copy Engine DLL
         run: |
-          XCOPY E:\\onnxruntime-win-x64-gpu-1.12.1\*.dll cmake-build-release /s/e/y 
+          XCOPY E:\\onnxruntime-win-x64-gpu-1.12.1\lib\*.dll cmake-build-release /s/e/y 
           XCOPY E:\\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll cmake-build-release /s/e/y
           CD cmake-build-release
       - name: Copy AisDeployC lib
         run: |
-          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\*.lib cmake-build-release /s/e/y
+          XCOPY E:\\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC.lib .\ /s/e/y
       - name: Archive Release
         uses: vimtor/action-zip@v1
         with:
-          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll cmake-build-release\onnxruntime_providers_tensorrt.dll cmake-build-release\vcruntime140_1.dll
+          files: cmake-build-release\AisDeployC.lib cmake-build-release\onnxruntime.dll cmake-build-release\onnxruntime_providers_cuda.dll cmake-build-release\onnxruntime_providers_shared.dll cmake-build-release\AisDeployC.dll cmake-build-release\onnxruntime_providers_tensorrt.dll cmake-build-release\vcruntime140_1.dll  cmake-build-release\slm_runtime_windows_x64.dll
           dest: release.zip
+          recursive: false
       - name: Upload asset to Github Release
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
@@ -79,8 +80,8 @@ jobs:
 
   release-linux-gpu:
     name: Linux GPU Release
-    runs-on: self-hosted-linux
-    if: startsWith(github.ref_name,'v')
+    runs-on: self-hosted-linux # if startsWith(github.ref_name,'v') and not endsWith(github.ref_name,'v')
+    if: startsWith(github.ref_name,'v')  && !endsWith(github.ref_name,'v')
     needs: create-release
     steps:
       - name: Archive Release
@@ -118,9 +119,10 @@ jobs:
       - name: Run Test
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
-          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC*.dll .\
-          COPY E:\onnxruntime-win-x64-gpu-1.12.1\lib\onnxruntime*.dll .\
-          COPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\
+          XCOPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC.dll .\ /s/e/y
+          XCOPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\slm_runtime_windows_x64.dll .\ /s/e/y
+          XCOPY E:\onnxruntime-win-x64-gpu-1.12.1\lib\onnxruntime*.dll .\ /s/e/y
+          XCOPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\ /s/e/y
           .\basic.exe
           .\industrial_ocr.exe
       - name: Run PyTest
