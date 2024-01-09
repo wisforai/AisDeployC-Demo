@@ -57,3 +57,12 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 else()
     TARGET_LINK_LIBRARIES(${target_name_basic} ${LINK_FILES} ${LIBRARIES} ${OpenCV_LIBS})
 endif()
+
+set(target_name_basic_det "basic_det")
+ADD_EXECUTABLE(${target_name_basic_det} example/basic_det.cpp)
+
+if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+    TARGET_LINK_LIBRARIES(${target_name_basic_det} ${LINK_FILES} ${LIBRARIES})
+else()
+    TARGET_LINK_LIBRARIES(${target_name_basic_det} ${LINK_FILES} ${LIBRARIES} ${OpenCV_LIBS})
+endif()

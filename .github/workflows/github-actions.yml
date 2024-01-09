@@ -125,6 +125,7 @@ jobs:
           XCOPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\ /s/e/y
           .\basic.exe
           .\industrial_ocr.exe
+          .\basic_det.exe
       - name: Run PyTest
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo
