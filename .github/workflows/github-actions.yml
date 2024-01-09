@@ -119,9 +119,10 @@ jobs:
       - name: Run Test
         run: |
           cd E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\cmake-build-release
-          COPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC.dll .\
-          COPY E:\onnxruntime-win-x64-gpu-1.12.1\lib\onnxruntime*.dll .\
-          COPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\
+          XCOPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\AisDeployC.dll .\ /s/e/y
+          XCOPY E:\actions-runner\_work\AisDeployC\AisDeployC\cmake-build-release\slm_runtime_windows_x64.dll .\ /s/e/y
+          XCOPY E:\onnxruntime-win-x64-gpu-1.12.1\lib\onnxruntime*.dll .\ /s/e/y
+          XCOPY E:\actions-runner-demo\_work\AisDeployC-Demo\AisDeployC-Demo\thirdparty\dependencies\*.dll .\ /s/e/y
           .\basic.exe
           .\industrial_ocr.exe
       - name: Run PyTest
